@@ -237,6 +237,13 @@
       color: var(--ink);
     }
 
+    .collab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
     .bio-body p:last-of-type { margin-bottom: 0; }
 
     /* SELECTED WORKS teaser */
@@ -280,6 +287,7 @@
       .hero-text { padding: 2.5rem 1.25rem 3rem; }
       .bio-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.25rem; }
       .teaser-section { padding: 3rem 1.25rem; }
+      .collab-grid { grid-template-columns: 1fr; gap: 2rem; }
     }
   </style>
 </head>
@@ -402,45 +410,51 @@
       
       <p> His recent projects have involved collaborations with musicians and dancers, often incorporating interactive acoustic/electronic improvisation, expanded performance practices, motion-sensors, and live video. In these projects, he engages themes of intimacy, control, and the sublime.</p>
       <h2>Collaborators</h2><br>
-      <h3>Musicians and Ensembles</h3>
-        <ul>
-          <li><a href="https://www.betweenfeathers.com/" target="_blank">Between Feathers Ensemble</a></ul>
-          <li><a href="http://lenem.ca/" target="_blank">Nouvel Ensemble Moderne</a></li> 
-          <li><a href="http://ensembleparamirabo.com/en/index.php" target="_blank">Ensemble Paramirabo</a></li>
-          <li><a href="http://www.quasar4.com/" target="_blank">Quasar Quatuor de saxophones</a></li>
-          <li><a href="http://www.tenthintervention.com/" target="_blank">Tenth Intervention</a></li> 
-          <li><a href="http://www.takensemble.com/" target="_blank">TAK Ensemble</a></li> 
-          <li><a href="https://orchestra.berkeley.edu/" target="_blank">UC Berkeley Symphony Orchestra</a></li> 
-          <li><a href="http://www.juansebastiandelgado.com/" target="_blank">Juan Sebastian Delgado</a></li> 
-          <li><a href="https://www.jackadlermckean.eu/" target="_blank">Jack Adler McKean</a></li> 
-          <li><a href="https://tenmc.ca/" target="_blank">Thin Edge New Music Collective</a></li>
-          <li><a href="http://www.invertedspaceensemble.com/" target="_blank">Inverted Space Ensemble</a></li> 
-          <li><a href="http://www.ecoensemble.org/" target="_blank">Eco Ensemble</a></li> 
-          <li><a href="http://www.duodentredeux.com/" target="_blank">Duo d’Entre Deux</a></li> 
-          <li>Eventuell Saxophone Duo</li> 
-          <li>Phoenix Quartet</li> 
-          <li><a href="http://splinterreeds.com/" target="_blank">Splinter Reeds</a></li> 
-          <li><a href="http://www.estrellaconsort.com/" target="_blank">Estrella Consort</a></li> 
-          <li>Ensemble Gô</li>
-          <li>McGill University Contemporary Music Ensemble</li>
-          <li>Ensemble Arkea</li>
-          <li>University of Illinois New Music Ensemble</li></ul></p>
-        <h3>Dancers and Choreographers</h3>
-        <ul>
-          <li><a href="https://irenechsiao.wordpress.com/about/" target="_blank">Irene Hsiao</a></li> 
-          <li><a href="https://www.momentumsensorium.com/" target="_blank">Helen Lee</a></li> 
-          <li><a href="https://tuli.space/index.html" target="_blank">Tuli Bera</a></li> 
-          <li><a href="https://www.amandamaraist.com/" target="_blank">Amanda Maraist</a></li> 
-          <li><a href="https://www.chrisknowltondance.com/" target="_blank">Christopher Knowlton</a></li> 
-          <li><a href="https://www.cbcdance.com/" target="_blank">Christine Saulut</a></li> 
-          <li>Cristal Sabbagh</li>
-          <li>Yuri Shimaoka</li>
-          <li><a href="https://www.opera-lyon.com/en/artists/marie-albert" target="_blank">Marie Albert</a></li> 
-          <li>Sarah Xiao</li>
-          <li>Manu Cyr</li>
-          <li>Louis Barbier</li>
-          <li>Shoshana Green</li>
-          <li>Tamara Chu</li></ul></p>
+      <div class="collab-grid">
+        <div class="musicians">
+          <h3>Musicians and Ensembles</h3>
+          <ul>
+            <li><a href="https://www.betweenfeathers.com/" target="_blank">Between Feathers Ensemble</a></ul>
+            <li><a href="http://lenem.ca/" target="_blank">Nouvel Ensemble Moderne</a></li> 
+            <li><a href="http://ensembleparamirabo.com/en/index.php" target="_blank">Ensemble Paramirabo</a></li>
+            <li><a href="http://www.quasar4.com/" target="_blank">Quasar Quatuor de saxophones</a></li>
+            <li><a href="http://www.tenthintervention.com/" target="_blank">Tenth Intervention</a></li> 
+            <li><a href="http://www.takensemble.com/" target="_blank">TAK Ensemble</a></li> 
+            <li><a href="https://orchestra.berkeley.edu/" target="_blank">UC Berkeley Symphony Orchestra</a></li> 
+            <li><a href="http://www.juansebastiandelgado.com/" target="_blank">Juan Sebastian Delgado</a></li> 
+            <li><a href="https://www.jackadlermckean.eu/" target="_blank">Jack Adler McKean</a></li> 
+            <li><a href="https://tenmc.ca/" target="_blank">Thin Edge New Music Collective</a></li>
+            <li><a href="http://www.invertedspaceensemble.com/" target="_blank">Inverted Space Ensemble</a></li> 
+            <li><a href="http://www.ecoensemble.org/" target="_blank">Eco Ensemble</a></li> 
+            <li><a href="http://www.duodentredeux.com/" target="_blank">Duo d’Entre Deux</a></li> 
+            <li>Eventuell Saxophone Duo</li> 
+            <li>Phoenix Quartet</li> 
+            <li><a href="http://splinterreeds.com/" target="_blank">Splinter Reeds</a></li> 
+            <li><a href="http://www.estrellaconsort.com/" target="_blank">Estrella Consort</a></li> 
+            <li>Ensemble Gô</li>
+            <li>McGill University Contemporary Music Ensemble</li>
+            <li>Ensemble Arkea</li>
+            <li>University of Illinois New Music Ensemble</li></ul></p>
+        </div>
+        <div class="dancers">
+          <h3>Dancers and Choreographers</h3>
+          <ul>
+            <li><a href="https://irenechsiao.wordpress.com/about/" target="_blank">Irene Hsiao</a></li> 
+            <li><a href="https://www.momentumsensorium.com/" target="_blank">Helen Lee</a></li> 
+            <li><a href="https://tuli.space/index.html" target="_blank">Tuli Bera</a></li> 
+            <li><a href="https://www.amandamaraist.com/" target="_blank">Amanda Maraist</a></li> 
+            <li><a href="https://www.chrisknowltondance.com/" target="_blank">Christopher Knowlton</a></li> 
+            <li><a href="https://www.cbcdance.com/" target="_blank">Christine Saulut</a></li> 
+            <li>Cristal Sabbagh</li>
+            <li>Yuri Shimaoka</li>
+            <li><a href="https://www.opera-lyon.com/en/artists/marie-albert" target="_blank">Marie Albert</a></li> 
+            <li>Sarah Xiao</li>
+            <li>Manu Cyr</li>
+            <li>Louis Barbier</li>
+            <li>Shoshana Green</li>
+            <li>Tamara Chu</li></ul></p>
+        </div>
+      </div>
       <h3>Presenters</h3>
         <ul>
           <li>Instigation Festival</li> 
