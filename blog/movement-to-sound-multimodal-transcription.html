@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>movement to sound: multimodal transcription — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/eudiser-screencap.png" alt="movement to sound: multimodal transcription">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">movement to sound: multimodal transcription</h1>
+    <p class="article-meta">March 27, 2017</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">All sound comes from some sort of movement, whether it’s a strong wind rustling leaves, your lips forming a word, or electrical current. As a musician who grew up playing viola in orchestras, I learned to interpret gestures by following conductors. A conductor’s job is to physically interpret the composer’s score in a way that can be interpreted musically by an entire orchestra in real time. Conductors hone their craft to be efficient and expressive, thus communicating effectively (only using their body from the waist up!) with dozens of musicians.</p><p dir="auto">I became fascinated with the movements of conductors, as well as other types of physical artists (martial arts, different forms of dancing, the movements of musicians), and the sounds (real or imagined) that emanated from the bodies of movers. Conductors, of course, do not make any sound with their bodies, yet pictures promoting orchestras almost always fixate on the conductor and their magic wand. Why do audiences identify so much with the only person on stage without an instrument in their hands? Why is it so sexy? When you watch a conductor, you can almost see the sound traveling out of their hands. Yet, it’s an illusion. It’s in our imagination. Their gestures shape the sounds around them so well (given ample rehearsal time) that we perceive the orchestras as extensions of the conductor’s body. Can we view dancers the same way?</p><p dir="auto">Perhaps the most (in)famous composer/choreographer collaboration of the 20th century was Igor Stravinsky with Vaslav Nijinsky (yes, you could make an argument for Cage/Cunningham, but I would argue that they collaborated on methods for creating, but not during the performance situation itself). The Rite of Spring was premiered by Sergei Diaghilev’s Ballets Russes in April of 1913 in Paris.</p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/EvVKWapctX4?si=h0UINVHz9PXKoPAV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>    <p dir="auto">Those familiar with the score know that it was quite an unruly thorny beast in 1913. Full of complex meter and tempo changes, it seems like a choreographer’s nightmare, and perhaps hiring young Nijinsky was a strange choice. In Stravinsky’s 1936 memoirs, he wrote, "...&nbsp;the poor boy knew nothing of music. He could neither read it nor play any instrument”. In Nijinsky’s defense, many of the choreographers I work with today do not read music or play instruments, yet they have an utmost sensitivity to sound. Perhaps Stravinsky’s choice in using the score as the medium of communication was simply the wrong choice. It’s hard to tell someone what you want when they don’t understand your language. Try teaching Labanotation to a musician…</p><p dir="auto">Anyways, the collaboration was anything but rosy. Rehearsals were rocky and disagreements between the composer, choreographer, and conductor were frequent. Luckily, they had financial support, got the job done, and made history…</p><p dir="auto">The point I’m trying to make here is that though the Rite of Spring served as a pinnacle of modernism in the early 20th century, this style of collaboration seems unfit for today’s emerging artists. We usually don’t have sustaining financial support, we work with our friends, and most things are DIY. We make art because it’s how we want to spend our time. We see something missing from the world and wish to contribute to it.</p><p dir="auto">So say you’re a musician, and you want to make music that amplifies and recontextualizes a moving body. You have limited time and you don’t want your rehearsals to be a train wreck, nor do you want your collaborators to hate you. If your music is rhythmically complex (as mine tends to be), fixed choreography is tedious and expensive. Thus, it seems like our solution consists of semi-fixed music with semi-fixed dance. I want to create dynamic situations where live musicians respond to a dancer(s) (and vice versa) where neither party feels restricted by the work’s rigidity, and where I can create the illusion of a wild abstract conductor/dancer/mover whose nuanced body leaves vibrant audible residuals.</p><p dir="auto">More later…</p>
+  </div>
+
+  <div class="post-footer-nav">
+<div></div>
+    <a class="post-nav-next" href="collaboration-as-performance.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">collaboration as performance</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interviews — Artist Name</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .interviews-intro {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.7;
+      max-width: 680px;
+    }
+
+    .interviews-grid {
+      max-width: var(--max);
+      margin: 3rem auto 0;
+      padding: 0 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    /* FEATURED interview */
+    .interview-featured {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 3rem;
+      align-items: start;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .interview-featured .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      background: var(--ink);
+      overflow: hidden;
+    }
+
+    .interview-featured .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .interview-featured .interview-info {
+      padding-top: 0.5rem;
+    }
+
+    .interview-source {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .interview-title {
+      font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+
+    .interview-desc {
+      font-size: 14px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .interview-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-top: 1px solid var(--rule);
+      padding-top: 1rem;
+    }
+
+    .interview-meta-row span { color: var(--ink); }
+
+    /* GRID of remaining interviews */
+    .interview-secondary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 3rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .interview-card {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .interview-card .video-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      background: var(--ink);
+      overflow: hidden;
+    }
+
+    .interview-card .video-wrap iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    .interview-card .interview-source {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .interview-card .interview-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 0.5rem;
+    }
+
+    .interview-card .interview-desc {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .interview-card .interview-meta-row {
+      font-size: 11px;
+    }
+
+    /* Lazy-load placeholder */
+    .video-wrap.placeholder {
+      background: var(--paper-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .video-wrap.placeholder .play-btn {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--accent);
+      display: flex; align-items: center; justify-content: center;
+      color: white;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .video-wrap.placeholder:hover .play-btn {
+      transform: scale(1.1);
+      background: var(--accent-light);
+    }
+
+    @media (max-width: 800px) {
+      .interview-featured { grid-template-columns: 1fr; gap: 1.5rem; }
+      .interviews-grid { padding: 0 1.25rem; }
+      .interviews-intro { padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+  <script src="js/nav.js"></script>
+
+  <div class="page-header">
+    <h1>Interviews</h1>
+    <!--<p class="subtitle">Conversations about the work</p>-->
+  </div>
+
+  <!--<p class="interviews-intro">
+    A collection of interviews, conversations, and recorded discussions. Drawn from radio, podcast, and video sources across the years.
+  </p>-->
+
+  <div class="interviews-grid">
+    <p>In October 2025, I started an interviewing project called <i><strong>Gushers</strong></i>. I invited Chicago artists to my house, and I asked each artist to bring examples of another Chicago artist's work. We talk about that artist, their path and practice, and why they're special.</p>
+    <p>This project is ongoing.</p>
+
+    <!-- SECONDARY INTERVIEWS GRID -->
+    <div class="interview-secondary-grid">
+      <!-- INTERVIEW CARD — duplicate for each interview -->
+      <div class="interview-card">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/OdfhByCj-s0?si=40EjDyvG5YbV5P7P"
+            title="Interview placeholder"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div>
+          <!--<p class="interview-source">WBEZ / Vocalo</p>-->
+          <h2 class="interview-title">Gushers Ep3: Caroline Jesalva on Katinka Kleijn</h2>
+          <!--          <p class="interview-desc">A radio interview exploring the ecological underpinnings of Composing the Climate, recorded live at the WBEZ studios.</p>-->
+          <!--<div class="interview-meta-row">
+            <div>Date <span>Nov 2025</span></div>
+            <div>Duration <span>18 min</span></div>
+            <div>Format <span>Audio</span></div>
+          </div>-->
+        </div>
+      </div>
+
+      <div class="interview-card">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/Bm7WAjgJ3i0?si=9OjufMmJL76o9Mlw"
+            title="Interview placeholder"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div>
+          <!--<p class="interview-source">WBEZ / Vocalo</p>-->
+          <h2 class="interview-title">Gushers Ep2: Bill Harris on Chris Corsano</h2>
+          <!--          <p class="interview-desc">A radio interview exploring the ecological underpinnings of Composing the Climate, recorded live at the WBEZ studios.</p>-->
+          <!--<div class="interview-meta-row">
+            <div>Date <span>Nov 2025</span></div>
+            <div>Duration <span>18 min</span></div>
+            <div>Format <span>Audio</span></div>
+          </div>-->
+        </div>
+      </div>
+
+      <div class="interview-card">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/dacVBo0WO5A?si=rw5Dj1YX_CJ-lmy_"
+            title="Interview placeholder"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div>
+          <!--<p class="interview-source">WBEZ / Vocalo</p>-->
+          <h2 class="interview-title">Gushers Ep1: Sharon Udoh on Mabel Kwan</h2>
+          <!--          <p class="interview-desc">A radio interview exploring the ecological underpinnings of Composing the Climate, recorded live at the WBEZ studios.</p>-->
+          <!--<div class="interview-meta-row">
+            <div>Date <span>Nov 2025</span></div>
+            <div>Duration <span>18 min</span></div>
+            <div>Format <span>Audio</span></div>
+          </div>-->
+        </div>
+      </div>
+
+      <!--<div class="interview-card">
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+            title="Interview placeholder"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div>
+          <p class="interview-source">Interview Source</p>
+          <h2 class="interview-title">Interview Title Here</h2>
+          <p class="interview-desc">Short description of this interview — what it covers, where it was recorded, and any relevant context for the listener/viewer.</p>
+          <div class="interview-meta-row">
+            <div>Date <span>2023</span></div>
+            <div>Duration <span>— min</span></div>
+            <div>Format <span>Video</span></div>
+          </div>
+        </div>
+      </div>-->
+
+    </div><!-- /secondary grid -->
+
+    <!-- FEATURED INTERVIEW -->
+    <!-- To embed: replace the src in the iframe with your YouTube/Vimeo embed URL -->
+    <!-- YouTube format: https://www.youtube.com/embed/VIDEO_ID -->
+    <!-- Vimeo format: https://player.vimeo.com/video/VIDEO_ID -->
+
+    <div class="interview-featured">
+      <div class="video-wrap">
+        <!-- REPLACE src with actual embed URL -->
+        <iframe
+          src="https://www.youtube.com/embed/H9iDz5pe-YY?si=qgT4mxoEiRfhHE8b"
+          title="Interview: Artist Name in Conversation"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="interview-info">
+        <!--<p class="interview-source">Chicago Reader</p>-->
+        <h2 class="interview-title">Making Multichannel Music w/ Scott Rubin - November 4, 2025</h2>
+        <p class="interview-desc">Lecture-demonstration with Tuli Bera at Elastic Arts in Chicago on Dec 5, 2025</p>
+        <!--<div class="interview-meta-row">
+          <div>Date <span>March 2025</span></div>
+          <div>Duration <span>42 min</span></div>
+          <div>Format <span>Video</span></div>
+        </div>-->
+      </div>
+    </div>
+
+    <div class="interview-featured">
+      <div class="video-wrap">
+        <!-- REPLACE src with actual embed URL -->
+        <iframe
+          src="https://www.youtube.com/embed/7c6yNFM0j6M?si=112cTcsClG7xtwxF"
+          title="Interview: Artist Name in Conversation"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="interview-info">
+        <!--<p class="interview-source">Chicago Reader</p>-->
+        <h2 class="interview-title">Scott Rubin on composing ‘For the performers’ for Catchpenny Ensemble</h2>
+        <p class="interview-desc">Scott Rubin, nominated for the Gaudeamus Award 2019, talks about writing 'For the performers' for Catchpenny Ensemble. The piece permiered during Gaudeamus Muziekweek 2019, Friday 6 September in Theater Kikker, Utrecht, The Netherlands.</p>
+        <!--<div class="interview-meta-row">
+          <div>Date <span>March 2025</span></div>
+          <div>Duration <span>42 min</span></div>
+          <div>Format <span>Video</span></div>
+        </div>-->
+      </div>
+    </div>
+
+    
+  </div><!-- /interviews-grid -->
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+</body>
+</html>

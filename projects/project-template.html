@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project Title — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .project-hero {
+      height: clamp(280px, 45vw, 520px);
+      background: var(--paper-dark);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    .project-hero .photo-placeholder {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      color: var(--rule);
+    }
+
+    .project-hero .photo-placeholder .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .project-hero .photo-placeholder span {
+      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    .project-layout {
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 4rem;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 3.5rem 2.5rem;
+      align-items: start;
+    }
+
+    /* SIDEBAR */
+    .project-sidebar {}
+
+    .project-sidebar-block {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .project-sidebar-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .project-sidebar-value {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .project-sidebar-value a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+
+    .project-sidebar-value a:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* PHOTO GRID for project */
+    .project-photo-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      margin: 3rem 0;
+    }
+
+    .project-photo-grid .photo-cell {
+      background: var(--paper-dark);
+      height: 260px;
+      overflow: hidden;
+    }
+
+    .project-photo-grid .photo-cell.wide {
+      grid-column: span 2;
+      height: 340px;
+    }
+
+    .project-photo-grid .photo-cell img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+
+    .project-photo-grid .photo-cell:hover img { opacity: 1; }
+
+    .project-photo-grid .photo-placeholder {
+      height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--rule);
+      font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    /* Related events */
+    .related-events {
+      margin-top: 3rem;
+      border-top: 1px solid var(--rule);
+      padding-top: 1.5rem;
+    }
+
+    .related-events h3 {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+
+    .related-event-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.6rem 0;
+      border-top: 1px solid var(--rule);
+      font-size: 14px;
+    }
+
+    .related-event-item .re-date { color: var(--muted); white-space: nowrap; }
+    .related-event-item .re-venue { color: var(--muted); font-size: 13px; text-align: right; }
+
+    @media (max-width: 800px) {
+      .project-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .project-sidebar { order: -1; display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .project-photo-grid { grid-template-columns: 1fr; }
+      .project-photo-grid .photo-cell.wide { grid-column: span 1; }
+    }
+
+    @media (max-width: 500px) {
+      .project-sidebar { grid-template-columns: 1fr; }
+      .project-layout { padding: 2rem 1.25rem; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <nav>
+    <div class="nav-name"><a href="../index.html">Artist Name</a></div>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../events.html">Events</a></li>
+      <li><a href="index.html" class="active">Projects</a></li>
+      <li><a href="../blog/index.html">Writing</a></li>
+      <li><a href="../interviews.html">Interviews</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO IMAGE -->
+  <div class="project-hero">
+    <!-- Replace with: <img src="../images/project-hero.jpg" alt="Project Title"> -->
+    <div class="photo-placeholder">
+      <div class="ph-icon">⬜</div>
+      <span>Hero Image — replace with img tag</span>
+    </div>
+  </div>
+
+  <a class="back-link" href="index.html">← All Projects</a>
+
+  <div class="project-layout">
+
+    <!-- MAIN CONTENT -->
+    <article>
+      <!--<p class="article-tag">Composition · 2025</p>-->
+      <h1 class="article-title">Project Title</h1>
+      <p class="article-meta">Premiered [Month Year] · [Venue], Chicago</p>
+
+      <div style="margin-top: 2.5rem;">
+        <p>This is the opening paragraph of the project description. Introduce the work — what it is, what it does, and what animates it. Write in present tense if the work is ongoing; past tense for completed works.</p>
+
+        <p>Continue with the context and development of the piece. Where did the idea come from? What questions does the work ask? How does it relate to other things you've been exploring?</p>
+
+        <h2>Process</h2>
+        <p>Describe the creative process here. How was the work developed? Over what period? With whom? What methods, materials, or technologies were involved?</p>
+
+        <p>Additional process notes. Don't be afraid to be specific — specificity is what makes artist statements compelling rather than generic.</p>
+
+        <h2>Reception</h2>
+        <p>Notes on how the work has been received, any press or feedback worth sharing, or reflections on what happened when the work met an audience.</p>
+
+        <blockquote>"A short, powerful quote from a review, collaborator, or presenter — keep it under a sentence or two."<br>— Source</blockquote>
+      </div>
+
+      <!-- PHOTO GRID -->
+      <div class="project-photo-grid">
+        <div class="photo-cell wide">
+          <div class="photo-placeholder">Wide Image — replace with img</div>
+        </div>
+        <div class="photo-cell">
+          <div class="photo-placeholder">Image 2</div>
+        </div>
+        <div class="photo-cell">
+          <div class="photo-placeholder">Image 3</div>
+        </div>
+      </div>
+
+      <!-- RELATED EVENTS -->
+      <div class="related-events">
+        <h3>Performances</h3>
+        <div class="related-event-item">
+          <span class="re-date">Nov 11, 2025</span>
+          <span>Family Day Series</span>
+          <span class="re-venue">MCA Chicago</span>
+        </div>
+        <div class="related-event-item">
+          <span class="re-date">May 17, 2025</span>
+          <span>—</span>
+          <span class="re-venue">Links Hall</span>
+        </div>
+        <div class="related-event-item">
+          <span class="re-date">Apr 12, 2025</span>
+          <span>—</span>
+          <span class="re-venue">Elastic Arts</span>
+        </div>
+      </div>
+
+    </article>
+
+    <!-- SIDEBAR -->
+    <aside class="project-sidebar">
+
+      <div class="project-sidebar-block">
+        <p class="project-sidebar-label">Year</p>
+        <p class="project-sidebar-value">2025 – ongoing</p>
+      </div>
+
+      <div class="project-sidebar-block">
+        <p class="project-sidebar-label">Category</p>
+        <p class="project-sidebar-value">Performance</p>
+      </div>
+
+      <div class="project-sidebar-block">
+        <p class="project-sidebar-label">Duration</p>
+        <p class="project-sidebar-value">45 minutes</p>
+      </div>
+
+      <div class="project-sidebar-block">
+        <p class="project-sidebar-label">Collaborators</p>
+        <p class="project-sidebar-value">Collaborator One<br>Collaborator Two<br>Collaborator Three</p>
+      </div>
+
+      <div class="project-sidebar-block">
+        <p class="project-sidebar-label">Presented by</p>
+        <p class="project-sidebar-value">Elastic Arts<br>Links Hall<br>Museum of Contemporary Art Chicago</p>
+      </div>
+
+      <div class="project-sidebar-block">
+        <p class="project-sidebar-label">Support</p>
+        <p class="project-sidebar-value">Supported by [Grant Organization]</p>
+      </div>
+
+      <div class="project-sidebar-block">
+        <p class="project-sidebar-label">Press</p>
+        <p class="project-sidebar-value">
+          <a href="#">Chicago Reader</a><br>
+          <a href="#">NewCity</a>
+        </p>
+      </div>
+
+    </aside>
+
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+</body>
+</html>

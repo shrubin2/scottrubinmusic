@@ -1,0 +1,2050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Scott Rubin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .events-layout {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      max-width: var(--max);
+      margin: 0 auto;
+      min-height: 80vh;
+    }
+
+    /* STICKY YEAR SELECTOR */
+    .year-nav {
+      position: sticky;
+      top: var(--nav-h);
+      height: calc(100vh - var(--nav-h));
+      border-right: 1px solid var(--rule);
+      padding: 2.5rem 1.5rem 2.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      overflow-y: auto;
+    }
+
+    .year-nav-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .year-btn {
+      background: none;
+      border: none;
+      font-family: var(--font);
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--rule);
+      cursor: pointer;
+      text-align: left;
+      padding: 0.15rem 0;
+      transition: color 0.2s;
+      line-height: 1.2;
+    }
+
+    .year-btn:hover { color: var(--muted); }
+    .year-btn.active { color: var(--accent); }
+
+    /* EVENT CONTENT */
+    .events-content {
+      padding: 2.5rem 2.5rem 2.5rem 3rem;
+    }
+
+    .year-section {
+      margin-bottom: 4rem;
+      scroll-margin-top: calc(var(--nav-h) + 1.5rem);
+    }
+
+    .year-section-heading {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1;
+      color: var(--paper-dark);
+      -webkit-text-stroke: 1px var(--rule);
+      margin-bottom: 1.5rem;
+      user-select: none;
+    }
+
+    /* MOBILE */
+    .mobile-year-bar {
+      display: none;
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 50;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      padding: 0.75rem 1.25rem;
+      gap: 0.75rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .mobile-year-bar .year-btn {
+      font-size: 1rem;
+      white-space: nowrap;
+      flex: 0 0 auto;
+    }
+
+    @media (max-width: 700px) {
+      .events-layout { grid-template-columns: 1fr; }
+      .year-nav { display: none; }
+      .mobile-year-bar { display: flex; }
+      .events-content { padding: 2rem 1.25rem; }
+      .year-section-heading { -webkit-text-stroke: 1px var(--rule); font-size: 3rem; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+   <!-- NAV -->
+  <script src="js/nav.js"></script>
+
+  <!-- Mobile year bar -->
+  <div class="mobile-year-bar" id="mobileYearBar">
+    <!-- populated by JS -->
+  </div>
+
+  <div class="page-header">
+    <h1>Events</h1>
+  </div>
+
+  <div class="events-layout">
+
+    <!-- STICKY YEAR NAV -->
+    <aside class="year-nav" id="yearNav">
+      <p class="year-nav-label">Year</p>
+      <!-- populated by JS -->
+    </aside>
+
+    <!-- EVENTS -->
+    <main class="events-content">
+      <div class="event-log" id="eventLog">
+
+        <!-- ===================== 2026 ===================== -->
+        <section class="year-section" id="year-2026">
+          <div class="year-section-heading">2026</div>
+
+          <div class="event">
+            <div class="event-date">Jan 31</div>
+            <div class="event-body">
+              <div class="event-title">Look Out Series: Freedom From and Freedom To</div>
+              <div class="event-meta">
+                <span class="event-venue">Steppenwolf Theater, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 6</div>
+            <div class="event-body">
+              <div class="event-title">Snug Grapes No. 1 Improvisational Systems</div>
+              <div class="event-meta">
+                <span class="event-artists">with Chad M. Clark</span>
+                <span class="event-venue">Space 900 Gallery, Evanston</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 27</div>
+            <div class="event-body">
+              <div class="event-title">Ricardo Adame Photo Exhibition Opening</div>
+              <div class="event-meta">
+                <span class="event-artists">with Lia Kohl, Skyler Rowe, Irene Hsiao, and Rin Peisert</span>
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2025 ===================== -->
+        <section class="year-section" id="year-2025">
+          <div class="year-section-heading">2025</div>
+
+          <div class="event">
+            <div class="event-date">Jan 12</div>
+            <div class="event-body">
+              <div class="event-title">Composing the Climate</div>
+              <div class="event-subtitle">Ignorance, Denial, Conflict, and Abandonment, for piano, violin, and cello</div>
+              <div class="event-meta">
+                <span class="event-artists">Cacie Miller, piano; Dan Galat, violin; Kelly Quesada, cello</span>
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jan 15</div>
+            <div class="event-body">
+              <div class="event-title">Tangible Music</div>
+              <div class="event-meta">
+                <span class="event-artists">with Ben Willis, Kelly Quesada, and Dan Galat</span>
+                <span class="event-venue">Tangible Books, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jan 25</div>
+            <div class="event-body">
+              <div class="event-title">If The Sky Could Dream</div>
+              <div class="event-meta">
+                <span class="event-artists">Irene Hsiao, direction; Amanda Maraist, Darling Squire, Paige Brown, Hunter Diamond, Scott Rubin, Manghua Guan, Peter Wong, and Penny Li</span>
+                <span class="event-venue">Heritage Museum for Asian Art, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 15</div>
+            <div class="event-body">
+              <div class="event-title">Homeroom Presents: Physics in Motion</div>
+              <div class="event-meta">
+                <span class="event-artists">Music and video projections by Emily Beisel, Paul Giallorenzo, Adam Schead, Ishmael Ali, Josh Berman, Mai Sugimoto, Chris Dammann, Tselanie Townsend, and Scott Rubin</span>
+                <span class="event-venue">Constellation, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 22</div>
+            <div class="event-body">
+              <div class="event-title">Impro Jam House Band</div>
+              <div class="event-meta">
+                <span class="event-artists">with Liv Mershon, Zoe Markle, Ausberto Acevedo and Bill Harris</span>
+                <span class="event-venue">Comfort Station, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 28</div>
+            <div class="event-body">
+              <div class="event-title">JELLO presents Variants</div>
+              <div class="event-meta">
+                <span class="event-artists">with Tuli Bera</span>
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 11</div>
+            <div class="event-body">
+              <div class="event-title">Friends for FOLK</div>
+              <div class="event-meta">
+                <span class="event-artists">with Chien-An Yuan, Haruhi Kobayashi, and Sharon Udoh</span>
+                <span class="event-venue">Bimbom Studios, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 12</div>
+            <div class="event-body">
+              <div class="event-title">Freedom From and Freedom To</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 18</div>
+            <div class="event-body">
+              <div class="event-title">Bridgeport Music Collective and Missing Piece Presents: Third Fridays</div>
+              <div class="event-meta">
+                <span class="event-artists">with Dan Galat, Kelly Quesada, Ben Willis, Sharon Udoh, and Russ Rolan</span>
+                <span class="event-venue">Bridgeport Music Collective, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 24</div>
+            <div class="event-body">
+              <div class="event-title">Comfort Music+ Series Curation</div>
+              <div class="event-meta">
+                <span class="event-artists">with Kate Miliker, Alexander Dupuis, Emily Beisel, and Scott Rubin</span>
+                <span class="event-venue">Comfort Station, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 26</div>
+            <div class="event-body">
+              <div class="event-title">Chicago Jazz String Summit</div>
+              <div class="event-subtitle">Wonder Turner, for dancer, viola, cello, and audio-visual electronics</div>
+              <div class="event-meta">
+                <span class="event-artists">with Olula Negre and Cristal Sabbagh</span>
+                <span class="event-venue">Constellation, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 27</div>
+            <div class="event-body">
+              <div class="event-title">Chicago Jazz String Summit — Improv Session</div>
+              <div class="event-meta">
+                <span class="event-venue">Constellation, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 27</div>
+            <div class="event-body">
+              <div class="event-title">Composing the Climate</div>
+              <div class="event-subtitle">Ignorance, Denial, Conflict, and Abandonment, for piano, violin, and cello</div>
+              <div class="event-meta">
+                <span class="event-artists">Cacie Miller, piano; Dan Galat, violin; Kelly Quesada, cello</span>
+                <span class="event-venue">Epiphany Center for the Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 17</div>
+            <div class="event-body">
+              <div class="event-title">Freedom From and Freedom To</div>
+              <div class="event-meta">
+                <span class="event-venue">Links Hall, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 22</div>
+            <div class="event-body">
+              <div class="event-title">Improvised Music Series</div>
+              <div class="event-subtitle">Digital Hands, for solo masked performer and digital audio-visual environment</div>
+              <div class="event-meta">
+                <span class="event-artists">Scott Rubin, computer-assisted solo performance art</span>
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 29</div>
+            <div class="event-body">
+              <div class="event-title">Comfort Music Presents: Adiaphora Orchestra</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Adam Shead, with Peter Maunu, Caroline Jesalva, Erica Miller, Andrew Scott Young, Ben Willis, and Ben Zucker</span>
+                <span class="event-venue">Comfort Station, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 7</div>
+            <div class="event-body">
+              <div class="event-title">Synapse Arts New Works: FOLK</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Amanda Marist; Ali Lorenz, Chrissy Martin, Isabella Limosnero, Tuli Bera; music with Haruhi Kobayashi</span>
+                <span class="event-venue">Lincoln Park Cultural Center, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 18</div>
+            <div class="event-body">
+              <div class="event-title">Co-MISSION Festival: FOLK</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Amanda Marist; Ali Lorenz, Chrissy Martin, Isabella Limosnero, Tuli Bera; music with Haruhi Kobayashi</span>
+                <span class="event-venue">Links Hall, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 20</div>
+            <div class="event-body">
+              <div class="event-title">Links Fellowship: Bangali Meye</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction and performance by Tuli Bera; music with Bob Garrett</span>
+                <span class="event-venue">Links Hall, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 21</div>
+            <div class="event-body">
+              <div class="event-title">Links Fellowship: Bangali Meye</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction and performance by Tuli Bera; music with Bob Garrett</span>
+                <span class="event-venue">Links Hall, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 29</div>
+            <div class="event-body">
+              <div class="event-title">Co-MISSION Festival: FOLK</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Amanda Marist; Ali Lorenz, Chrissy Martin, Isabella Limosnero, Tuli Bera; music with Haruhi Kobayashi</span>
+                <span class="event-venue">Links Hall, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jul 27</div>
+            <div class="event-body">
+              <div class="event-title">Appendages. Abode.</div>
+              <div class="event-subtitle">Digital Hands, for solo masked performer and digital audio-visual environment</div>
+              <div class="event-meta">
+                <span class="event-artists">Scott Rubin, computer-assisted solo performance art</span>
+                <span class="event-venue">Bimbom Studios, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Aug 22</div>
+            <div class="event-body">
+              <div class="event-title">Instigation Festival</div>
+              <div class="event-meta">
+                <span class="event-artists">with Gaby Martinez and Tuli Bera</span>
+                <span class="event-venue">Constellation, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 12</div>
+            <div class="event-body">
+              <div class="event-title">CLEAT Series: Ritual is</div>
+              <div class="event-meta">
+                <span class="event-artists">with Tuli Bera</span>
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 20</div>
+            <div class="event-body">
+              <div class="event-title">Chicago Performs 2025: Curiosities of Wellness in Bodies of Grief</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Helen Lee and co.</span>
+                <span class="event-venue">Museum of Contemporary Art, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 1</div>
+            <div class="event-body">
+              <div class="event-title">Elaborate Series: Echo Network</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Chris Knowlton and co.</span>
+                <span class="event-venue">Chicago Cultural Center — Claudia Cassidy Theater</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 15</div>
+            <div class="event-body">
+              <div class="event-title">Tangible Music</div>
+              <div class="event-meta">
+                <span class="event-artists">with Naydja Bruton, Caroline Jasalva, and Adam Shead</span>
+                <span class="event-venue">Tangible Books, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Nov 4</div>
+            <div class="event-body">
+              <div class="event-title">Making Multichannel Music Series</div>
+              <div class="event-subtitle">Lecture on introductions to spatial audio</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Nov 11</div>
+            <div class="event-body">
+              <div class="event-title">Family Day Series: Freedom From and Freedom To</div>
+              <div class="event-meta">
+                <span class="event-venue">Museum of Contemporary Art, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Nov 15</div>
+            <div class="event-body">
+              <div class="event-title">Hyde Park Arts Center Gala: Wonder Turner 2</div>
+              <div class="event-meta">
+                <span class="event-artists">with Cristal Sabbagh</span>
+                <span class="event-venue">Hyde Park Arts Center, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2024 ===================== -->
+        <section class="year-section" id="year-2024">
+          <div class="year-section-heading">2024</div>
+
+          <div class="event">
+            <div class="event-date">Feb 9</div>
+            <div class="event-body">
+              <div class="event-title">CLEAT Series</div>
+              <div class="event-subtitle">Excerpts from Dances and Meditations and Fuzzy Electric Ocean</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 4</div>
+            <div class="event-body">
+              <div class="event-title">Look Out Series</div>
+              <div class="event-meta">
+                <span class="event-artists">with Cristal Sabbagh</span>
+                <span class="event-venue">Steppenwolf Theatre, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 6</div>
+            <div class="event-body">
+              <div class="event-title">Freedom From and Freedom To</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 13</div>
+            <div class="event-body">
+              <div class="event-title">Electro-Acoustic Cinema</div>
+              <div class="event-subtitle">Digital Hands, for solo masked performer and digital audio-visual environment</div>
+              <div class="event-meta">
+                <span class="event-venue">Digital Arts Demo Space, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 19</div>
+            <div class="event-body">
+              <div class="event-title">If The Sky Could Dream</div>
+              <div class="event-meta">
+                <span class="event-artists">with Irene Hsiao</span>
+                <span class="event-venue">Heritage Museum for Asian Art, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 20</div>
+            <div class="event-body">
+              <div class="event-title">Curiosities of Wellness in Bodies of Grief</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Helen Lee, with Amanda Maraist, Hannah Marcus, Tuli Bera, Charles Pierson, Kate Laughlin, and Nick Turner</span>
+                <span class="event-venue">Ragdale Foundation, Lake Forest, IL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 23</div>
+            <div class="event-body">
+              <div class="event-title">Gnesin Contemporary Music Week</div>
+              <div class="event-subtitle">in tensions, for cello, dance, and motion-sensitive live electronics</div>
+              <div class="event-meta">
+                <span class="event-artists">Yulia Migunova, cello; Alexandra Tiunova, dance</span>
+                <span class="event-venue">Tchaikovsky Conservatory, Moscow, Russia</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 27</div>
+            <div class="event-body">
+              <div class="event-title">Chance Meetings</div>
+              <div class="event-subtitle">Digital Hands, for solo masked performer and digital audio-visual environment</div>
+              <div class="event-meta">
+                <span class="event-venue">Tritriangle, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 7</div>
+            <div class="event-body">
+              <div class="event-title">Freedom From and Freedom To</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 13</div>
+            <div class="event-body">
+              <div class="event-title">Co-MISSIONS Residency Performance: FOLK</div>
+              <div class="event-meta">
+                <span class="event-venue">Links Hall, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 20</div>
+            <div class="event-body">
+              <div class="event-title">Curiosities of Wellness in Bodies of Grief</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Helen Lee, with Amanda Maraist, Hannah Marcus, Tuli Bera, Charles Pierson, Kate Laughlin, and Nick Turner</span>
+                <span class="event-venue">Ragdale Foundation, Lake Forest, IL</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2023 ===================== -->
+        <section class="year-section" id="year-2023">
+          <div class="year-section-heading">2023</div>
+
+          <div class="event">
+            <div class="event-date">Jan 28</div>
+            <div class="event-body">
+              <div class="event-title">Electro-acoustic Cinema</div>
+              <div class="event-subtitle">Solo Set</div>
+              <div class="event-meta">
+                <span class="event-artists">Scott Rubin, viola and projections</span>
+                <span class="event-venue">Digital Art Demo Space, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 19</div>
+            <div class="event-body">
+              <div class="event-title">Seems Like a Portal</div>
+              <div class="event-subtitle">Opera for dancer, 4 musicians, motion-sensitive electronics and projections</div>
+              <div class="event-meta">
+                <span class="event-artists">Christine Saulut, dance and choreography; Between Feathers Ensemble</span>
+                <span class="event-venue">Brick 15, Vienna, Austria</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 19</div>
+            <div class="event-body">
+              <div class="event-title">Solo Set</div>
+              <div class="event-meta">
+                <span class="event-artists">Scott Rubin, viola and projections</span>
+                <span class="event-venue">Brick 15, Vienna, Austria</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 26</div>
+            <div class="event-body">
+              <div class="event-title">Seems Like a Portal</div>
+              <div class="event-subtitle">Opera for dancer, 4 musicians, motion-sensitive electronics and projections</div>
+              <div class="event-meta">
+                <span class="event-artists">Christine Saulut, dance and choreography; Between Feathers Ensemble</span>
+                <span class="event-venue">Theatre Am Lend, Graz, Austria</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 26</div>
+            <div class="event-body">
+              <div class="event-title">Solo Set</div>
+              <div class="event-meta">
+                <span class="event-artists">Scott Rubin, viola and projections</span>
+                <span class="event-venue">Theatre Am Lend, Graz, Austria</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 15</div>
+            <div class="event-body">
+              <div class="event-title">Heavy Air Happy Hour</div>
+              <div class="event-meta">
+                <span class="event-artists">with Tommy Carroll, drums; Mai Sugimoto, saxophone</span>
+                <span class="event-venue">Cafe Mustache, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 26</div>
+            <div class="event-body">
+              <div class="event-title">Elastro Series</div>
+              <div class="event-subtitle">Solo Set</div>
+              <div class="event-meta">
+                <span class="event-artists">Scott Rubin, viola and projections</span>
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2022 ===================== -->
+        <section class="year-section" id="year-2022">
+          <div class="year-section-heading">2022</div>
+
+          <div class="event">
+            <div class="event-date">Mar 5</div>
+            <div class="event-body">
+              <div class="event-title">Short Works Professional Performance Series at RAD FEST 2022</div>
+              <div class="event-subtitle">Burrow by Andrea Cerniglia</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Andrea Cerniglia, with Christina Chammas and Ali Claiborne-Naranjo</span>
+                <span class="event-venue">Wellspring Theatre at the Epic Center, Kalamazoo, MI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 10</div>
+            <div class="event-body">
+              <div class="event-title">Heavy Air Happy Hour</div>
+              <div class="event-meta">
+                <span class="event-artists">with Mallory Linehan and Billie Howard</span>
+                <span class="event-venue">Cafe Mustache, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 13</div>
+            <div class="event-body">
+              <div class="event-title">CLEAT Series</div>
+              <div class="event-meta">
+                <span class="event-artists">with Rin Peisert</span>
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 18</div>
+            <div class="event-body">
+              <div class="event-title">Pivot Arts Festival: Bangali Meye</div>
+              <div class="event-meta">
+                <span class="event-artists">with Tuli Bera</span>
+                <span class="event-venue">Edge Theater, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 24</div>
+            <div class="event-body">
+              <div class="event-title">In Place: Drawing You Outside by Christine Forni and Irene Hsiao</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Christine Forni and Irene Hsiao, with Helen Lee, Amanda Maraist, Wannapa P-Eubanks, Darling Squire, olula negre, and Menghua Guan</span>
+                <span class="event-venue">Jackson Park, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 25</div>
+            <div class="event-body">
+              <div class="event-title">In Place: Drawing You Outside</div>
+              <div class="event-meta">
+                <span class="event-artists">Direction by Christine Forni and Irene Hsiao, with Helen Lee, Amanda Maraist, Wannapa P-Eubanks, Darling Squire, olula negre, and Menghua Guan</span>
+                <span class="event-venue">Jackson Park, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 26</div>
+            <div class="event-body">
+              <div class="event-title">Elastro Series</div>
+              <div class="event-subtitle">Solo Set</div>
+              <div class="event-meta">
+                <span class="event-artists">Scott Rubin, viola and projections</span>
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2021 ===================== -->
+        <section class="year-section" id="year-2021">
+          <div class="year-section-heading">2021</div>
+
+          <div class="event">
+            <div class="event-date">Mar 8</div>
+            <div class="event-body">
+              <div class="event-title">OOPS! POW! SURPRISE!</div>
+              <div class="event-subtitle">Installation of collection of collaborative performances with Cristal Sabbagh</div>
+              <div class="event-meta">
+                <span class="event-artists">with Cristal Sabbagh and co.</span>
+                <span class="event-venue">Glass Curtain Gallery, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 2</div>
+            <div class="event-body">
+              <div class="event-title">Freedom From and Freedom To</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 15</div>
+            <div class="event-body">
+              <div class="event-title">OOPS! POW! SURPRISE! Streamed Performance</div>
+              <div class="event-meta">
+                <span class="event-artists">with Cristal Sabbagh, Keisha Janae, Sarah Zalek, Erin Peisert, and Ramah Malebranche</span>
+                <span class="event-venue">Glass Curtain Gallery, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Aug 21</div>
+            <div class="event-body">
+              <div class="event-title">Freedom From and Freedom To</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 1</div>
+            <div class="event-body">
+              <div class="event-title">Women Defining Butoh, presented by the New York Butoh Institute</div>
+              <div class="event-subtitle">Sowing Asynchronicities, film for dancer and cellist</div>
+              <div class="event-meta">
+                <span class="event-artists">with Cristal Sabbagh and Oli Harris</span>
+                <span class="event-venue">Virtual</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 11</div>
+            <div class="event-body">
+              <div class="event-title">Freedom From and Freedom To</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 16</div>
+            <div class="event-body">
+              <div class="event-title">New Single Release: Fuzzy Electric Ocean</div>
+              <div class="event-meta">
+                <span class="event-artists">Cover art: Oli Harris; Mastered by: Angel Hair Audio</span>
+                <span class="event-venue">Virtual</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2020 ===================== -->
+        <section class="year-section" id="year-2020">
+          <div class="year-section-heading">2020</div>
+
+          <div class="event">
+            <div class="event-date">Jan 12</div>
+            <div class="event-body">
+              <div class="event-title">J e l l o: Jerry's Map</div>
+              <div class="event-subtitle">Collaboration with J e l l o Performance Series</div>
+              <div class="event-meta">
+                <span class="event-venue">Intuit Gallery, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jan 29</div>
+            <div class="event-body">
+              <div class="event-title">Improvised Trio</div>
+              <div class="event-meta">
+                <span class="event-artists">with Johanna Brock, viola; Andrew Scott Young, bass</span>
+                <span class="event-venue">Outer Sound, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 12</div>
+            <div class="event-body">
+              <div class="event-title">Improvised Duo</div>
+              <div class="event-meta">
+                <span class="event-artists">with Cristal Sabbagh</span>
+                <span class="event-venue">Experimental Station, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 21</div>
+            <div class="event-body">
+              <div class="event-title">Improvised Duo</div>
+              <div class="event-meta">
+                <span class="event-artists">with Julian Otis</span>
+                <span class="event-venue">LaBar Performance Hall, University of Notre Dame</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 1</div>
+            <div class="event-body">
+              <div class="event-title">Frequency Festival</div>
+              <div class="event-subtitle">Intercession</div>
+              <div class="event-meta">
+                <span class="event-artists">with Julian Otis and Margaret M. Morris</span>
+                <span class="event-venue">Constellation, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 16</div>
+            <div class="event-body">
+              <div class="event-title">Gather 2020 Kickoff</div>
+              <div class="event-meta">
+                <span class="event-artists">with Cristal Sabbagh and olula negre</span>
+                <span class="event-venue">Comfort Station, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 9</div>
+            <div class="event-body">
+              <div class="event-title">Quarantine Concerts (Live Stream)</div>
+              <div class="event-meta">
+                <span class="event-artists">with Cristal Sabbagh</span>
+                <span class="event-venue">Experimental Sound Studio, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jul 24</div>
+            <div class="event-body">
+              <div class="event-title">Random Acts (Live Stream)</div>
+              <div class="event-subtitle">Out of Site Chicago 2020</div>
+              <div class="event-meta">
+                <span class="event-artists">with Sarah Zalek and Cristal Sabbagh</span>
+                <span class="event-venue">Experimental Sound Studio, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Aug 22</div>
+            <div class="event-body">
+              <div class="event-title">Freedom From and Freedom To</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 11</div>
+            <div class="event-body">
+              <div class="event-title">Elastic Arts 3rd Annual Benefit</div>
+              <div class="event-meta">
+                <span class="event-artists">with Cristal Sabbagh and Lewis Achenbach</span>
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 18</div>
+            <div class="event-body">
+              <div class="event-title">New Album: Dances and Meditations</div>
+              <div class="event-meta">
+                <span class="event-venue">Virtual Event</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2019 ===================== -->
+        <section class="year-section" id="year-2019">
+          <div class="year-section-heading">2019</div>
+
+          <div class="event">
+            <div class="event-date">Jan 21</div>
+            <div class="event-body">
+              <div class="event-title">Duo with Peter Maunu</div>
+              <div class="event-meta">
+                <span class="event-venue">Myopic Books, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jan 27</div>
+            <div class="event-body">
+              <div class="event-title">Adam Shead's Adiaphora Orchestra</div>
+              <div class="event-meta">
+                <span class="event-venue">The Hungry Brain, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 20</div>
+            <div class="event-body">
+              <div class="event-title">bdynse</div>
+              <div class="event-meta">
+                <span class="event-artists">with Jubilee Tai</span>
+                <span class="event-venue">Slate Arts+Performance, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 28</div>
+            <div class="event-body">
+              <div class="event-title">Trio with Erik Sowa and Peter Maunu</div>
+              <div class="event-meta">
+                <span class="event-venue">Comfort Station, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 17</div>
+            <div class="event-body">
+              <div class="event-title">inner senses</div>
+              <div class="event-meta">
+                <span class="event-artists">Jack Adler McKean, tuba; Yuri Shimaoka, dance</span>
+                <span class="event-venue">Hosek Contemporary, Berlin, Germany</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 21</div>
+            <div class="event-body">
+              <div class="event-title">Duo with Julian Otis</div>
+              <div class="event-meta">
+                <span class="event-venue">Myopic Books, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 3</div>
+            <div class="event-body">
+              <div class="event-title">Duo with Molly Jones</div>
+              <div class="event-meta">
+                <span class="event-venue">Slate Arts+Performance, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 5</div>
+            <div class="event-body">
+              <div class="event-title">bdynse</div>
+              <div class="event-meta">
+                <span class="event-artists">with Jubilee Tai</span>
+                <span class="event-venue">Waveforms at Experimental Sound Studios, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 25</div>
+            <div class="event-body">
+              <div class="event-title">Adam Shead's Adiaphora Orchestra</div>
+              <div class="event-meta">
+                <span class="event-venue">The Empty Bottle, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 26</div>
+            <div class="event-body">
+              <div class="event-title">bdynse</div>
+              <div class="event-meta">
+                <span class="event-artists">with Jubilee Tai</span>
+                <span class="event-venue">an open space, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 15</div>
+            <div class="event-body">
+              <div class="event-title">bdynse</div>
+              <div class="event-meta">
+                <span class="event-artists">with Jubilee Tai</span>
+                <span class="event-venue">Homan Gardens, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 15</div>
+            <div class="event-body">
+              <div class="event-title">Trio with Eric Sowa and Jacob Heinemann</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jul 22</div>
+            <div class="event-body">
+              <div class="event-title">Adam Shead's Adiaphora Orchestra</div>
+              <div class="event-meta">
+                <span class="event-venue">Elastic Arts, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 4</div>
+            <div class="event-body">
+              <div class="event-title">Gaudeamus Muziekweek 2019</div>
+              <div class="event-subtitle">in tensions</div>
+              <div class="event-meta">
+                <span class="event-artists">Maya Fridman, cello; Marie Albert, dance</span>
+                <span class="event-venue">Utrecht, Netherlands</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 6</div>
+            <div class="event-body">
+              <div class="event-title">Gaudeamus Muziekweek 2019</div>
+              <div class="event-subtitle">for the performers</div>
+              <div class="event-meta">
+                <span class="event-artists">Catchpenny Ensemble with Marie Albert and Yuri Shimaoka</span>
+                <span class="event-venue">Utrecht, Netherlands</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 7</div>
+            <div class="event-body">
+              <div class="event-title">Gaudeamus Muziekweek 2019</div>
+              <div class="event-subtitle">ironic erratic erotic</div>
+              <div class="event-meta">
+                <span class="event-artists">ensemble MAZE with Yuri Shimaoka</span>
+                <span class="event-venue">Utrecht, Netherlands</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2018 ===================== -->
+        <section class="year-section" id="year-2018">
+          <div class="year-section-heading">2018</div>
+
+          <div class="event">
+            <div class="event-date">Jan 20</div>
+            <div class="event-body">
+              <div class="event-title">Presentation and Workshop at Labodanse Research Retreat</div>
+              <div class="event-subtitle">Etudes for dancer and musicians</div>
+              <div class="event-meta">
+                <span class="event-venue">Nangis, France</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jan 21</div>
+            <div class="event-body">
+              <div class="event-title">Presentation and Workshop at Labodanse Research Retreat</div>
+              <div class="event-subtitle">Etudes for dancer and musicians</div>
+              <div class="event-meta">
+                <span class="event-venue">Nangis, France</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 9</div>
+            <div class="event-body">
+              <div class="event-title">Concert and Workshop at Paris Improv Evenings</div>
+              <div class="event-subtitle">Etudes for dancer and musicians</div>
+              <div class="event-meta">
+                <span class="event-venue">Espace des arts sans frontières, Paris, France</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 16</div>
+            <div class="event-body">
+              <div class="event-title">Presentation and Workshop at Danse Pour Parkinson</div>
+              <div class="event-subtitle">Etudes for dancers and musicians</div>
+              <div class="event-meta">
+                <span class="event-venue">Cité Internationale des Arts, Paris, France</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 16</div>
+            <div class="event-body">
+              <div class="event-title">IRCAM presents ManiFeste</div>
+              <div class="event-subtitle">in tensions</div>
+              <div class="event-meta">
+                <span class="event-artists">Polina Streltsova, cello; Marie Albert, dance</span>
+                <span class="event-venue">Le Centquatre, Paris, France</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Nov 24</div>
+            <div class="event-body">
+              <div class="event-title">Adam Shead's Adiaphora Orchestra</div>
+              <div class="event-meta">
+                <span class="event-venue">The Empty Bottle, Chicago</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2017 ===================== -->
+        <section class="year-section" id="year-2017">
+          <div class="year-section-heading">2017</div>
+
+          <div class="event">
+            <div class="event-date">Jan 20</div>
+            <div class="event-body">
+              <div class="event-title">Artist's Talk and Performance at Vernon Salon Series</div>
+              <div class="event-meta">
+                <span class="event-artists">with Shoshana Green and James Stone</span>
+                <span class="event-venue">Oakland, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 1</div>
+            <div class="event-body">
+              <div class="event-title">Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">eventuell. Saxophone Duo — Manuela Villiger and Vera Wahl</span>
+                <span class="event-venue">Zürich, Switzerland</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 2</div>
+            <div class="event-body">
+              <div class="event-title">Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">eventuell. Saxophone Duo — Manuela Villiger and Vera Wahl</span>
+                <span class="event-venue">Olten, Switzerland</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 4</div>
+            <div class="event-body">
+              <div class="event-title">Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">eventuell. Saxophone Duo — Manuela Villiger and Vera Wahl</span>
+                <span class="event-venue">Basel, Switzerland</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 7</div>
+            <div class="event-body">
+              <div class="event-title">Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">eventuell. Saxophone Duo — Manuela Villiger and Vera Wahl</span>
+                <span class="event-venue">Luzern, Switzerland</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 28</div>
+            <div class="event-body">
+              <div class="event-title">Brainwash Machine</div>
+              <div class="event-meta">
+                <span class="event-artists">Kinetech Arts, Joshua Marshall</span>
+                <span class="event-venue">Yerba Buena Center for the Arts, San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 16</div>
+            <div class="event-body">
+              <div class="event-title">Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">Syrinx Duo — Emily Schultz and Maarten Schillemans</span>
+                <span class="event-venue">Studio 96, Edmonton, AB, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 5</div>
+            <div class="event-body">
+              <div class="event-title">Kerosene Palace</div>
+              <div class="event-meta">
+                <span class="event-artists">UC Berkeley Symphony Orchestra, conducted by David Milnes</span>
+                <span class="event-venue">Hertz Hall, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 9</div>
+            <div class="event-body">
+              <div class="event-title">eudiser</div>
+              <div class="event-meta">
+                <span class="event-artists">Tamara Chu, Jacob Felix Heule, Danishta Rivero Castro, Scott Rubin</span>
+                <span class="event-venue">CNMAT, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 9</div>
+            <div class="event-body">
+              <div class="event-title">Le Conseil des arts de Montréal en tournée</div>
+              <div class="event-subtitle">the Torn Cubist</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Paramirabo</span>
+                <span class="event-venue">Maison de la Culture du Plateau, Montreal, QC, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 11</div>
+            <div class="event-body">
+              <div class="event-title">Le Conseil des arts de Montréal en tournée</div>
+              <div class="event-subtitle">the Torn Cubist</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Paramirabo</span>
+                <span class="event-venue">Maison de la Culture Notre-Dame-de-Grâce, Montreal, QC, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 12</div>
+            <div class="event-body">
+              <div class="event-title">Le Conseil des arts de Montréal en tournée</div>
+              <div class="event-subtitle">the Torn Cubist</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Paramirabo</span>
+                <span class="event-venue">Chapelle historique du Bon-Pasteur, Montreal, QC, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 13</div>
+            <div class="event-body">
+              <div class="event-title">Le Conseil des arts de Montréal en tournée</div>
+              <div class="event-subtitle">the Torn Cubist</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Paramirabo</span>
+                <span class="event-venue">Maison de la Culture Frontenac, Montreal, QC, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 14</div>
+            <div class="event-body">
+              <div class="event-title">DEFINE // DEFILE</div>
+              <div class="event-meta">
+                <span class="event-artists">SanSan Kwan with Mivos Quartet</span>
+                <span class="event-venue">Center for New Music, San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 21</div>
+            <div class="event-body">
+              <div class="event-title">ironic erratic erotic</div>
+              <div class="event-meta">
+                <span class="event-artists">Yuri Shimoaka, Jack Adler-Mckean, Adam Goodwin</span>
+                <span class="event-venue">Labor neunzehn, Berlin, Germany</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 28</div>
+            <div class="event-body">
+              <div class="event-title">Spain Tour: Kerosene Palace</div>
+              <div class="event-meta">
+                <span class="event-artists">UC Berkeley Symphony Orchestra, conducted by David Milnes</span>
+                <span class="event-venue">Auditorio Manuel de Falla, Granada, Spain</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 30</div>
+            <div class="event-body">
+              <div class="event-title">Spain Tour: Kerosene Palace</div>
+              <div class="event-meta">
+                <span class="event-artists">UC Berkeley Symphony Orchestra, conducted by David Milnes</span>
+                <span class="event-venue">Palau de la Música de Valencia, Valencia, Spain</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 17</div>
+            <div class="event-body">
+              <div class="event-title">Senses IV</div>
+              <div class="event-meta">
+                <span class="event-artists">Mosa Tsay, Shoshana Green, and Celloscape Collective</span>
+                <span class="event-venue">Groupmuse Massivemuse @ Covo, San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 4</div>
+            <div class="event-body">
+              <div class="event-title">Artist's Talk and Performance / Stridulations</div>
+              <div class="event-meta">
+                <span class="event-artists">IRCAM</span>
+                <span class="event-venue">Salle Stravinsky, IRCAM, Paris, France</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 31</div>
+            <div class="event-body">
+              <div class="event-title">Stridulations</div>
+              <div class="event-meta">
+                <span class="event-artists">IRCAM</span>
+                <span class="event-venue">Salle Stravinsky, IRCAM, Paris, France</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Nov 16</div>
+            <div class="event-body">
+              <div class="event-title">Stridulations</div>
+              <div class="event-meta">
+                <span class="event-venue">Niveau 4, Centre Pompidou, Paris, France</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2016 ===================== -->
+        <section class="year-section" id="year-2016">
+          <div class="year-section-heading">2016</div>
+
+          <div class="event">
+            <div class="event-date">Jan 7</div>
+            <div class="event-body">
+              <div class="event-title">Humid Gravity</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Chartreuse</span>
+                <span class="event-venue">Spectrum, New York City, NY</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Feb 19</div>
+            <div class="event-body">
+              <div class="event-title">The End of Time, Deconstructed</div>
+              <div class="event-subtitle">Hive Chapel</div>
+              <div class="event-meta">
+                <span class="event-artists">Phoenix Quartet</span>
+                <span class="event-venue">Firehouse Space, New York City, NY</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 3</div>
+            <div class="event-body">
+              <div class="event-title">Humid Gravity</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Chartreuse</span>
+                <span class="event-venue">Curve Line Space, Los Angeles, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 6</div>
+            <div class="event-body">
+              <div class="event-title">Humid Gravity</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Chartreuse</span>
+                <span class="event-venue">Center for New Music, San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 27</div>
+            <div class="event-body">
+              <div class="event-title">The End of Time, Deconstructed</div>
+              <div class="event-subtitle">Hive Chapel</div>
+              <div class="event-meta">
+                <span class="event-artists">Phoenix Quartet</span>
+                <span class="event-venue">Bowery Arts + Science, New York City, NY</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 28</div>
+            <div class="event-body">
+              <div class="event-title">Lecture on my music</div>
+              <div class="event-meta">
+                <span class="event-venue">CCRMA at Stanford University, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 13</div>
+            <div class="event-body">
+              <div class="event-title">Groupmuse: Humid Gravity</div>
+              <div class="event-meta">
+                <span class="event-artists">Mosa Tsay, Jane Kim, and Krystzoff Zimmermann</span>
+                <span class="event-venue">CNMAT, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 28</div>
+            <div class="event-body">
+              <div class="event-title">Humid Gravity</div>
+              <div class="event-meta">
+                <span class="event-artists">Celloscape Collective</span>
+                <span class="event-venue">Bruce Beasley's Sculpture Studio, Oakland, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 3</div>
+            <div class="event-body">
+              <div class="event-title">Humid Gravity</div>
+              <div class="event-meta">
+                <span class="event-artists">Celloscape Collective</span>
+                <span class="event-venue">Center for New Music, San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Oct 21</div>
+            <div class="event-body">
+              <div class="event-title">Senses</div>
+              <div class="event-meta">
+                <span class="event-venue">Center for New Music, San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Nov 18</div>
+            <div class="event-body">
+              <div class="event-title">Balancing on the Edge</div>
+              <div class="event-subtitle">Naked to the Sky</div>
+              <div class="event-meta">
+                <span class="event-artists">Thin Edge New Music Collective</span>
+                <span class="event-venue">Harbourfront Centre, Toronto, ON, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Nov 19</div>
+            <div class="event-body">
+              <div class="event-title">Balancing on the Edge</div>
+              <div class="event-subtitle">Naked to the Sky</div>
+              <div class="event-meta">
+                <span class="event-artists">Thin Edge New Music Collective</span>
+                <span class="event-venue">Harbourfront Centre, Toronto, ON, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 1</div>
+            <div class="event-body">
+              <div class="event-title">Digital Humanities Presentation at UC Berkeley</div>
+              <div class="event-subtitle">(e)met</div>
+              <div class="event-meta">
+                <span class="event-artists">Juan Hernandez, Myra Melford, Darren Johnston, Lisa Mezzacappa</span>
+                <span class="event-venue">CNMAT, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 9</div>
+            <div class="event-body">
+              <div class="event-title">SONIC BODY Series #9</div>
+              <div class="event-meta">
+                <span class="event-artists">Christine Bonansea Saulut, Scott Rubin, Pamela Z, Jorge Bachmann, Crystal Sepúlveda</span>
+                <span class="event-venue">CNMAT, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 10</div>
+            <div class="event-body">
+              <div class="event-title">Performance at DanceHackDay</div>
+              <div class="event-meta">
+                <span class="event-artists">Christine Bonansea Saulut, Scott Rubin</span>
+                <span class="event-venue">CounterPulse, San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 12</div>
+            <div class="event-body">
+              <div class="event-title">Naked to the Sky / Senses II</div>
+              <div class="event-meta">
+                <span class="event-artists">Eco Ensemble: SanSan Kwan, Hrabba Atladottir, Joshua Marshall, Myra Melford, Loren Mach</span>
+                <span class="event-venue">Hertz Hall, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2015 ===================== -->
+        <section class="year-section" id="year-2015">
+          <div class="year-section-heading">2015</div>
+
+          <div class="event">
+            <div class="event-date">Jan 15</div>
+            <div class="event-body">
+              <div class="event-title">New Music Gathering</div>
+              <div class="event-subtitle">Invited Lecture: Experiential time in Fausto Romitelli's Professor Bad Trip, Lesson I</div>
+              <div class="event-meta">
+                <span class="event-venue">San Francisco Conservatory of Music, San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 8</div>
+            <div class="event-body">
+              <div class="event-title">Sour Helix (world premiere)</div>
+              <div class="event-meta">
+                <span class="event-artists">David Wegehaupt and Jeffrey Anderle of Splinter Reeds</span>
+                <span class="event-venue">CNMAT, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Mar 15</div>
+            <div class="event-body">
+              <div class="event-title">The New York Flute Club Composition Competition</div>
+              <div class="event-subtitle">the Bath Clown Duo (official world premiere)</div>
+              <div class="event-meta">
+                <span class="event-artists">Jeffery Stonehouse and Gabrielle Gingras</span>
+                <span class="event-venue">Faculty House at Columbia University, New York City, NY</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 9</div>
+            <div class="event-body">
+              <div class="event-title">I am nothing without you</div>
+              <div class="event-subtitle">counter(Projections) (world premiere)</div>
+              <div class="event-meta">
+                <span class="event-artists">TENTH INTERVENTION: Hajnal Pivnick and Diane Skerbec</span>
+                <span class="event-venue">Cary Hall at the DiMenna Center, New York City, NY</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Apr 24</div>
+            <div class="event-body">
+              <div class="event-title">Washington Composer's Forum Commission Concert</div>
+              <div class="event-subtitle">the Torn Cubist</div>
+              <div class="event-meta">
+                <span class="event-artists">Inverted Space Ensemble</span>
+                <span class="event-venue">Brechemin Auditorium, University of Washington School of Music, Seattle, WA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 1</div>
+            <div class="event-body">
+              <div class="event-title">Les Concerts de la Métropole: Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">Duo d'Entre Deux</span>
+                <span class="event-venue">Église Saint-Stanislas-de-Kostka, Montréal, QC, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 2</div>
+            <div class="event-body">
+              <div class="event-title">VOLUMES: Volume 2 with Duo d'Entre Deux</div>
+              <div class="event-subtitle">Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">Duo d'Entre Deux</span>
+                <span class="event-venue">Shaki Rock Gym, Montréal, QC, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 11</div>
+            <div class="event-body">
+              <div class="event-title">Berkeley New Music Project: Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">Eco Ensemble, Berkeley New Music Project</span>
+                <span class="event-venue">Hertz Hall, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 4</div>
+            <div class="event-body">
+              <div class="event-title">Ensemble Paramirabo presents: Purtubations</div>
+              <div class="event-subtitle">the Bath Clown Duo</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Paramirabo</span>
+                <span class="event-venue">Chapelle historique du Bon-Pasteur, Montréal, QC, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 20</div>
+            <div class="event-body">
+              <div class="event-title">Humid Gravity (world premiere)</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Gô and Sarah Xiao</span>
+                <span class="event-venue">Goethe Institut, Hong Kong</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jul 23</div>
+            <div class="event-body">
+              <div class="event-title">SALT New Music Festival and Symposium: Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">Quasar Quatuor de saxophones</span>
+                <span class="event-venue">Open Space, Victoria, BC, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Aug 4</div>
+            <div class="event-body">
+              <div class="event-title">Camp musical des Laurentides: Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">Quasar Quatuor de saxophones</span>
+                <span class="event-venue">Camp musical des Laurentides, Saint-Adolphe-d'Howard, QC, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 18</div>
+            <div class="event-body">
+              <div class="event-title">Elevate Ensemble presents: Homage</div>
+              <div class="event-subtitle">Self-portrait with Carl Jung and John Watson (world premiere)</div>
+              <div class="event-meta">
+                <span class="event-artists">Elevate Ensemble</span>
+                <span class="event-venue">Sol Joseph Recital Hall, San Francisco Conservatory of Music, San Francisco, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 3</div>
+            <div class="event-body">
+              <div class="event-title">Le Vivier: Sour Helix</div>
+              <div class="event-meta">
+                <span class="event-artists">Quasar Quatuor de saxophones</span>
+                <span class="event-venue">Le Vivier — Amplithéatre du Gésu, Montréal, QC, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 6</div>
+            <div class="event-body">
+              <div class="event-title">New Music Concerts: less than equals three (world premiere)</div>
+              <div class="event-meta">
+                <span class="event-artists">New Music Concerts, dir. Robert Aiken</span>
+                <span class="event-venue">Betty Oliphant Theatre, Toronto, ON, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 14</div>
+            <div class="event-body">
+              <div class="event-title">Berkeley New Music Project: less than equals three</div>
+              <div class="event-meta">
+                <span class="event-artists">Eco Ensemble</span>
+                <span class="event-venue">Hertz Hall, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+        <!-- ===================== 2014 ===================== -->
+        <section class="year-section" id="year-2014">
+          <div class="year-section-heading">2014</div>
+
+          <div class="event">
+            <div class="event-date">Apr 28</div>
+            <div class="event-body">
+              <div class="event-title">Concert du Groupe Interinstitutionnel de Compositeurs Étudiants de Montréal</div>
+              <div class="event-subtitle">Filthy Peaks, for amplified cello and electronics (world premiere)</div>
+              <div class="event-meta">
+                <span class="event-artists">Juan Sebastian Delgado</span>
+                <span class="event-venue">Café Résonance, Montreal, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 9</div>
+            <div class="event-body">
+              <div class="event-title">Doctoral Recital</div>
+              <div class="event-subtitle">Filthy Peaks, for amplified cello and electronics</div>
+              <div class="event-meta">
+                <span class="event-artists">Juan Sebastian Delgado</span>
+                <span class="event-venue">McGill University, Montreal, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">May 30</div>
+            <div class="event-body">
+              <div class="event-title">Ottawa New Music Creators</div>
+              <div class="event-subtitle">the Torn Cubist, for 5 musicians</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Paramirabo</span>
+                <span class="event-venue">Ottawa, Canada</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Jun 22</div>
+            <div class="event-body">
+              <div class="event-title">mise-en music festival 2014</div>
+              <div class="event-subtitle">the Torn Cubist, for 5 musicians</div>
+              <div class="event-meta">
+                <span class="event-artists">Ensemble Paramirabo</span>
+                <span class="event-venue">New York City, NY</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 8</div>
+            <div class="event-body">
+              <div class="event-title">A Celebration of Sonorities, Fall Tour</div>
+              <div class="event-subtitle">piglet ears, for saxophone quartet</div>
+              <div class="event-meta">
+                <span class="event-artists">Estrella Consort</span>
+                <span class="event-venue">Lutkin Hall at Northwestern University, Evanston, IL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 9</div>
+            <div class="event-body">
+              <div class="event-title">A Celebration of Sonorities, Fall Tour</div>
+              <div class="event-subtitle">piglet ears, for saxophone quartet</div>
+              <div class="event-meta">
+                <span class="event-artists">Estrella Consort</span>
+                <span class="event-venue">School of Music at University of Illinois, Chicago, IL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 11</div>
+            <div class="event-body">
+              <div class="event-title">A Celebration of Sonorities, Fall Tour</div>
+              <div class="event-subtitle">piglet ears, for saxophone quartet</div>
+              <div class="event-meta">
+                <span class="event-artists">Estrella Consort</span>
+                <span class="event-venue">Western Michigan University, Kalamazoo, MI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Sep 12</div>
+            <div class="event-body">
+              <div class="event-title">A Celebration of Sonorities, Fall Tour</div>
+              <div class="event-subtitle">piglet ears, for saxophone quartet</div>
+              <div class="event-meta">
+                <span class="event-artists">Estrella Consort</span>
+                <span class="event-venue">Saginaw Valley State University, University Center, MI</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 13</div>
+            <div class="event-body">
+              <div class="event-title">CNMAT Workshop</div>
+              <div class="event-subtitle">Sour Helix, for reed duo, workshop</div>
+              <div class="event-meta">
+                <span class="event-artists">Splinter Reeds</span>
+                <span class="event-venue">CNMAT, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="event">
+            <div class="event-date">Dec 15</div>
+            <div class="event-body">
+              <div class="event-title">Graduate Composers Concert</div>
+              <div class="event-subtitle">the Bath Clown Duo, for flute and piano</div>
+              <div class="event-meta">
+                <span class="event-artists">Eco Ensemble</span>
+                <span class="event-venue">Hertz Hall, Berkeley, CA</span>
+              </div>
+            </div>
+          </div>
+
+        </section>
+        
+
+      </div><!-- /event-log -->
+    </main>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    <!---->
+    <span><a href="mailto:hello@artistname.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    // Build year nav from sections
+    const years = Array.from(document.querySelectorAll('.year-section')).map(s => s.id.replace('year-', ''));
+    const nav = document.getElementById('yearNav');
+    const mobileBar = document.getElementById('mobileYearBar');
+
+    years.forEach(year => {
+      [nav, mobileBar].forEach(container => {
+        const btn = document.createElement('button');
+        btn.className = 'year-btn';
+        btn.textContent = year;
+        btn.dataset.year = year;
+        btn.addEventListener('click', () => {
+          document.getElementById('year-' + year).scrollIntoView({ behavior: 'smooth' });
+        });
+        container.appendChild(btn);
+      });
+    });
+
+    // Highlight active year on scroll
+    const sections = document.querySelectorAll('.year-section');
+    const allBtns = () => document.querySelectorAll('.year-btn');
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const year = entry.target.id.replace('year-', '');
+          allBtns().forEach(b => {
+            b.classList.toggle('active', b.dataset.year === year);
+          });
+        }
+      });
+    }, { rootMargin: '-20% 0px -70% 0px' });
+
+    sections.forEach(s => observer.observe(s));
+  </script>
+
+</body>
+</html>

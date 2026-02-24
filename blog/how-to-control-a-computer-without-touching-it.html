@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Control a Computer Without Touching It — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/mask-1.png" alt="How to Control a Computer Without Touching It">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">How to Control a Computer Without Touching It</h1>
+    <p class="article-meta">July 22, 2024</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">This short post is gonna be about the technical aspects of the performance. The one after this will be dramaturgical.</p>
+    <p dir="auto">I left off talking about switching from a canvas-based system to one that solely tracks hands. Here's how I went from hands to 
+      sound and projections.</p><h2 dir="auto">Blob-tracking</h2><p dir="auto">Imagine a webcam looking at you. It “sees” a flat 2-dimensional 
+        plane of pixels, and each pixel is a color. Let’s bring that image into Isadora (and later, TouchDesigner). If you want the computer to 
+        make sense of what it’s “seeing”, you have to do a little analysis on it. That’s where blob-tracking algorithms come in. This algorithm 
+        groups familiarly-colored pixels together and distinguish them from other groups of similarly-colored pixels. In this case, I wanted the 
+        computer to see 2 hands. In order for it to do this, I needed to make the hands a distinct color from the background and tell the computer 
+        to prioritize that color. This can be done through adjusting contrast and chroma-keying.</p><h2 dir="auto">Hands to Sound</h2>
+        <p dir="auto">Once the computer can see the hands, it draws rectangles around them. You can see them in this test-screenshot.</p>
+        <p dir="auto"><br></p><img src="../img/mask-1.png">
+        <p dir="auto">You can see a larger hand on the left, and a smaller hand on the right.</p>
+        <p dir="auto">We can then see the rectangles’ location (the center X,Y coordinates of each rectangle), and how big the rectangle is 
+          (height, width). The following, in a nutshell, is how I transformed the hand position data to sound.</p><p dir="auto"><br></p>
+          <img src="../img/maxpatch-screenshot.png"><p dir="auto">Screenshot of a deep layer of my MaxMSP program, coded in ODOT 
+            (nods to Rama Gottfried, John MacCallum, and CNMAT)</p><p dir="auto">Basically, what's happening is:</p><ol dir="auto">
+              <li data-preset-tag="p"><p>I defined 2 imaginary triangles on the X,Y plane. One on the left side, one on the right side. 
+                Each triangle has 3 imaginary points, so 6 points total; 2 groups of 3.</p></li><li data-preset-tag="p"><p>Calculate the 
+                  distance of each hand from each point.</p></li><li data-preset-tag="p"><p>Map that distance to the loudness on a granulator. 
+                    As your hand gets closer to a point, the granulator assigned to that point gets louder.</p></li><li data-preset-tag="p">
+                      <p>Create dozens of presets using a set of 3 granulators. Assign granulator to a soundfile, and use the (height, width) 
+                        data to control how each granulator behaves.</p></li><li data-preset-tag="p"><p>Run 2 presets at a time. You end up 
+                          getting a multilayered soundscape and you can swap out presets independently without totally breaking the sound.</p></li></ol>
+                          <h2 dir="auto">Hands to Projections</h2><p dir="auto">With the sound created, I sent the audio signal from MaxMSP to 
+                            TouchDesigner. In TouchDesigner, I ran the signal through some basic filters to get general energy levels for the 
+                            low, middle, and high parts of the signal’s spectrum.</p><p dir="auto"><br></p>
+                            <img src="../img/self-portrait-touchdesigner.png"><p dir="auto">self-portrait on my porch showing a simple TouchDesigner preset</p><p dir="auto">All of the visuals for this project were generated from the webcam feed. After isolating my hands in the image, I created dozens of presets that all distorted my hands in different ways, using the data from the audio signal to control some of these distortions.</p><h2 dir="auto">Keep it Moving</h2><p dir="auto">I struggled a lot with structure in this project. There needed to be a balance of status, activity, momentum, and progression. Instead of simply creating dozens of presents that would randomly cycle in and out of each other, I decided to group them into 3 main sections that would be triggered by a simple timer that would start at the beginning of the piece and guide the computer through each section:</p><ol dir="auto"><li data-preset-tag="p"><p>Section 1: begin with stable, ambient, long tones,&nbsp;</p></li><li data-preset-tag="p"><p>Section 2: move to more active sounds, machines, percussive,&nbsp;noise</p></li><li data-preset-tag="p"><p>Section 3: heavy drums, bass, beats, aggressive glitch</p></li></ol><p dir="auto">Within each section, I needed a way to change presets without touching the computer. Rather than using a timer, I decided to use a counter that would be triggered by the velocity of my hands. Basically, every time I move my hands over a specified speed, a counter is triggered. The counter’s maximum is determined by a random number generator, and when the maximum is reached, the current preset is faded out, and a new preset fades in. It’s not an instantaneous change, so I don’t think an audience member could deduce how the mechanism worked, but it gave me the ability to control the progression of sounds to a limited degree.</p><p dir="auto">In the next and final entry, I’ll discuss dramaturgy. I’ll go into the mask, the character, the movements, and how I book ended the performance.</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="change-is-the-only-constant.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">Change is the Only Constant</p>
+    </a>
+    <a class="post-nav-next" href="dismantle-the-instrument.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">Dismantle the Instrument</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

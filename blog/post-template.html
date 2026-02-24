@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Title — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    /* Reading progress bar */
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+
+    .post-cover .photo-placeholder .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+
+    .post-cover .photo-placeholder span {
+      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+    }
+
+    /* Post body extended styles */
+    .article-body ul, .article-body ol {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+
+    .article-body .caption {
+      font-size: 12px;
+      letter-spacing: 0.04em;
+      color: var(--muted);
+      margin-top: -1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    /* Post footer / nav between posts */
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .post-nav-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+
+  <nav>
+    <div class="nav-name"><a href="../index.html">Scott Rubin</a></div>
+    <ul>
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../events.html">Events</a></li>
+      <li><a href="../projects/index.html">Projects</a></li>
+      <li><a href="index.html" class="active">Writing</a></li>
+      <li><a href="../interviews.html">Interviews</a></li>
+    </ul>
+  </nav>
+
+  <!-- COVER IMAGE -->
+  <div class="post-cover">
+    <!-- Replace with: <img src="../images/post-cover.jpg" alt="Post title"> -->
+    <div class="photo-placeholder">
+      <div class="ph-icon">⬜</div>
+      <span>Cover Image — replace with img tag</span>
+    </div>
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <!-- HEADER -->
+  <header class="article-header">
+    <p class="article-tag">Essay</p>
+    <h1 class="article-title">On Spatial Audio and the Body in Performance</h1>
+    <p class="article-meta">February 2026 · 8 min read</p>
+  </header>
+
+  <!-- BODY -->
+  <div class="article-body">
+
+    <p>This is the opening paragraph. Start strong — a scene, a question, or a provocation. Draw the reader in before you begin to develop your argument or reflection. The first sentences are the most important.</p>
+
+    <p>Continue the essay here. Keep paragraphs to three to five sentences where possible. White space is your friend in long-form reading on screen. Don't be afraid to let an idea breathe before you move on to the next one.</p>
+
+    <h2>A Subheading</h2>
+
+    <p>Use subheadings sparingly — only when you're genuinely shifting to a new section of the essay, not simply moving to the next paragraph. Overuse of headers fragments the reading experience.</p>
+
+    <p>This paragraph continues the thought from the subheading. Notice how the body text is kept at a comfortable 16px with generous line-height — designed for sustained reading rather than quick scanning.</p>
+
+    <blockquote>A pull quote or significant idea from the essay — formatted as a blockquote to give it visual emphasis. Keep these rare and meaningful.</blockquote>
+
+    <p>Return to the main body of the essay here. Develop the ideas introduced above, add nuance, and push toward a conclusion.</p>
+
+    <h2>Another Section</h2>
+
+    <p>Introduce the next section of your argument. Give concrete examples where possible — specificity in essayistic writing makes the abstract tangible and the general personal.</p>
+
+    <p>Continue developing the idea. The essay can be as long or short as the thought requires. Don't pad it out, but don't cut it short if the idea needs room.</p>
+
+    <p>A final, closing paragraph that brings the essay to rest without being too tidy. Leave the reader with something to think about rather than a neat summary. The best endings open outward rather than closing down.</p>
+
+  </div>
+
+  <!-- POST NAV -->
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="post-template.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">Notes on Improvisation as a Compositional Strategy</p>
+    </a>
+    <a class="post-nav-next" href="post-template.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">What the MCA Residency Taught Me About Scale</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    // Reading progress bar
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

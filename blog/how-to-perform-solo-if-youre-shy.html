@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to perform solo if you’re shy — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/solo-set-1.jpg" alt="How to perform solo if you’re shy">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">How to perform solo if you’re shy</h1>
+    <p class="article-meta">June 10, 2024</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">In December 2016, I performed an improvised solo set at the University of California, Berkeley using my viola, a motion sensor on my 
+      bow arm streaming data to a MaxMSP patch, and a MIDI pedal controller. This was one of my first improvised solo public 
+      performances.</p>
+      <iframe src="https://www.youtube.com/embed/yhiZmICWpeo?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+      <p dir="auto">Since that time, I’ve done many projects for various combinations of musicians, movement artists, electronics, and visuals. 
+        My artistic practice continued to change, and in 2022, the time came to revisit the solo format with a different perspective.</p>
+        <h2 dir="auto">Performative Focus: Mediation Devices as Performance Objects</h2><p dir="auto">I had already been thinking about the question 
+          of performative focus - that is, the psychological state of the performer as perceived by the audience. I’ve discussed this in earlier writings, but I can briefly touch on it here:</p><p dir="auto">I’m not a big fan of music stands; I don’t really like it when musicians read music during performances. There’s something mystical about embodied performance. We see it during dance, improvisation, and most pop/folk music performances. I understand the utility of using a score, but I think it leads to uninspiring stage presence and limits the potential for transformational visceral moments.</p><p dir="auto">In the world of electronic music, the equivalent for music stands are computer screens. It’s an opaque mediation between the performer and the sound. If you’re going to put yourself on stage in front of everyone, and your performance is you looking at your computer screen, you might as well just sit in the back of the house to signal to the audience that they should only focus on the sound. For musicians who are using tactile interfaces (instruments, turntables, hardware synths, physical control interfaces), I think it’s good practice to limit your screentime, if there is indeed a screen.&nbsp;</p><p dir="auto">There are rare exceptions. <a href="https://levilu.com/">Qiujiang Levi Lu</a> does great work using their computer as an object. Their live performance is visceral. While we normally see computers as a tool that shouldn’t be dropped or exposed to moisture, Lu’s work with the object enters a more uncanny space. Take a look around the 7:46 mark.</p><iframe src="https://www.youtube.com/embed/tpeSBQJRkzg?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe><p dir="auto">How does this translate to my solo performance work? Where should the audience’s focus be during my performance? If I was going to play viola and show projections in a dark room, I wanted the audience to focus mainly on the projections with secondary attention on my body. I needed to make a system that could facilitate sound and visuals without me touching or looking at it too much.</p><h2 dir="auto">Instrument Position, Body, Posture, and Gaze</h2><p dir="auto">Considering my body, how would I posture myself? In the months before I started working on this project, I had been doing improvisation sessions with my viola in the “cello” position. This changes everything about the body’s relationship with the instrument. You don’t have to hold the instrument against your collarbone and you have more possibilities with percussive techniques. Personally, this posture breaks me out of my sonic comfort zone and I’m more able to explore different musical directions and movements.&nbsp;</p><p dir="auto">Sitting down with my instrument, I decided that I would angle myself 90-degrees from the audience rather than facing them head-on, figuring this would signal that the primary focus shouldn’t be me. I didn't want to look at the audience, nor did I want the audience looking at my face. Thus, I would hold the viola in my lap, and I would capture the image of the instrument squarely with a webcam in front of me aimed at my torso, which brings the question:</p><h2 dir="auto">Why Projections?</h2>
+          <p dir="auto">I struggled with this for a while. How could projections elevate a performance while not feeling like an iTunes visualizer? My rationale for having projections was that I wanted the audience to focus on something other than my body; I didn’t want the audience looking at <em>me</em> for 25 minutes. I’m too shy for that, and this question is something I’ll talk about in a future post.</p><p dir="auto">For the projections themselves, I wanted a visual that would focus on the instrument and my fingers, but I didn’t want something that would feel super intimate. I didn’t want my skin on a big screen, but maybe a distorted version of it. How could I amplify my body visually without feeling exposed?</p><p dir="auto">At the time, I was creating projections using the software Isadora. I had bad memories from using Jitter after the computer crash I had on stage at Gaudeamus in 2019, and Isadora was reportedly a bit more stable and easy-to-use. I started experimenting, building presets that would take the image of my viola and distort it using the data from the sounds coming from the instrument. That data would control parameters that would transform the image with visual noise, colors, and feedback.</p><p dir="auto"><br></p><img src="../img/solo-set-1.jpg"><p dir="auto">Photo credit: Ricardo Adame</p><p dir="auto"><br></p><img src="../img/solo-set-3.png"><p dir="auto"><br></p><img src="../img/solo-set-4.png">
+          <h2 dir="auto">A Sophisticated Toy?</h2>
+          <p dir="auto">In the end, I coded an instrument, but not a performance. I had my viola, with a contact mic going into my pedal board, 
+            a nice MaxMSP patch to generate electronic sound, and a good Isadora session for the projections. Honestly, it’s just a sophisticated toy. 
+            There’s still the question of framing. Dramaturgy and theater. Should a performer simply walk on stage, play music, and leave? Or 
+            is there something more? Are the projections always on? How does it end?&nbsp;</p><p dir="auto">I’ll answer these questions, along 
+              with a deep dive into the technical aspects, in the next entry.</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="long-time-no-see.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">Long time, no see</p>
+    </a>
+    <a class="post-nav-next" href="fade-everything-out-break-character-and-nod.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">Fade everything out, break character, and nod</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

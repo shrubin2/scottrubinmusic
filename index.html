@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scott Rubin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* HERO */
+    .hero {
+      min-height: calc(100svh - var(--nav-h));
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      overflow: hidden;
+    }
+
+    .hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 4rem 3rem 4rem 2.5rem;
+      border-right: 1px solid var(--rule);
+    }
+
+    .hero-eyebrow {
+      font-size: 14px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      margin-bottom: 2rem;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--muted);
+      line-height: 1.5;
+      max-width: 380px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-links a:hover { color: var(--accent); border-color: var(--accent); }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+      background: var(--paper-dark);
+    }
+
+    .hero-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      opacity: 1;
+      transition: opacity 0.4s;
+    }
+
+    .hero-image:hover img { opacity: 1; }
+
+    /* SCROLL HINT */
+    .scroll-hint {
+      border-top: 1px solid var(--rule);
+      padding: 1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .scroll-hint span { display: inline-block; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
+
+    /* PHOTO STRIP */
+    .photo-strip-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .photo-strip-label {
+      padding: 0 2.5rem 1.5rem;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .photo-strip {
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 2.5rem;
+    }
+
+    .photo-strip::-webkit-scrollbar { height: 2px; }
+    .photo-strip::-webkit-scrollbar-track { background: var(--rule); }
+    .photo-strip::-webkit-scrollbar-thumb { background: var(--accent); }
+
+    .photo-strip-item {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+
+    .photo-strip-item.tall {
+      width: 260px;
+      height: 380px;
+    }
+
+    .photo-strip-item.wide {
+      width: 420px;
+      height: 380px;
+    }
+
+    .photo-strip-item.square {
+      width: 320px;
+      height: 380px;
+    }
+
+    .photo-strip-item img {
+      width: 100%; height: 420px;
+      object-fit: cover;
+      transition: transform 0.4s ease, opacity 0.3s;
+      opacity: 0.85;
+    }
+
+    .photo-strip-item:hover img {
+      transform: scale(1.03);
+      opacity: 1;
+    }
+
+    /* Photo placeholder styling */
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--rule);
+    }
+
+    .photo-placeholder .ph-icon {
+      width: 48px; height: 48px;
+      border: 2px solid var(--rule);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .photo-placeholder span {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* BIO */
+    .bio-section {
+      padding: 6rem 2.5rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 5rem;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .bio-sidebar {}
+
+    .bio-sidebar h2 {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .bio-sidebar dl {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .bio-sidebar dt {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .bio-sidebar dd {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .bio-body {}
+
+    .bio-body .bio-headline {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+    }
+
+    .bio-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+
+    .bio-body p:last-of-type { margin-bottom: 0; }
+
+    /* SELECTED WORKS teaser */
+    .teaser-section {
+      border-top: 1px solid var(--rule);
+      padding: 4rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .teaser-section h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .teaser-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .teaser-link {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+      transition: all 0.2s;
+    }
+
+    .teaser-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-image { height: 55vw; border-right: none; border-bottom: 1px solid var(--rule); order: -1; }
+      .hero-text { padding: 2.5rem 1.25rem 3rem; }
+      .bio-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.25rem; }
+      .teaser-section { padding: 3rem 1.25rem; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <!-- NAV -->
+  <script src="js/nav.js"></script>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Interdisciplinary Artist · Composer · Violist · Improviser</p>
+      <h1 class="hero-name">Scott Rubin</h1>
+      <p class="hero-tagline">Exploring relationships between movement and sound through analog and digital means.</p>
+      <p class="hero-tagline">Contact: shrubin2@gmail.com</p>
+
+      <div class="hero-links">
+        <a href="events.html">Upcoming Events</a>
+        <a href="projects/index.html">View Projects</a>
+        <a href="#bio">About</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <!-- Replace src with actual hero image path -->
+       <img src= "../img/digital-hands-still.jpg" alt="-">
+      <!--<div class="photo-placeholder">
+        <div class="ph-icon">⬜</div>
+        <span>Hero Image</span>
+      </div> -->
+    </div>
+  </section>
+
+  <div class="scroll-hint">
+    <span>↓</span> Scroll to explore
+  </div>
+
+  <!-- PHOTO STRIP -->
+  <section class="photo-strip-section">
+    <p class="photo-strip-label">Photos: Ricardo Adame, Tim Schmoll, Jubilee Tai, and Gaudeamus Muzeikweek</p>
+    <div class="photo-strip">
+      <!-- Replace each photo-placeholder with an <img> tag -->
+      <div class="photo-strip-item tall">
+        <div class="photo-placeholder"><span><img src= "../img/ricardo-elastic-headshot.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item wide">
+        <div class="photo-placeholder"><span><img src= "../img/rin-elastic-3.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item square">
+        <div class="photo-placeholder"><span><img src= "../img/ricardo-jackson-park.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item tall">
+        <div class="photo-placeholder">><span><img src= "../img/headshot-2019.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item wide">
+        <div class="photo-placeholder"><span><img src= "../img/dads-photo.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item square">
+        <div class="photo-placeholder"><span><img src= "../img/tim-schmoll-1.jpg" alt="-"></span></div>
+      </div>
+    </div>
+     <div class="photo-strip">
+      <!-- Replace each photo-placeholder with an <img> tag -->
+      <div class="photo-strip-item wide">
+        <div class="photo-placeholder"><span><img src= "../img/wonder-turner-screenshot.png" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item square">
+        <div class="photo-placeholder"><span><img src= "../img/solo-set-1.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item tall">
+        <div class="photo-placeholder"><span><img src= "../img/rin-elastic-2.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item wide">
+        <div class="photo-placeholder">><span><img src= "../img/slap.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item square">
+        <div class="photo-placeholder"><span><img src= "../img/for-the-performers.png" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item tall">
+        <div class="photo-placeholder"><span><img src= "../img/in-tensions-0.png" alt="-"></span></div>
+      </div>
+    </div>
+    
+    
+  </section>
+  
+
+  <!-- BIO -->
+  <section class="bio-section" id="bio">
+    <div class="bio-sidebar">
+      <!--<h2>About</h2>-->
+      <!--
+      <dl>
+        <div>
+          <dt>Based in</dt>
+          <dd>Chicago, Illinois</dd>
+        </div>
+        <div>
+          <dt>Disciplines</dt>
+          <dd>Composition, Improvisation, Performance Art, Spatial Audio</dd>
+        </div>
+        <div>
+          <dt>Active since</dt>
+          <dd>2015</dd>
+        </div>
+        <div>
+          <dt>Collaborates with</dt>
+          <dd>Elastic Arts, Links Hall, Constellation, Museum of Contemporary Art Chicago</dd>
+        </div>
+        <div>
+          <dt>Contact</dt>
+          <dd><a href="mailto:hello@artistname.com" style="border-bottom:1px solid var(--rule)">hello@artistname.com</a></dd>
+        </div>
+      </dl>
+      -->
+    </div>
+
+    <div class="bio-body">
+      
+      <p class="bio-headline">Scott Rubin is a Chicago-based interdisciplinary artist, composer, and improvising violist whose work interrogates relationships between sound and movement through analog and digital means.</p>
+      
+      <p> His recent projects have involved collaborations with musicians and dancers, often incorporating interactive acoustic/electronic improvisation, expanded performance practices, motion-sensors, and live video. In these projects, he engages themes of intimacy, control, and the sublime.</p>
+      <p>Scott’s music has been played around the world by the <a href="https://www.betweenfeathers.com/" target="_blank">Between Feathers Ensemble</a>, <a href="http://lenem.ca/" target="_blank">Nouvel Ensemble Moderne</a>, <a href="http://ensembleparamirabo.com/en/index.php" target="_blank">Ensemble Paramirabo</a>, <a href="http://www.quasar4.com/" target="_blank">Quasar Quatuor de saxophones</a>, <a href="http://www.tenthintervention.com/" target="_blank">Tenth Intervention</a>, <a href="http://www.takensemble.com/" target="_blank">TAK Ensemble</a>, <a href="https://orchestra.berkeley.edu/" target="_blank">UC Berkeley Symphony Orchestra</a>, cellist <a href="http://www.juansebastiandelgado.com/" target="_blank">Juan Sebastian Delgado</a>, tubist <a href="https://www.jackadlermckean.eu/" target="_blank">Jack Adler McKean</a>, Thin Edge New Music Collective, <a href="http://www.invertedspaceensemble.com/" target="_blank">Inverted Space Ensemble</a>, <a href="http://www.ecoensemble.org/" target="_blank">Eco Ensemble</a>, <a href="http://www.duodentredeux.com/" target="_blank">Duo d’Entre Deux</a>, Eventuell Saxophone Duo, Phoenix Quartet, <a href="http://splinterreeds.com/" target="_blank">Splinter Reeds</a>, <a href="http://www.estrellaconsort.com/" target="_blank">the Estrella Consort</a>, Ensemble Gô, the McGill University Contemporary Music Ensemble, Ensemble Arkea, and the University of Illinois New Music Ensemble.</p>
+      <p>Scott has collaborated with dancers/choreographers Irene Hsiao, Helen Lee, Tuli Bera, Amanda Maraist, Christopher Knowlton, Cristal Sabbagh, Yuri Shimaoka, Christine Saulut, Sarah Xiao, Manu Cyr, Louis Barbier, and Shoshana Green on projects staged in Chicago, Berlin, New York City, Hong Kong, Vienna, Toronto, and Oakland.</p>
+      <p>His music has been presented by the SALT New Music Festival and Symposium (Victoria, Canada), <a href="http://festival.mise-en.org/submission/" target="_blank">mise-en music festival</a> (NYC), Emergents Concert Series (Toronto, Canada), <a href="http://www.ecm.qc.ca/" target="_blank">l’Ensemble contemporain de Montréal+</a>, Ottawa New Music Creators, Codes d’Accès (Montreal, Canada), the North American Saxophone Alliance, and 60x60 PianoForte Chicago. He has had workshops with Neue Vocalsolisten Stuttgart, Klangforum Wien, Ensemble Intercontemporain, <a href="http://www.ensembletransmission.com/fr" target="_blank">Ensemble Transmission</a>, the Danish String Quartet, and <a href="http://www.meitar.net/" target="_blank">Meitar Ensemble</a>.</p>
+      <p>Scott earned a PhD at the University of the California at Berkeley where he studies with Ken Ueno, Franck Bedrossian, Myra Melford, Edmund Campion, and Cindy Cox. He was an active researcher at the <a href="http://cnmat.berkeley.edu" target="_blank">Center for New Music and Audio Technologies</a>.</p>
+      <p>He completed his masters degree studying with Philippe Leroux at McGill University in Montréal, Canada. Previously, he earned a Bachelor of Music in music composition and a Bachelor of Science in psychology at the University of Illinois at Urbana Champaign, where his primary teachers were Reynold Tharp, Philipp Blume, and Stephen Taylor. Scott was also a student in the Experimental Music Studios, under the tutelage of Scott A. Wyatt.</p>
+      <p>At McGill, Scott worked as a composer for the Auditory Cognitive Neuroscience Lab under Robert Zatorre, where he wrote music to be used in music cognition experiments. Scott has studied music cognition with Stephen McAdams and Caroline Palmer. Previously, he studied with Mark Jude Tramo at the Institute for Music and Brain Science.</p>
+      <p>Scott was a co-founder and co-organizer for the <a href="http://www.labomontreal.com/" target="_blank">Montréal Contemporary Music Lab</a> until 2014. This is a week-long performance and composition workshop that focuses on the creation of new music through fostering collaborative relationships between performers and composers. He also performed guitar for Speakeasy Electro Swing Montreal.</p>
+      <p>His awards include the McGill University Graduate Excellence Fellowship, the Florence Gould Foundation Scholarship from the European American Musical Alliance, the Geraldine B. Cooke Scholarship from the University of Illinois, the UIUC School of Music Composition-Theory Area Achievement Award, and grants from SOCAN and the Music Graduate Students Society at McGill University. He has participated in the Modern Academy in Hong Kong, Impuls Academy in Graz, Austria, Recontres de Musique Nouvelle at the Domaine Forget Sessions in Charlevoix, Québec as well as the European American Musical Alliance Sessions in Paris, France.</p>
+    </div>
+  </section>
+
+  <!-- SECTION TEASER -->
+   <!--
+  <div class="teaser-section">
+    <h2>Explore the work</h2>
+    <div class="teaser-links">
+      <a href="events.html" class="teaser-link">Events & Performances</a>
+      <a href="projects/index.html" class="teaser-link">Projects</a>
+      <a href="blog/index.html" class="teaser-link">Writing</a>
+      <a href="interviews.html" class="teaser-link">Interviews</a>
+    </div>
+  </div>
+    -->
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    <span><a href="mailto:hello@artistname.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+</body>
+</html>

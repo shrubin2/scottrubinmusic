@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Writing — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .blog-layout {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .post-featured {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-bottom: 1px solid var(--rule);
+      text-decoration: none;
+      color: inherit;
+    }
+    .post-featured-image {
+      background: var(--paper-dark);
+      height: 420px;
+      overflow: hidden;
+    }
+    .post-featured-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.3s;
+    }
+    .post-featured:hover .post-featured-image img { opacity: 1; }
+    .post-featured-image .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-featured-image .photo-placeholder .ph-icon {
+      width: 48px; height: 48px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .post-featured-body {
+      padding: 3rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border-left: 1px solid var(--rule);
+    }
+    .featured-label {
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    .post-featured-body h2 {
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .post-featured-body p {
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .post-featured-body .read-link {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .post-featured-body .read-link::after { content: ' →'; }
+    .post-featured-meta {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: auto;
+      padding-top: 2rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-list { display: flex; flex-direction: column; }
+    .post-row {
+      display: grid;
+      /*grid-template-columns: 120px 1fr;*/
+      grid-template-columns: 230px 130px 1fr 24px;
+      align-items: center;
+      gap: 0 2rem;
+      padding: 1.75rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.15s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .post-row:hover { background: var(--paper-dark); }
+
+    .project-index-thumb {
+      width: 100%;
+      height: 100%;
+      background: var(--paper-dark);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .project-index-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+
+    .post-row-date {
+      font-size: 16px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-top: 3px;
+    }
+    .post-row-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.3;
+      margin-bottom: 0.5rem;
+    }
+    .post-row-excerpt {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+    @media (max-width: 700px) {
+      .post-featured { grid-template-columns: 1fr; }
+      .post-featured-image { height: 260px; }
+      .post-featured-body { padding: 2rem 1.25rem; border-left: none; border-top: 1px solid var(--rule); }
+      .post-row { grid-template-columns: 1fr; gap: 0.3rem; padding: 1.5rem 1.25rem; }
+    }
+  </style>
+</head>
+<body class="page-body">
+  <script src="../js/nav.js"></script>
+
+  <div class="page-header">
+    <h1>Writing</h1>
+    <!--<p class="subtitle">Notes, essays & process reflections</p>-->
+  </div>
+
+  <div class="blog-layout">
+
+    <a class="post-featured" href="2025-reflections.html">
+      <div class="post-featured-image">
+        <img src="../img/mask-2.png" alt="2025 Reflections">
+      </div>
+      <div class="post-featured-body">
+        <p class="featured-label">Latest Post</p>
+        <h2>2025 Reflections</h2>
+        <p>2025 was wild. As someone who made the decision in 2018 to not become a “professional artist or academic”, I never imagined that I'd have 30 events in one year. I loved being busy, but it was stressful.My projects this…</p>
+        <span class="read-link">Read post</span>
+        <p class="post-featured-meta">January 11, 2026</p>
+      </div>
+    </a>
+
+    <div class="post-list">
+
+      <a class="post-row" href="dismantle-the-instrument.html">
+        <div class="project-index-thumb">
+          <img src="../img/mask-drawings.jpg" alt="-">
+        </div>
+        <div class="post-row-date">Aug 13, 2024</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">Dismantle the Instrument</h2>
+          <p class="post-row-excerpt">In the past 5 posts, I’ve gone in depth about 2 solo projects that I’ve created and performed over the past 2 years. This will be the final post in the series, and it will be about dramaturgy.Let me first say that I’m…</p>
+        </div>
+      </a>
+      <a class="post-row" href="how-to-control-a-computer-without-touching-it.html">
+        <div class="project-index-thumb">
+          <img src="../img/mask-1.png" alt="-">
+        </div>
+        <div class="post-row-date">Jul 22, 2024</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">How to Control a Computer Without Touching It</h2>
+          <p class="post-row-excerpt">This short post is gonna be about the technical aspects of the performance. The one after this will be dramaturgical.I left off talking about switching from a canvas-based system to one that solely tracks hands. Here's…</p>
+        </div>
+      </a>
+      <a class="post-row" href="change-is-the-only-constant.html">
+        <div class="project-index-thumb">
+          <img src="../img/digital-hands-still-2.jpg" alt="-">
+        </div>
+        <div class="post-row-date">Jun 21, 2024</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">Change is the Only Constant</h2>
+          <p class="post-row-excerpt">Sometimes when you start a project, its nature changes a million times before the performance.In Spring 2023, I felt the need to change my artistic practice. I had been working with motion sensor chips and dancers and…</p>
+        </div>
+      </a>
+      <a class="post-row" href="fade-everything-out-break-character-and-nod.html">
+        <div class="project-index-thumb">
+          <img src="../img/solo-set.png" alt="-">
+        </div>
+        <div class="post-row-date">Jun 10, 2024</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">Fade everything out, break character, and nod</h2>
+          <p class="post-row-excerpt">The last entry left off describing the question of framing a toy. In my humble opinion, a toy is rarely enough to sustain a meaningful performance. You need dramaturgy and intention. How do you start and end a…</p>
+        </div>
+      </a>
+      <a class="post-row" href="how-to-perform-solo-if-youre-shy.html">
+        <div class="project-index-thumb">
+          <img src="../img/solo-set-1.jpg" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Jun 8, 2024</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">How to perform solo if you’re shy</h2>
+          <p class="post-row-excerpt">In December 2016, I performed an improvised solo set at the University of California, Berkeley using my viola, a motion sensor on my bow arm streaming data to a MaxMSP patch, and a MIDI pedal controller. This was one of…</p>
+        </div>
+      </a>
+      <a class="post-row" href="long-time-no-see.html">
+        <div class="project-index-thumb">
+          <img src="../img/ricardo-jackson-park.jpg" alt="-">
+        </div>
+        <div class="post-row-date">Jun 8, 2024</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">Long time, no see</h2>
+          <p class="post-row-excerpt">Hey folks,I’ve decided to reboot this blog from six years ago. A lot has changed; some has stayed the same. I’m going to write a few posts about some solo performance work that I’ve created over the past two years.Photo…</p>
+        </div>
+      </a>
+      <a class="post-row" href="in-tensions-analysis-4.html">
+        <div class="project-index-thumb">
+          <img src="../img/in-tensions-4.JPG" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Aug 7, 2018</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">in tensions: analysis 4</h2>
+          <p class="post-row-excerpt">into the inner sublime without sound, just our vibrations without objects, just our vibrations without goals, just our bodies vibrations and projections, echoing inside our bodies, togetherSo, endings… I’ve gotten into…</p>
+        </div>
+      </a>
+      <a class="post-row" href="in-tensions-analysis-3.html">
+        <div class="project-index-thumb">
+          <img src="../img/in-tensions-0.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Aug 3, 2018</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">in tensions: analysis 3</h2>
+          <p class="post-row-excerpt">(In case you haven’t been following this mini-series,) in this entry, I’ll discuss the third section of my new work, in tensions, scored for&nbsp;dance, cello, and electronics.The transition between the second and third…</p>
+        </div>
+      </a>
+      <a class="post-row" href="in-tensions-analysis-2.html">
+        <div class="project-index-thumb">
+          <img src="../img/in-tensions-side-by-side.jpg" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Aug 2, 2018</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">in tensions: analysis 2</h2>
+          <p class="post-row-excerpt">This entry digs into the second section of the work... when we left off, the first section of the work ends at the moment where the performers make eye contact for the first time, acknowledging each other’s existence,…</p>
+        </div>
+      </a>
+      <a class="post-row" href="in-tensions-analysis-1.html">
+        <div class="project-index-thumb">
+          <img src="../img/in-tensions-old.jpeg" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Jul 31, 2018</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">in tensions: analysis 1</h2>
+          <p class="post-row-excerpt">These next few entries will unpack my new work,&nbsp;in tensions, a performance written for cello, dance, and electronics during the Cursus at IRCAM. It was premiered by Polina Streltsova (cello) and Marie Albert…</p>
+        </div>
+      </a>
+      <a class="post-row" href="duos-with-dancers-bonansea-and-papazoglou-part-2.html">
+        <div class="project-index-thumb">
+          <img src="../img/margarite.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Jun 23, 2018</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">Duos with dancers: Bonansea and Papazoglou, part 2</h2>
+          <p class="post-row-excerpt">This entry will wrap up my sessions with Bonansea and Papazoglou, concluding with some thoughts regarding social behavior theories in improvisation.Body scores:These next two sessions involved Margarite performing short…</p>
+        </div>
+      </a>
+      <a class="post-row" href="duos-with-dancers-bonansea-and-papazoglou-part-1.html">
+        <div class="project-index-thumb">
+          <img src="../img/christine.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Jun 21, 2018</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">Duos with dancers: Bonansea and Papazoglou, part 1</h2>
+          <p class="post-row-excerpt">These next two entries will go into detail regarding some recent sessions I’ve had with two dancers whom I greatly admire: Christine Bonansea and Margarite Papazoglou. I will discuss the premise and progression of each…</p>
+        </div>
+      </a>
+      <a class="post-row" href="first-workshop-etudes-for-dancer-and-musicians-part-3.html">
+        <div class="project-index-thumb">
+          <img src="../img/dance-etudes-2.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Jan 4, 2018</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">first workshop - etudes for dancer and musicians, part 3</h2>
+          <p class="post-row-excerpt">In the last article of this series, I’m going to present a fifth etude, along with an overall analysis what this all means..Broken LoopIn “Broken Loop”, each player independently picks three ideas to improvise on. The…</p>
+        </div>
+      </a>
+      <a class="post-row" href="first-workshop-etudes-for-dancer-and-musicians-part-2.html">
+        <div class="project-index-thumb">
+          <img src="../img/dance-etudes-1.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Dec 22, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">first workshop - etudes for dancer and musicians, part 2</h2>
+          <p class="post-row-excerpt">Hello there again!In this shorter article, I'll cover two more etudes. Unfortunately for the reader, one of them features the author "dancing" (Alice had to leave a bit early, so yours truly stepped in). It's…</p>
+        </div>
+      </a>
+      <a class="post-row" href="first-workshop-etudes-for-dancer-and-musicians-part-1.html">
+        <div class="project-index-thumb">
+          <img src="../img/dance-etudes-0.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Dec 16, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">first workshop - etudes for dancer and musicians, part 1</h2>
+          <p class="post-row-excerpt">Before starting, I should mention that the videos posted below are for pedagogical purposes only.IntroductionIn the recent weeks, I’ve been developing a series of improvised etudes scored for dancer and musicians. The…</p>
+        </div>
+      </a>
+      <a class="post-row" href="on-choreomusicology-and-performative-attention.html">
+        <div class="project-index-thumb">
+          <img src="../img/counter-projections-2.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Oct 30, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">on choreomusicology and performative attention</h2>
+          <p class="post-row-excerpt">Recently, I’ve been thinking about how musicians and dancers share performance spaces, and the environment that they create together. This obsession lead me to stumbled upon a new word during a google binge:…</p>
+        </div>
+      </a>
+      <a class="post-row" href="reflections-or-narcissistic-procrastination.html">
+        <div class="project-index-thumb">
+          <img src="../img/counter-projections-0.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Jul 26, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">reflections, or, narcissistic procrastination</h2>
+          <p class="post-row-excerpt">I sometimes evaluate my own work as an artifact of my past self. Composers sometimes joke that listening to old recordings of earlier pieces conjure up feelings similar to when we read adolescent diary entries. These…</p>
+        </div>
+      </a>
+      <a class="post-row" href="ironic-erratic-erotic-work-in-progress.html">
+        <div class="project-index-thumb">
+          <img src="../img/ironic-erratic-erotic.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Apr 20, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">ironic erratic erotic: work in progress</h2>
+          <p class="post-row-excerpt">In this entry, I'm going to dive further into my process for composing&nbsp;ironic erratic erotic. This project is in collaboration with 3 Berlin-based performers: dancer Yuri Shimaoka, bassist Adam Goodwin, and tubist…</p>
+        </div>
+      </a>
+      <a class="post-row" href="definedefile-working-methods-of-dancers-and-musicians.html">
+        <div class="project-index-thumb">
+          <img src="../img/mivospic.jpg" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Apr 12, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">define//defile: working methods of dancers and musicians</h2>
+          <p class="post-row-excerpt">In this entry, I'm going to go over&nbsp;DEFINE//DEFILE, a&nbsp;recent project of mine that will be premiered by the Mivos Quartet and dancer SanSan Kwan this Friday night in San Francisco.&nbsp;Click here for…</p>
+        </div>
+      </a>
+      <a class="post-row" href="music-amplifies-and-subverts-the-body.html">
+        <div class="project-index-thumb">
+          <img src="../img/humidgravity.jpg" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Apr 1, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">music amplifies and subverts the body</h2>
+          <p class="post-row-excerpt">In the summer of 2016, I attended the Darmstadt Summer Courses where I met Berlin-based English tubist Jack Adler-Mckean. We quickly became friends and I learned about Jack’s unique situation: he was the only tuba…</p>
+        </div>
+      </a>
+      <a class="post-row" href="a-little-background-part-3.html">
+        <div class="project-index-thumb">
+          <img src="../img/temescal-arts-center.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Apr 1, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">a little background - part 3</h2>
+          <p class="post-row-excerpt">Until last October, I hadn’t played viola solo in public for about 8 or 10 years. I had performed with orchestras and string quartets, but never alone. I had always thought of myself as a terrible player. I did not have…</p>
+        </div>
+      </a>
+      <a class="post-row" href="a-little-background-part-2.html">
+        <div class="project-index-thumb">
+          <img src="../img/naked-to-the-sky-screenshot.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Mar 30, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">a little background - part 2</h2>
+          <p class="post-row-excerpt">In 2015, I received a delightful email from Cheryl Duvall of Toronto’s Thin Edge New Music Collective. They were planning a collaboration with Rebecca Leonard’s contemporary circus company A Girl in the Sky…</p>
+        </div>
+      </a>
+      <a class="post-row" href="a-little-background-part-1.html">
+        <div class="project-index-thumb">
+          <img src="../img/humid-gravity-1.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Mar 28, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">a little background - part 1</h2>
+          <p class="post-row-excerpt">Warning: this post is a bit self-indulgent. I will review my collaborations with dancers in a musical context over the past three years and attempt to draw a thread from these to my current projects.My first project…</p>
+        </div>
+      </a>
+      <a class="post-row" href="collaboration-as-performance.html">
+        <div class="project-index-thumb">
+          <img src="../img/inner-senses.jpg" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Mar 27, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">collaboration as performance</h2>
+          <p class="post-row-excerpt">Two friends&nbsp;of mine (thanks Ilya and Brian) recently gave me the idea of blogging the compositional process. This is something that is common in other fields (programming, cooking, engineering, etc.), but is…</p>
+        </div>
+      </a>
+      <a class="post-row" href="movement-to-sound-multimodal-transcription.html">
+        <div class="project-index-thumb">
+          <img src="../img/eudiser-screencap.png" alt="Ritual is">
+        </div>
+        <div class="post-row-date">Mar 27, 2017</div>
+        <div class="post-row-body">
+          <h2 class="post-row-title">movement to sound: multimodal transcription</h2>
+          <p class="post-row-excerpt">All sound comes from some sort of movement, whether it’s a strong wind rustling leaves, your lips forming a word, or electrical current. As a musician who grew up playing viola in orchestras, I learned to interpret…</p>
+        </div>
+      </a>
+    </div>
+
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    <!---->
+    <span><a href="mailto:hello@artistname.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+</body>
+</html>

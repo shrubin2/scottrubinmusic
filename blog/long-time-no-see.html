@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Long time, no see — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/ricardo-jackson-park.jpg" alt="Long time, no see">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">Long time, no see</h1>
+    <p class="article-meta">June 8, 2024</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">Hey folks,</p><p dir="auto">I’ve decided to reboot this blog from six years ago. A lot has changed; some has stayed the same. I’m going to write a few posts about some solo performance work that I’ve created over the past two years.</p><p dir="auto"><br></p>
+    <img src="../img/ricardo-elastic-headshot.jpg">
+    <p dir="auto">Photo credit: Ricardo Adame</p><p dir="auto">Since my last post in 2018, I’ve finished my PhD and started a career as a UX designer-strategist. Given that I’ve ended my formal relationships with academic institutions and their resources, the focus of my work has shifted to do more with less. With a few exceptions, I don’t currently “write” much music for ensembles, but I’m more active with dancers and improvisers (sound-makers and movers). This work is less score-based and more relationship-based, and it’s also forced me to turn inward and examine my own personal artistic practices with regards to what I bring into these relationships.&nbsp;</p><p dir="auto">I’ve established myself in my hometown of Chicago as a collaborator on viola (acoustic and amplified), electronics, and motion-audio-triggered visuals, but I haven’t been initiating my own projects as much. I was happy to offer my talents to folks in the community doing their own projects, but honestly, I was tired of doing the administrative work associated with driving one’s own group projects. Anyways, there came a time where I wanted to bring all of my artistic practices together in an intimate solo space that I could control.&nbsp;</p><p dir="auto">What was I able to do as a self-contained solo performer? What ideas would I work with? What do I have to say or ask on stage? More soon.</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="in-tensions-analysis-4.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">in tensions: analysis 4</p>
+    </a>
+    <a class="post-nav-next" href="how-to-perform-solo-if-youre-shy.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">How to perform solo if you’re shy</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

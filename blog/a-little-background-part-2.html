@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>a little background - part 2 — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/naked-to-the-sky-screenshot.png" alt="a little background - part 2">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">a little background - part 2</h1>
+    <p class="article-meta">March 30, 2017</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">In 2015, I received a delightful email from Cheryl Duvall of Toronto’s 
+      <a href="https://www.thethinedgenewmusiccollective.com/">Thin Edge New Music Collective</a>. 
+      They were planning a collaboration with Rebecca Leonard’s contemporary circus company 
+      <a href="http://www.agirlinthesky.com/">A Girl in the Sky Productions</a>&nbsp;and choreographer 
+      Manu Cyr, and they asked me if I’d be interested in creating&nbsp;a piece with them scored 
+      for mixed quartet and circus performer. I said yes, and eventually we created 
+      <em>Naked to the Sky</em>. Usually when people propose projects to me, the gears in my head start 
+      spinning uncontrollably. However in this instance, my mind was blank for about 4 or 5 months. I 
+      couldn't navigate&nbsp;the logistics of&nbsp;integrating a circus performer with a chamber ensemble 
+      in a compelling way. Every time I thought about the project, Ringling Brothers came into my head…</p>
+      <p dir="auto">Let’s talk about notation for a moment.</p><p dir="auto">Most composers I know 
+        struggle a great deal with notation. The very act of writing down sound is bizarre. Converting 
+        a physical action to 2D graphic representation is absurd. It’s no wonder there’s no widespread 
+        codified dance notation.</p><p dir="auto">Most approaches to notation can be described on 
+        a spectrum&nbsp;with two main approaches: prescriptive and descriptive. Basically, are you telling 
+        a performer what action to take, or are you describing what the result of the action will be. 
+        These approaches are not mutually exclusive, though&nbsp;traditional western classical notation 
+        is usually descriptive. We read notes and rhythms on a page and move our bodies to produce them. 
+        While using traditional western classical notation, composers usually don’t write in trombone 
+        slide positions or how much bow to use while playing violin. This is usually implied.</p>
+        <p dir="auto"><br></p><img src="../img/ligeti-screenshot.png" alt="Ligeti's score">
+        <p dir="auto">Anybody want to name that tune ^^^ ?</p><p dir="auto">Graphic notation 
+          (what we tend to call notation that isn't traditional or text-based) is a strange bird. 
+          It can be prescriptive or descriptive (or both) depending on the composer’s intentions. 
+          Some come with instructions (Feldman’s <em>King of Denmark</em>)</p><p dir="auto"><br></p>
+          <img src="../img/feldman-screenshot.png" alt="Feldman's score">
+        <p dir="auto">while others don’t (Brown’s <em>December 1952</em>).</p><p dir="auto"><br></p>
+        <img src="../img/brown-screenshot.png" alt="Brown's score">
+        <p dir="auto">So, back to the project -- If the goal is to create a performance that integrates 
+        musicians and non-musical performers, you’d need a notation that unites both parties. 
+        I wanted the piece to include sections where the musicians&nbsp;actively interpret&nbsp;the 
+        circus artist and change their playing depending on his movements. This meant that the 
+        notation needed to be flexible, allowing the circus artist freedom to fully commit to the 
+        expressivity of the moment, and allowing the musicians integrate his movement in into their 
+        performance. I’ve copied a section of the score below.</p><img src="../img/naket-to-the-sky-score-sample.png" alt="Naked to the Sky score sample">
+        <p dir="auto">This section lasts 90 seconds and features a percussion solo. In the solo, 
+          I asked Nathan (the percussionist) to use specific objects to produce music that carries a 
+          particular character. I asked Louis (the circus artist) to interpret the percussionist with 
+          a few restraints. For the other three musicians, they are given a few techniques, but I’ve 
+          excluded any fixed rhythmic schemes or specific pitches. Instead, they’re simply asked to 
+          “mirror the articulation and gesture of the dancer”. Thus, the percussionist provides his 
+          own accompaniment through two layers of interpretation: </p><ol dir="auto"><li data-preset-tag="p">
+          <p>The circus artist interprets the percussionist (sound --&gt; movement)</p></li>
+          <li data-preset-tag="p"><p>The other three musicians interpret the circus artist 
+          (movement --&gt; sound)</p></li></ol><p dir="auto">We first piloted this experiment at the 
+          Avaloch Farm New Music Initiative, with yours truly faking (terribly) the part of the 
+          mover (clip for pedagogical purposes only).</p>
+          <iframe src="https://www.youtube.com/embed/kxVlZLLkPCg?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+          <p dir="auto">This was the first time I attempted an experiment like this, and I found results 
+            to be very compelling. The movements and the musicians' sounds became embedded in each other. 
+            The ensemble acted as a responsive extension of the mover’s body. Here’s Louis’s performance 
+            in Toronto this past November at our production,&nbsp;<a href="http://balancingontheedge.com/">Balancing on the Edge</a>:</p>
+              <iframe src="https://www.youtube.com/embed/yeIptvATmE0?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+              <p dir="auto">I guess I should speak about the live electronics.</p>
+              <p dir="auto">Along with creating an analogue connection between Louis and the musicians, 
+                we established a digital connection through the use of wireless motion sensors (2 iPods 
+                courtesy of the UC Berkeley Dance Department) strapped to Louis’s forearms using medical 
+                bandages. These sensors streamed gyroscope, acceleration, and magnetometer data in OSC 
+                packets over a wifi network to a MaxMSP patch on my computer in real time. Forgive my 
+                messy patching...</p><p dir="auto"><br></p><img src="../img/ntts-max.png" alt="Naked to the Sky Max patch">
+                <p dir="auto">The large box in the middle labeled SENSOR_1 takes in and monitors 
+                  the motion sensor data stream. In the patch, these numbers are scaled and mapped 
+                  to control digital signal processing parameters that manipulate the sound of the 
+                  live instruments. For instance, the orientation of the sensor on the x-axis might 
+                  control the center frequency of a band-pass filter in the violin's signal chain. 
+                  Usually, I map the rate of rotation (degrees per second) on the x-axis to the level 
+                  of the instrument's processed sound. This means that whenever Louis would twist his 
+                  forearms, we'd hear sound corresponding to the quickness of the twist. This metric 
+                  was very easy for him to control, and the sounds responded fairly reliably to his 
+                  movements. Of course, doing the opposite mapping (loud electronic sounds being wiped 
+                  away by silence triggered&nbsp;by quick&nbsp;movements) would also be interesting... 
+                  Anyways, these mappings change throughout the piece, thus creating a dynamic relationship 
+                  between Louis's movements and the electronic sound.</p><p dir="auto">Here's a clip of me 
+                    testing the patch using pre-recorded acoustic samples at the <a href="http://cnmat.berkeley.edu/">Center for New Music and Audio Technologies</a>&nbsp;(clip for 
+                    pedagogical purposes only).</p><iframe src="https://www.youtube.com/embed/rV6TlglsdPc?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe><p dir="auto">
+                      Thus, we've created analogue and digital connections between the movement and the sound. 
+                      Louis's movement affect how the players approach their instruments through a human-human 
+                      interaction, and they affect how the live acoustic sounds are sampled, processed, 
+                      and played back through a human-computer-interaction. 
+                      The specific rules&nbsp;of these relationships fluctuate as the piece progresses and 
+                      are controlled by presets in the maxpatch. Sometimes the performers' roles are embedded 
+                      with each other, and at other times they ignore each other. Sometimes the musicians' parts 
+                      are represented with squiggles and text, and sometimes they are notated traditionally.</p>
+                      <p dir="auto">I should add that I was fortunate enough to have the American premiere 
+                        of&nbsp;<em>Naked to the Sky</em> this past December at the University of California, 
+                        Berkeley, featuring&nbsp;dancer SanSan Kwan and the Eco Ensemble.</p>
+                        <iframe src="https://www.youtube.com/embed/yUHFu7Hrm3k?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                        <p dir="auto">Having another team&nbsp;(in another venue) interpret the work was an 
+                          enlightening experience. My initial premonition was that it'd be difficult to train 
+                          another ensemble of musicians to respond to a dancer, but this wasn't the case. 
+                          In fact this processes is pretty&nbsp;intuitive. Many musicians trained in classical 
+                          or jazz idioms have experience following a conductor, so following a dancer just takes 
+                          a more little creativity on the musician's part. Perhaps it was more difficult to 
+                          "train" the dancer to act as an initiating agent. Most dancers whom I've worked with 
+                          have never danced&nbsp;this sort of role, but after a few sessions of judgement-free 
+                          improvisation and a little bit of feedback from myself and the musicians, they grow 
+                          comfortable with it.</p><p dir="auto">I'd like to give a HUGE thanks&nbsp;Cheryl, 
+                            Rebecca, Ilana, Nathan, Chelsea, Louis, Manu, SanSan, Loren, Josh, Hrabba, and Myra 
+                            for bringing this project to life.</p>
+</div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="a-little-background-part-1.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">a little background - part 1</p>
+    </a>
+    <a class="post-nav-next" href="a-little-background-part-3.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">a little background - part 3</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

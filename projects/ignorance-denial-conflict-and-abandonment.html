@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ignorance, Denial, Conflict, and Abandonment — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .project-hero {
+      height: clamp(280px, 45vw, 520px);
+      background: var(--paper-dark);
+      overflow: hidden;
+      position: relative;
+    }
+    .project-hero img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .project-layout {
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 4rem;
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 3.5rem 2.5rem;
+      align-items: start;
+    }
+    .project-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+      display: block;
+    }
+    .project-body img {
+      width: 100%;
+      margin: 2rem 0;
+      display: block;
+    }
+    .project-body p {
+      font-size: 16px;
+      line-height: 1.75;
+      margin-bottom: 1.25rem;
+    }
+    .project-body em {
+      font-style: italic;
+    }
+    .project-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .project-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .project-sidebar-block {
+      border-top: 1px solid var(--rule);
+      padding-top: 1.25rem;
+      margin-bottom: 1.75rem;
+    }
+    .project-sidebar-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .project-sidebar-value {
+      font-size: 14px;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+    .project-nav {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .project-nav-link {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .project-nav-link:hover { background: var(--paper-dark); }
+    .project-nav-link.next { text-align: right; }
+    .pnl-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+    .pnl-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 800px) {
+      .project-layout { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 1.25rem; }
+      .project-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+
+  </style>
+</head>
+<body class="page-body">
+  <script src="../js/nav.js"></script>
+
+  <div class="project-hero">
+    <img src="../img/ignorance.png" alt="Ignorance, Denial, Conflict, and Abandonment">
+  </div>
+
+  <a class="back-link" href="index.html">← All Projects</a>
+
+  <div class="project-layout">
+
+    <article class="project-body">
+      <h1 class="article-title">Ignorance, Denial, Conflict, and Abandonment</h1>
+      <p class="article-meta" style="margin-bottom:2.5rem;">for piano, violin, and cello</p>
+
+      <p dir="auto">A former teacher once told me that good art will sometimes “mis en danger les idées” -- put ideas in danger. When Kelly, Dan, and Cacie asked me to contribute to their "Composing the Climate" project, it seemed like a good opportunity to explore this notion.</p><p dir="auto">Climate change is the backdrop of 21st-century human civilization. It’s a human-caused world-wide event whose consequences are more complex than what we will ever be able to fully comprehend. We can argue about personal responsibility versus corporate and government operations, but essentially, the scale of modern human consumption habits are incompatible with our wellbeing on Earth. This will create conditions for widespread suffering. &lt;br&gt;&lt;br&gt;</p><p dir="auto">We won’t solve climate change with music. However, we will try to make this room a little more vibrant. We will connect with humanity; acknowledge its virtues and failures.</p><p dir="auto">Some of the sounds in this performance are written down, and some of them will result from the performers’ decision making. They are asked to meditate on past, present, and future eras of humanity. In these musical meditations, they will focus on the collaborative efforts of their musicality. How are they interacting together? What sort of decisions are they making? When things get difficult and uncomfortable, how will they behave?</p><p dir="auto">As in the course of our daily lives, doing art involves making many choices in the backdrop of culture. Are we acting in the best interests of ourselves and our communities? Are we acting in the best interests of the poor and underserved? Are we comfortable with the status quo? Are we being selfish and short-sighted? How do all of these decisions appear to folks around us? Are they elegant? Are they sloppy? Are they righteous? Do these decisions set us on a sustainable path forward, or rather something more precarious?</p><p dir="auto">Commissioned by Missing Piece with funding from the Illinois Arts Council. Dedicated to Kelly Quesada, Dan Galat, and Cacie Miller.</p>
+    </article>
+
+    <aside>
+      <div class="project-sidebar-block">
+        <p class="project-sidebar-label">Year</p>
+        <p class="project-sidebar-value">2024</p>
+      </div>
+      <div class="project-sidebar-block">
+        <p class="project-sidebar-label">Medium</p>
+        <p class="project-sidebar-value">for piano, violin, and cello</p>
+      </div>
+      <div class="project-sidebar-block">
+        <p class="project-sidebar-label">Artists</p>
+        <p class="project-sidebar-value">with Missing Piece and Cacie Miller</p>
+      </div>
+    </aside>
+
+  </div>
+
+  <div class="project-nav">
+    <a class="project-nav-link prev" href="digital-hands.html">
+      <p class="pnl-dir">← Previous</p>
+      <p class="pnl-title">Digital Hands</p>
+    </a>
+    <a class="project-nav-link next" href="wonder-turner.html">
+      <p class="pnl-dir">Next →</p>
+      <p class="pnl-title">Wonder Turner</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+</body>
+</html>

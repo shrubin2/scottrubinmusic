@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>in tensions: analysis 1 — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/in-tensions-old.jpeg" alt="in tensions: analysis 1">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">in tensions: analysis 1</h1>
+    <p class="article-meta">July 31, 2018</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">These next few entries will unpack my new work,&nbsp;<em>in tensions</em>, a performance written for cello, dance, and 
+      electronics during the Cursus at IRCAM. It was premiered by Polina Streltsova (cello) and Marie Albert (dance) on June 16th in Salle 
+      400 at le Centquatre during Manifeste in Paris. In the analysis, I will go through my initial goals, collaborative methods, the work’s 
+      material, and the incorporation of technology for each of the work’s 4 sections.</p><p dir="auto">To frame the situation a bit: I moved 
+      to Paris this past August to do the Cursus at Ircam, and I knew that I would have advantages there that most composers dream of: 
+      open access to state-of-the-art studios, a building full of supportive artists, engineers, and scientists hosting a gargantuan base 
+      of knowledge and history, and an wealth of technical support both in and outside the performance space. Furthermore, the faculty-composer 
+      was Thierry de Mey, a multimedia artist and composer with extensive collaborative relationships with numerous choreographers.</p>
+      <p dir="auto">Upon arriving at Ircam, I already knew the performance situation I wanted to create for the final concert: an interdisciplinary 
+        work for dancer and cellist. Having worked steadily to integrate musicians and dancers together into performance spaces since 2014, 
+        I’ve developed an artistic value system that I stubbornly wanted to implement: collaborative workshop sessions to create rapport between 
+        the performers, improvisation-based material that the performers naturally embody over time, performers that traverse the boundaries of 
+        what they’re traditionally expected to do, and no music stands on stage during the show.</p><p dir="auto">Now that I’ve mentioned music 
+          stands, let’s take a quick moment to talk about the score. Given that most dancers do not read choreography during performance, my goal 
+          with the score was to make it memorizable (and unnecessary) &nbsp;for both performers. Therefore, I viewed this document as a tool 
+          for creation and internalization of the material. I wanted to make it an artifact/byproduct of the collaboration, not the finality. 
+          Its design was meant to facilitate its function: to be studied <em>out of time</em>, not to be read/performed form <em>in real time</em>; 
+          to aid the performers’ memory by working through aural transmission. Thus, the score makes frequent references to supplementary video 
+          recordings. These recordings were captured during the workshop process and demonstrate performative behaviors.</p>
+          <p dir="auto"><em>Behavior</em> is a word that I use to refer to the general conduct of the performers. For instance, you can instruct 
+            someone to behave in a deceptive manner without giving them explicit things to say, thus providing a system of limited flexibility 
+            while granting the person agency to choose the best action in a given moment and situation. Behaviors in this piece are governed by 
+            sets of rules permitting a limited system of actions, and I would rather show performers these rules than tell them. Through 
+            referencing videos in the scores, performers can infer their own low-level rules (pitches, rhythms, quality and geometry of movement) 
+            from an analysis of high-level behavior descriptors (move as if your spinal column is made of concrete). Since the majority of the 
+            piece does not make heavy use of non-flexible acoustic sound/movement sequences, I believe this communication method is effective 
+            for this specific situation.</p><p dir="auto">Moving onto the actual concert, I wanted more control over the performance ritual in 
+              general. In other words, I didn’t want the musicians to enter the stage smiling at the applauding audience under full lights. Rather, 
+              I wanted a more theatrical approach: the artists enter already character. By the time the audience sees them, the performance 
+              has already begun. In fact, the performers only acknowledge the audience after the performance has finished. The performers are 
+              to be perceived as if they’re behaving in the privacy of their own homes, uninhibited by social norms. They do not acknowledge 
+              that they are giving a public performance, or that the performance even exists. It’s simply behavior - as if the audience is gazing 
+              at an aquarium, with the fish inside being unaware of their global environment.</p><p dir="auto">Artistically, I wanted to make a 
+                performance about relationships: those between the performers themselves, their individual and collective wills and desires, and 
+                their environments. When we typically hear music, we tend to focus on the sound that the performer makes. I was interested in 
+                developing the performers as characters who behave in a way that produce sound and movement, where these are the byproduct of 
+                physical and psychological behavior, not the default goal of a situation. Methodically, I wanted to create material that was 
+                an extension of my own improvisational practices with dancers - mixing different approaches to improvisation, different systems 
+                and logic of interaction, and really sculpt the relationships between the performers’ characters.</p><p dir="auto">My first step 
+                  to creating a rapport with the performers was to lead them through some breathing exercises. As basic as this may sound, it 
+                  makes a huge difference. First, I instruct the performers to face each other, sitting, with no instruments, and to breathe 
+                  in unison, carefully considering the rhythm and quality of the breath. There is no leader or follower, and they much synchronize 
+                  in real time. After a few minutes of this, the next phase is to improvise counterpoint using the same parameters. Finally, 
+                  I ask them to mix the unison and counterpoint. At this point, the performers have usually caught on and are creatively 
+                  exploring the concept. The next step is to repeat this sequence, however the cellist is allowed to use her bow and the 
+                  C-string as an extension of her breath, and the dancer is allowed to use one entire arm to do the same.</p>
+                  <p dir="auto">Eventually, we open the exercise to more technical possibilities, but I find that it is still best to restrict 
+                    performance techniques while exploring this concept. It’s simpler to be creative in this exercise if you don’t 
+                    have to decide <em>what</em> to do, but rather only <em>how</em>.</p><p dir="auto">In the end, we focused these restrictions 
+                      on 3 dynamic techniques/behaviors for each performer which develop over a given duration. The goal is not that the 
+                      performers copy each other or switch techniques at the same time, but respond to how the other is behaving, not what 
+                      they’re doing. They use these these behaviors independently to create counterpoint, to bounce ideas back and forth, 
+                      and to contextualize each other’s actions. This exercise became the foundation for the first section of the piece.</p>
+                      <p dir="auto"><br></p><img src="../img/in-tensions-old.jpeg">
+                      <p dir="auto">This section is organized into 5 scenes, and the score prescribes the approximate relative amount of each 
+                        technique the performer should play and how these techniques are mixed for each scene. These techniques are documented 
+                        in short video clips that future performers would study and mimic. These scenes are broken up by choreographed 
+                        interruptions signaled by soundfiles - which bring me to my next point:</p><p dir="auto">What is the relationship 
+                          between the performers and the performance space? How is psychological space different from physical space? When 
+                          we go to a concert, we assume the performers believe they’re in a concert hall. However, during operas or theatrical 
+                          productions, we know that the performer’s characters believe they’re somewhere else; somewhere with a different 
+                          set of rules and possibilities. In my goal of approaching a more theatrical environment, I wanted to construct a 
+                          situation where the audience would ask themselves: Do the performers know that they’re in a performance? That 
+                          there’s an audience? Where are the performers psychologically? What are the rules of their psychological space 
+                          and how do they function inside of it. Are the performers aware of each other? Are they in the same space? What 
+                          is the relationship between them?</p>
+                          <p dir="auto"><em>a new universe</em> <em>do they know us</em> <em>a tension, an omnipresence a system, flowing</em></p>
+                          <iframe src="https://www.youtube.com/embed/6PVBuPrA0pA?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                          <p dir="auto">The performers enter the space separately and do not acknowledge each other’s existence. 
+                            They each sit on an angle as not to directly face the audience. From the audience’s perspective, it can seem that each performer is it their own psychological space. We can sense a connection between the performers in their improvised interactions, but we’re not certain of the exact nature of this relationship. The interruptions signal that they share a larger encompassing space that imposes certain rules at given times, though we’re still not certain if the performs themselves have a personal relationship. Think of it like this, everyone in a town pays taxes at a certain time, though they might not know each other. Finally, at the third interruption, the performers finally look at each other, establish a psychological connection, and we move on to the second section.</p><p dir="auto">The electronics for this section start in the brief introduction. Under darkness, the audience hears a beeping sound followed by a drone, signalling the beginning of the piece. The performers enter during this drone and calmly sit down. After the cellist sits, the dancer gestures and the drone is cut. This “mickey-mouse” relationship is shown for a brief instant to let the audience link the dancer’s actions to the electronic sound, though this relationship is almost immediately subverted. In this work, I wanted to constantly change the relationship between the dancer (who is visibly wearing motion sensors) to the electronic sound. If the relationship is too constant, it will simply become banal. If the relationship is constantly orthogonal, the audience will cease to be interested. However, if it’s constantly fluctuating around the thresholds of perception, the audience will continuously update their understanding of the relationship.</p><p dir="auto">The electronics in the first section use a motion sensor technique that I’ve been working with for a number of years. Simply put, the dancer’s data is configured to drive granulators that reshape sound samples that are held in a memory buffers. However, as a matter of reassurance, rather than filling the buffers with live acoustic sound, this piece uses clean cello recordings along with some more <em>concrète</em> samples.</p><p dir="auto">Each scene during this section uses 6 dynamically-configured sensor-driven granulators, each sampling a different buffer. These granulators are then paired and mixed with a MIDI controller which I play live to create improvised counterpoint with the other performers.</p><p dir="auto">The next entries will continue this analysis.</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="duos-with-dancers-bonansea-and-papazoglou-part-2.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">Duos with dancers: Bonansea and Papazoglou, part 2</p>
+    </a>
+    <a class="post-nav-next" href="in-tensions-analysis-2.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">in tensions: analysis 2</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

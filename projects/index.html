@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .project-list {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 230px 60px 1fr 24px;
+      align-items: center;
+      gap: 1.75rem;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
+      transition: background 0.15s;
+      text-decoration: none;
+      color: inherit;
+    }
+    .project-row:first-child { border-top: 1px solid var(--rule); }
+    .project-row:hover { background: var(--paper-dark); }
+    .project-row:hover .pi-arrow { color: var(--accent); transform: translateX(4px); }
+
+    .pi-thumb {
+      width: 200px;
+      height: 140px;
+      background: var(--paper-dark);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .pi-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+      transition: opacity 0.2s;
+    }
+    .project-row:hover .pi-thumb img { opacity: 1; }
+
+    .pi-year {
+      font-size: 16px;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pi-info {
+      min-width: 0;
+    }
+
+    .pi-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      line-height: 1.25;
+      margin-bottom: 0.2rem;
+    }
+
+    .pi-medium {
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.4;
+    }
+
+    .pi-artists {
+      display: block;
+      font-size: 16px;
+      color: var(--muted);
+      margin-top: 0.15rem;
+      font-style: italic;
+    }
+
+    .pi-arrow {
+      font-size: 16px;
+      color: var(--rule);
+      transition: color 0.15s, transform 0.15s;
+      justify-self: end;
+    }
+
+    @media (max-width: 600px) {
+      .project-row {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+        padding: 1rem 1.25rem;
+      }
+      .pi-thumb { width: 100%; height: 100%; }
+      /*.pi-year { display: none; }*/
+    }
+  </style>
+</head>
+<body class="page-body">
+  <script src="../js/nav.js"></script>
+
+  <div class="page-header">
+    <h1>Projects</h1>
+  </div>
+
+  <div class="project-list">
+
+    <a class="project-row" href="ritual-is.html">
+      <div class="pi-thumb">
+        <img src="../img/ritual-is-screenshot.png" alt="Ritual is">
+      </div>
+      <div class="pi-year">2025</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Ritual is</h2>
+        <p class="pi-medium">for movement artist, viola, and live audio-visual electronics</p>
+        <span class="pi-artists">with Tuli Bera</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="wonder-turner.html">
+      <div class="pi-thumb">
+        <img src="../img/wonder-turner-screenshot.png" alt="Wonder Turner">
+      </div>
+      <div class="pi-year">2025</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Wonder Turner</h2>
+        <p class="pi-medium">for movement artist, viola, cello, and live audio-visual electronics</p>
+        <span class="pi-artists">with Cristal Sabbagh and olula negre</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="ignorance-denial-conflict-and-abandonment.html">
+      <div class="pi-thumb">
+        <img src="../img/ignorance.png" alt="Ignorance, Denial, Conflict, and Abandonment">
+      </div>
+      <div class="pi-year">2024</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Ignorance, Denial, Conflict, and Abandonment</h2>
+        <p class="pi-medium">for piano, violin, and cello</p>
+        <span class="pi-artists">with Missing Piece and Cacie Miller</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="digital-hands.html">
+      <div class="pi-thumb">
+        <img src="../img/mask-elastic.jpeg" alt="Digital Hands">
+      </div>
+      <div class="pi-year">2024</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Digital Hands</h2>
+        <p class="pi-medium">for masked solo performer and live audio-visual electronics</p>
+        
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="seems-like-a-portal.html">
+      <div class="pi-thumb">
+        <img src="../img/slap.jpg" alt="Seems Like a Portal">
+        " alt="Seems Like a Portal">
+      </div>
+      <div class="pi-year">2023</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Seems Like a Portal</h2>
+        <p class="pi-medium">Opera for dancer, 4 musicians, and live audio-visual electronics</p>
+        <span class="pi-artists">with Christine Saulut and Between Feathers Ensemble</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="solo-set.html">
+      <div class="pi-thumb">
+        <img src="../img/solo-set.png" alt="Solo Set">
+      </div>
+      <div class="pi-year">2022</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Solo Set</h2>
+        <p class="pi-medium">for solo viola and live audio-visual electronics</p>
+        
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="finding-common-time.html">
+      <div class="pi-thumb">
+        <img src="../img/rin-elastic-1.jpg" alt="Finding Common Time">
+      </div>
+      <div class="pi-year">2022</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Finding Common Time</h2>
+        <p class="pi-medium">for 2 performers</p>
+        <span class="pi-artists">with Rin Peisert</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="fuzzy-electric-ocean.html">
+      <div class="pi-thumb">
+        <img src="../img/fuzzy-electric-ocean.png" alt="Fuzzy Electric Ocean">
+      </div>
+      <div class="pi-year">2021</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Fuzzy Electric Ocean</h2>
+        <p class="pi-medium">2-channel acousmatic</p>
+        
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="sow-async.html">
+      <div class="pi-thumb">
+        <img src="../img/sow-async.png" alt="Sowing Asynchronicities">
+      </div>
+      <div class="pi-year">2021</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Sowing Asynchronicities</h2>
+        <p class="pi-medium">film with movement, dance, and live drawing</p>
+        <span class="pi-artists">with Cristal Sabbagh and olula negre</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="dances-and-meditations.html">
+      <div class="pi-thumb">
+        <img src="../img/dances-and-meditations.jpg" alt="Dances and Meditations">
+      </div>
+      <div class="pi-year">2020</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Dances and Meditations</h2>
+        <p class="pi-medium">2-channel acousmatic</p>
+        
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="for-the-performers.html">
+      <div class="pi-thumb">
+        <img src="../img/for-the-performers.png" alt="for the performers">
+      </div>
+      <div class="pi-year">2019</div>
+      <div class="pi-info">
+        <h2 class="pi-title">for the performers</h2>
+        <p class="pi-medium">for 2 dancers and 3 musicians</p>
+        <span class="pi-artists">for Catchpenny Ensemble, Yuri Shimaoka, and Tatiana Matveeva</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="bdynse.html">
+      <div class="pi-thumb">
+        <img src="../img/bdynse.jpg" alt="bdynse">
+      </div>
+      <div class="pi-year">2019</div>
+      <div class="pi-info">
+        <h2 class="pi-title">bdynse</h2>
+        <p class="pi-medium">for dancer, technician, and live audio-visual environment</p>
+        <span class="pi-artists">with Jubilee Tai</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="in-tensions.html">
+      <div class="pi-thumb">
+        <img src="../img/intensions-still.jpeg" alt="in tensions">
+      </div>
+      <div class="pi-year">2018</div>
+      <div class="pi-info">
+        <h2 class="pi-title">in tensions</h2>
+        <p class="pi-medium">for cello, dancer, and live electronics</p>
+        <span class="pi-artists">for Polina Streltsova and Marie Albert</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="ironic-erratic-erotic.html">
+      <div class="pi-thumb">
+        <img src="../img/ironic-erratic-erotic.png" alt="ironic erratic erotic">
+      </div>
+      <div class="pi-year">2017</div>
+      <div class="pi-info">
+        <h2 class="pi-title">ironic erratic erotic</h2>
+        <p class="pi-medium">for dancer, tuba, and contrabass</p>
+        <span class="pi-artists">Yuri Shimaoka, Jack Adler-McKean, and Adam Goodwin</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="kerosene-palace.html">
+      <div class="pi-thumb">
+        <img src="../img/kerosene-palace.jpg" alt="Kerosene Palace">
+      </div>
+      <div class="pi-year">2017</div>
+      <div class="pi-info">
+        <h2 class="pi-title">Kerosene Palace</h2>
+        <p class="pi-medium">for orchestra and electronics</p>
+        <span class="pi-artists">University of California, Berkeley Symphony Orchestra</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="senses.html">
+      <div class="pi-thumb">
+        <img src="../img/senses-ii-cnm.png" alt="senses">
+      </div>
+      <div class="pi-year">2016</div>
+      <div class="pi-info">
+        <h2 class="pi-title">senses</h2>
+        <p class="pi-medium">ongoing project for improvisors and motion-sensitive live electronics</p>
+        
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+    <a class="project-row" href="the-torn-cubist.html">
+      <div class="pi-thumb">
+        <img src="../img/the-torn-cubist.png" alt="the Torn Cubist">
+      </div>
+      <div class="pi-year">2013</div>
+      <div class="pi-info">
+        <h2 class="pi-title">the Torn Cubist</h2>
+        <p class="pi-medium">for violin, cello, flute, clarinet, and piano</p>
+        <span class="pi-artists">for Ensemble Paramirabo</span>
+      </div>
+      <div class="pi-arrow">→</div>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    <!---->
+    <span><a href="mailto:hello@artistname.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+</body>
+</html>

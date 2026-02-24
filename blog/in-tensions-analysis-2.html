@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>in tensions: analysis 2 — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/in-tensions-side-by-side.jpg" alt="in tensions: analysis 2">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">in tensions: analysis 2</h1>
+    <p class="article-meta">August 2, 2018</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">This entry digs into the second section of the work... when we left off, the first section of the work ends at the moment where the performers make eye contact for the first time, acknowledging each other’s existence, joining each other’s spaces. In the second section, the dancer walks behind the cellist and they create a physical connection.</p><p dir="auto">My idea for this section was to create a power dynamic that gradually dissolves. Though it begins with the dancer manipulating the cellist’s body, the three entities (dancer, cellist, cello) soon merge into one undulating form, producing a multidirectional flow of energy.</p><p dir="auto">While the first section focused on the performers individuals and semi-related worlds of each one, the second section presents them together in a more private situation. They are not performing for anybody, only themselves and each other.</p><p dir="auto"><em>into intimacy / privacy / struggle / hierarchy an energy, intentions flowing through bodies / objects a system, melting into the void</em></p><p dir="auto"><br></p><img src="../img/in-tensions-side-by-side.JPG"><p dir="auto">So the question here is how to control musical material if the musician who is supposed to be creating it is interacting physically with a dancer. My solution for this was to try to create a complex musical texture using very simple technical demands indicated with a text score. I tuned the C-string of the cello down an octave, to the point where slight variations in how the performer articulates with the bow have a abnormally large effect on the pitch and timbre of the open string, effectively magnifying the mapping between the physical gesture and the resulting sound. The cellist here uses a wide array of sequenced techniques to activate the string, working to form a physical medium between the dancer and the cello. The dancer’s energy is transferred to the instrument, and the instrument’s physical requirements for sound production are transferred back to the dancer. The music here is not for music sake, but a compelling byproduct of an intense physical interaction. Take a look:</p><iframe src="https://www.youtube.com/embed/6PVBuPrA0pA?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe><p dir="auto">Balancing the physical and musical nature of this section was difficult because of how intertwined the two were. Normally, musicians are very conscious of their movements, and they train to move in certain ways which produce the best sound for the given situation. Disrupting this unexpectedly can cause massive discomfort and insecurity for the musician - and at what cost? Can musicians achieve produce a compelling performance while their bodies are being manipulated by another actor? I’ve never explored this sort of interaction before in a written piece. In my work as an improviser, I’ve interacted physically with dancers while playing my viola, but I had not tried to incorporate these relationships into composed music. Exploring this idea with Polina and Marie required a lot of time and trust as we worked to simultaneously create beautiful choreography and provoking musical performance.</p><p dir="auto">It was important in this section to fix the form so that the performers know how to interact and when. Since intense physical interaction was involved, I wanted to performers to be confident in their knowledge of the moment-to-moment action that there would be involved in. Thus, this section is a simple A-A’ form - basically, a sequence that is repeated in a more compressed form. This sequence can be broken up into 3 phases for the cellist: 1) long col legno tratto gestures, 2) the addition of rapid left-hand percussive tapping on the fingerboard, and 3) more erratic col legno battuto gestures. For the dancer, she starts with her left hand on the cellist head, and her right hand on the cellist’s bow arm. She begins with a direct action that gets directly translated into the cellist’s bow. However, this action-reaction relationships quickly becomes blurred. The cellist’s rapid left-hand movements are transferred into the dancer’s body and she shifts around the cellist; the figures becoming one dynamic wiggling mesh.</p><p dir="auto">The electronics here work similarly to the arrangement in section 1, with the addition of some subtle delay and reverb on the cello to thicken its sound. The motion sensors are configured to produce similar sounds throughout the section, gradually building tension with the soundfiles.</p><p dir="auto">à plus...</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="in-tensions-analysis-1.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">in tensions: analysis 1</p>
+    </a>
+    <a class="post-nav-next" href="in-tensions-analysis-3.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">in tensions: analysis 3</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

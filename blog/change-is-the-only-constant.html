@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Change is the Only Constant — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/digital-hands-still-2.jpg" alt="Change is the Only Constant">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">Change is the Only Constant</h1>
+    <p class="article-meta">June 21, 2024</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">Sometimes when you start a project, its nature changes a million times before the performance.</p>
+    <p dir="auto">In Spring 2023, I felt the need to change my artistic practice. I had been working with motion sensor chips and dancers 
+      and musicians for a while, following similar patterns and formulas, and I needed a shift in perspective. Having just come back 
+      from a tour in Austria, visual art was fresh on my mind, and I wanted to explore relationships between 2D visual-art-making and sound.</p>
+      <p dir="auto">How could I translate the act of making 2D visual art to sound? Contact microphones on canvas that pick up the artist’s 
+        actions? Overhead camera tracking the hand of the artist and the resulting lines and colors?</p><p dir="auto">My first instinct 
+          was to talk to artists. I got in contact with saxophonist and visual artist Christopher Moore and we started having sessions 
+          together in my studio. I reached out to Christopher because he’s a brilliant improviser and visual artist. The idea was that 
+          he’d be the visual artist-sound creator, and I’d be the computer operator.</p><p dir="auto">For these sessions, I taped a piece 
+            of paper to a hard surface, attached a contact mic to the middle of the paper, and ran the mic into a MaxMSP patch. I put an 
+            amplitude listener on the mic level and fed it into some virtual instrument models. The idea behind this flow was that the 
+            gesture of the artist’s tool on the paper would trigger an electronic virtual instrument, and that gestures that were more 
+            dramatic or closer to the microphone would produce a larger sound. For virtual instruments, I used the Modalys library in MaxMSP 
+            to create virtual strings, pipes, and membranes. Here's a sample:</p>
+            <iframe src="https://www.youtube.com/embed/aP5P-0TnN5c?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+            <p dir="auto">For visuals, I envisioned a situation where there’d be a camera above the canvas that would capture the artist’s 
+              hand and their work. The data from the artist’s hand position would be used somehow in the sound.</p>
+              <iframe src="https://www.youtube.com/embed/mo6cQDaT9BY?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+              <p dir="auto">Additionally, this scene would be projected into the space. Similar to my viola solo, I’d want to use the sound 
+                generated by the scene to distort the projections. But first:</p><h2 dir="auto"><h2>Theatrical Concerns</h2>
+                <ol dir="auto"><li data-preset-tag="p"><p>Is watching someone paint interesting? What is the process behind making 2D art? 
+                  How much time does 2D art making take? What size canvas do artists work with? What would have to be true for the process 
+                  of painting to be captivating as a performance?</p></li><li data-preset-tag="p"><p>With the performer authoring both the 
+                    painting AND the sound, is it too much for one person? Will the performer end up compromising the quality of one for the other?</p></li>
+                    <li data-preset-tag="p"><p>Similar to the previous project described in this series, would this situation need framing and 
+                      dramaturgy? Is the premise alone enough?</p></li></ol><h2 dir="auto">Technological Concerns</h2>
+                      <ol dir="auto"><li data-preset-tag="p"><p>Music is a time-based art where each moment is liminal. Live painting has 
+                        time-based elements, but the residue of the artist’s actions is more or less permanent on the canvas. Regarding the 
+                        notion of the computer “seeing” what the artist is doing, should the computer acknowledge the entire work, or just 
+                        whatever is most “new” while forgetting what has already happened?</p></li><li data-preset-tag="p"><p>What should 
+                          the computer track and how? The artist’s hand? The artist’s creation? How should I configure Isadora’s blob tracking 
+                          feature? Does the artist’s hand need to be a specific color?</p></li><li data-preset-tag="p">
+                            <p>Is it ethical to distort an artist’s drawing with a computer while it's being drawn?</p></li></ol><h2 dir="auto">
+                              Change is the Only Constant</h2><p dir="auto">With these questions in mind, I built the instrument, 
+                                and we played around with it. Every time Christopher came over, our ideas would change. What if the canvas was 
+                                metal? Or wood? What if we used charcoal? Or Pastel?</p><p dir="auto">After several weeks, Christopher said 
+                                  that it was too much to author both the visual art and sound at the same time. If you concentrate too much 
+                                  on the art, the sound suffers, and vice versa.</p><p dir="auto">He told me about his Reiki practices, about 
+                                    moving energy with his hands. We decided to replace the canvas with a mirror. I attached the contact mic 
+                                    to the mirror, which would sit on Christopher’s lap. The mic would pick up his contact with the mirror, 
+                                    and the camera would pick up the position of his hands and their reflection in the mirror. Christopher 
+                                    would then use his hands to "sculpt" the sound. Here's how it looked in the room.</p>
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Q-0SV3PJaDo?si=dze_VkkM9-JisGcC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>                                    
+                                    <p dir="auto">And here's how it looked on the screen:</p><p dir="auto">
+                                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Q-0SV3PJaDo?si=dze_VkkM9-JisGcC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                                    <p dir="auto">That's enough for now, more later.</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="fade-everything-out-break-character-and-nod.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">Fade everything out, break character, and nod</p>
+    </a>
+    <a class="post-nav-next" href="how-to-control-a-computer-without-touching-it.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">How to Control a Computer Without Touching It</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

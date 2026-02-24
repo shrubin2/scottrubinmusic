@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Duos with dancers: Bonansea and Papazoglou, part 1 — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/christine.png" alt="Duos with dancers: Bonansea and Papazoglou, part 1">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">Duos with dancers: Bonansea and Papazoglou, part 1</h1>
+    <p class="article-meta">June 21, 2018</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">These next two entries will go into detail regarding some recent sessions I’ve had with two dancers whom I greatly admire: <a href="http://www.christinebonansea.com/">Christine Bonansea</a> and Margarite Papazoglou. I will discuss the premise and progression of each session, as well as some meanderings about improvising/performing with technology, and briefly outline some future developments.</p><p dir="auto"><strong>Christine Bonansea</strong> is a French dancer based in NYC and Berlin. Our first time working together was in 2016 when we performed <em>Sonic Body Series #9</em> at CNMAT at University of California, Berkeley. On March 17, we met at IRCAM for a session. If you’ve ever seen one of Christine’s performances, you know she’s intense. Her dancing can be described as having an intense focus, uncanny energy, and unhinged demonic character. It’s no surprise that we clicked instantly.</p><p dir="auto">I taped two Bitalino RioT sensors to Christine, one on each arm. For amplification, I played into a condenser microphone placed on a microphone stand next to me. Her data and my acoustic sound was streamed into my maxmsp patch, which I’ve discussed before somewhere in this blog. Long story short, the patch continuously records (and overwrites) the last 5-to-7 seconds of my acoustic sound into buffers. The motion data is configured to control how several granulators (nod to <a href="http://www.ramagottfried.com/">Rama Gottfried</a>) sample the buffers and reshape the acoustic sound in real time, creating multiple layers of electronic sound which conceptually marry the performers in the digital realm. However, this machine has a certain degree of randomness built into the method in which it selects the configuration, and this randomness gives the patch an element of limited autonomy, or stubbornness, depending on how you look at it. This feature was designed so that the patch is able to function in a variety of ways without intervention from the performer(s) so that they are free to fully engage in the other human performers and not look at a screen.</p><p dir="auto">Back to Christine’s session: we did not discuss a premise or a goal prior to turning on the microphones, but rather continued our previous work in freely exploring time and interaction. However, these non-verbal assumptions still come with consequences. For example, my microphone setup required me to stand stationary to insure that my sound would be properly received by the computer. This limited our geographical/geometrical freedom as performers - could be a feature or a bug depending on your perspective. Here’s the tape of one of our sessions:</p><iframe src="https://www.youtube.com/embed/vL_DUHdVaf0?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe><p dir="auto"><strong>Margarite Papazoglou</strong>&nbsp;is a Greek dancer based in Paris, and we met on June 8 in a dance studio in Paris's 15th arrondissment. Our approach in this session was a bit different, with the primary reason being that the dance studio didn’t have a microphone stand. Thus, I constructed a makeshift mount using a fold-up chair and punching bags. Knowing this would look terrible on camera, I turned the gain on the microphone a bit higher than usual so that I could step further away from it. This decision, which was seemingly adaptive in nature, afforded me more freedom of movement. This allowed us to explore different spatial interactions, and I felt that this freedom&nbsp; opened up our imaginations a bit more. We recorded 4 distinct sessions, each with a different premise, creating a different situation.</p><p dir="auto"><strong>Free duo:</strong></p><p dir="auto">At the title states, we freely explored the space without any restrictions. This session was a bit longer, so pardon if some parts seem to drag on a bit. Our aim here was to capture a long uninterrupted flow of ideas, accompanied by shifting geometries and visual/spatial perspectives, which resulted in different interactions and interpretations:</p><iframe src="https://www.youtube.com/embed/dw8hWXjRDfQ?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe><p dir="auto"><strong>Floor duo</strong> <strong>(or, Viola 4-hands):</strong></p><p dir="auto">Margarite wins the award for being the only dancer who has asked to play my instrument. This happened back when we played with Tristan Macé for the first time: her and I traded roles, thus making me the dancer. Luckily, there’s no video evidence of this... Thus, during this current session, I placed my instrument on the floor between us, in front of the microphone, and it became a shared object that we could explore together, again with help from the motion sensors, which Margarite wore on her arms. This was the first time that someone had played my viola at the same time as me:</p><iframe src="https://www.youtube.com/embed/yEOaGILvsT8?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe><p dir="auto">That's all for this entry. Look out for part 2 coming soon.</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="first-workshop-etudes-for-dancer-and-musicians-part-3.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">first workshop - etudes for dancer and musicians, part 3</p>
+    </a>
+    <a class="post-nav-next" href="duos-with-dancers-bonansea-and-papazoglou-part-2.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">Duos with dancers: Bonansea and Papazoglou, part 2</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

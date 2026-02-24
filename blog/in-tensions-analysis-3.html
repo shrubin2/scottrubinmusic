@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>in tensions: analysis 3 — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/in-tensions-0.png" alt="in tensions: analysis 3">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">in tensions: analysis 3</h1>
+    <p class="article-meta">August 3, 2018</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">(In case you haven’t been following this mini-series,) in this entry, I’ll discuss the third section of my new work, <em>in tensions</em>, scored for&nbsp;dance, cello, and electronics.</p><p dir="auto">The transition between the second and third sections is a bit fuzzy. The dancer distances herself away from the cellist and the performers explore the space as individuals. Their interaction changes from being explicitly physical to more implicitly interpretive, meaning that they aren’t affecting each other directly though touch, but more through hearing, seeing, and interpreting across a distance.</p><p dir="auto"><em>into a space to breathe, move, work, perform</em> <em>do they see us</em> <em>melting into the void</em></p><p dir="auto">The goal of these transitions is to seamless traverse through material that is improvised/composed with varying levels of specificity. If this sounds confusing, consider a standard jazz chart: usually, the chart starts with the head (a written melody that everybody plays together) &nbsp;and continues with improvised solos played over a pre-composed harmonic progression. It isn’t difficult to detect whether a given moment of music is written or improvised. One clue to this is the instrumentation of the melody: if many musicians are playing the line in unison, chances are it’s written, as it is difficult to improvise in unison with another musician. Improvised lines are usually more complex and individualistic.</p><p dir="auto"><br></p><img src="../img/in-tensions-0.png"><p dir="auto">Personally, I find it jarring as an audience member when composers (who are working outside of jazz) haphazardly mix fixed material with notation that allows for larger degrees of improvisation. I perceive that musicians react visibly differently during performance in each case (especially if they’re reading a score). Seeing this reaction as an audience member is akin to actors briefly going off-script in an otherwise written dialog. The performers’ change their focus as their set of possible actions rapidly and temporarily fluctuates, and they must change their decision-making cognitive processes in real time. Musically, these rough transitions unintentionally bring the mediation of the score into the performance of the piece, which I try to avoid. This being said, some musicians do this well, but most don’t. For example, those who specialize in performing music that contains large sections of guided improvisation (such as Anthony Braxton or John Zorn) have trained themselves in adapting their focus in real time. It’s impossible to play these works unless you exhibit the highest levels of performative sensitivity. </p><p dir="auto">However, in most cases, I don’t want to see <em>how</em> a performer reacts to material; the performers themselves should <em>be</em> the material (as is the case with dance or theater). In my work, I would rather try to hide or smooth-over these transitions of focus, usually through changes in scenography (as in section 1 to section 2), or through the interpolation of material (as in section 2 to section 3).</p><p dir="auto">This being said, the material for this section was more predetermined than that of previous sections, and I wanted to keep the music easily memorizable. Therefore, I employed a very simple form (A B A’ B’ C D C’ D’ C’’ E) and very simple materials. The phrases were ordered in a sequence which facilitates simple transitions between various playing techniques on the cello. Have a listen:</p><iframe src="https://www.youtube.com/embed/6PVBuPrA0pA?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe><p dir="auto">Likewise, the movement here was choreographed, not freely improvised. During the gestation period of the piece, I envisioned the sound for this section long before the movement (after all, I was trained as a composer). I knew that the dancer would be free to move more throughout the space, rather than being confined to a chair or in the cellist’s vicinity, but I wasn’t quite sure what kind of movement was needed. Therefore, I asked Alice (and later, Marie) if she would choreograph the section herself. I sent her a mock-up recording of the cello and electronics, and I explained the structure of the music. She ended up combining and refashioning elements from the first section of the piece, extending the movements through her entire body, traversing the stage, and providing counterpoint to the cellist’s material and structure.</p><p dir="auto">The electronics in this section make heavy use of soundfiles that are triggered in synchrony with the cellist as she progresses through each subsection. Additionally, I make light use of a simple feedback-delay patch that uses very short delay lines to produce a hint of audio feedback. This signal is then fed into a convolution reverb to change the spatial focus of the sound, alternating between a tight focus for the punchy repetitive chords and a wider focus for the longer gestures.</p><p dir="auto">The motion sensitive electronics were more modestly used in this section, subtly fading in only during specific subsections, thus transitioning dancer in and out of the audible domain. I wanted the electronics here to focus more on the cellist, to punctuate and support her playing. My intention for this section was separate the movement mechanisms from the sonic mechanisms, which were previously more intertwined. I did this for the sake of balance, and I’ll elaborate more on the large-scale form after finishing the analysis of the 4th and final section.</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="in-tensions-analysis-2.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">in tensions: analysis 2</p>
+    </a>
+    <a class="post-nav-next" href="in-tensions-analysis-4.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">in tensions: analysis 4</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

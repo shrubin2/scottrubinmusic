@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fade everything out, break character, and nod — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/solo-set.png" alt="Fade everything out, break character, and nod">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">Fade everything out, break character, and nod</h1>
+    <p class="article-meta">June 12, 2024</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">The last entry left off describing the question of framing a toy. In my humble opinion, a toy is rarely enough to sustain a meaningful 
+      performance. You need dramaturgy and intention. How do you start and end a performance?</p><p dir="auto">My answer for how to start 
+        was simpler:&nbsp;</p><ol dir="auto"><li data-preset-tag="p"><p>Dim the house lights to black, enter the scene, turn on a spotlight so the 
+          webcam has something to see</p></li><li data-preset-tag="p"><p>Play the viola through the guitar pedal without the MaxMSP patch or the 
+            projections</p></li><li data-preset-tag="p"><p>Fade in sounds from MaxMSP</p></li><li data-preset-tag="p"><p>Fade in the projections</p></li>
+            <li data-preset-tag="p"><p>Play for ~25 mins</p></li></ol><p dir="auto">Once I get going on the viola, I can go for a while. Having 
+              been improvising for almost 10 years, I trusted myself that I could sustain something for 25 minutes.&nbsp;</p><p dir="auto">But how 
+                to end it? Endings are hard.</p><p dir="auto">I didn’t want to simply fade everything out, break character, and nod. There would be 
+                  too much going on just to shut it all down and smile. I wanted to find an ending that could comment on the performance, maybe 
+                  challenge an idea that the performance presents.&nbsp;</p><p dir="auto">I remember long conversations with Tuli Bera and Rin 
+                    Peisert about endings. Tuli and Rin are 2 incredible Chicago-based movement-action artists whom I’ve had long collaborative 
+                    relationships and friendships with. We talked about taking time on stage for reflection; subverting theatrical 
+                    expectations.&nbsp;I credit them for helping me transcend some of my artistic boundaries.</p><p dir="auto">Going back to 
+                      the setup of the performance: a performer is playing a viola vertically in the dark, facing 90-degrees off-center from the 
+                      audience, sitting in front of a webcam that captures the torso and instrument, with a large projection screen behind. 
+                      Conceptually, thinking about this setup, we can draw connections to how we interact with technology: We use social media 
+                      to make our presence and ideas bigger than our physical bodies. Amplification and recontextualization. We obscure ourselves, 
+                      curate ourselves, we humblebrag, influence, advertise...</p><p dir="auto">After trying out many ideas, I finally settled 
+                        on something that felt right:</p><ol dir="auto"><li data-preset-tag="p"><p>After ~25 minutes of playing, use the looper 
+                          on the pedalboard to make noise-based loop</p></li><li data-preset-tag="p"><p>Stop playing the viola, regard at it as 
+                            an object, decide to be finished with it, and set it down</p></li><li data-preset-tag="p"><p>Hit a cue on the computer, 
+                              then bend over and look at the webcam so it captures my face</p></li><li data-preset-tag="p"><p>The cue removes the 
+                                image distortions in Isadora one-by-one, leaving my bar face on the screen. Me, looking directly at the webcam, 
+                                thus looking at the audience through the projection screen.</p></li><li data-preset-tag="p">
+      <p>Lean back in the chair, turn towards the audience, take off my hood to “reveal” myself to the audience, break the 4th wall.</p></li>
+      <li data-preset-tag="p"><p>Look back at the camera, and slowly turn it towards the audience, bringing their image to the projection 
+        screen, fade in house lights.</p></li><li data-preset-tag="p"><p>Hit one last cue to fade out the loop and fade in a soundfile. The 
+          soundfile would have ticking sounds, foreshadowing some event. This ticking would sync up with some final video manipulations. 
+          Time the soundfile and projections so they switch off simultaneously, ending the performance.</p></li><li data-preset-tag="p">
+            <p>Get up and walk into the audience, take a seat with them, wait for the performance to end.</p></li></ol><p dir="auto"><br></p>
+            <img src="../img/solo-set.png"">
+            <p dir="auto">Photo credit: Violeta Lenz</p><p dir="auto"><br></p>
+            <img src="../img/solo-set-2.png">
+            <h2 dir="auto">Why was l compelled to do all this?</h2><p dir="auto">For the ending, I needed to change every aspect of the performance. 
+              The viola, previously being the main character, is discarded. The sound, which was previously all generated live by a human, becomes 
+              automatic. The visuals, which used to be distortions of my body and instrument, become my naked face and then the audience. My gaze, 
+              which wasn’t a performance element, becomes the main focus, first virtually, and then directly at the audience before disappearing. 
+              The audience, who were voyeurs, are now being objectified by the camera. My body, once the performer, joins the audience who is now 
+              watching themselves.</p><p dir="auto">Here’s a video of the premiere performance in its entirety at Elastic Arts in Chicago. The ending 
+                starts around 27’00.</p><iframe src="https://www.youtube.com/embed/EIGLxbcoXSQ?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                <p dir="auto">When I scripted this, I saw it as commentary on our digital culture. Of course, each audience member will find their 
+                  own ways of making sense of the ending. I think I’ll leave the theatrical analysis there.</p><h2 dir="auto">Don’t Touch That</h2>
+                  <p dir="auto">I mentioned in the last post that I wanted to create an environment where I wouldn’t have to interact much with the 
+                    computer. How do you create a dynamic system that creates captivating audio-visual environments with limited button-pushing?</p>
+                    <p dir="auto">Typically, I program my MaxMSP patches to provide as much real-time flexibility as possible. However, in this project, 
+                      I would have enough flexibility with my instrument and pedals. My goal for the patch was to add rhythmic, timbral, and ornamental 
+                      components to elevate my viola sound, but not to add any more harmonic information.</p><p dir="auto">In the patch, I programmed 
+                        4 granulators whose gain is individually controlled by faders on a Korg nanoKontrol. Each granulator is programmed to re-sculpt 
+                        my live viola sound in specific ways at specific playback rates - if you tell it to play back the sound twice as fast, it will 
+                        sound an octave higher; half speed results in sounding down an octave. Since I didn’t want the computer to add additional 
+                        harmonic complexity to my viola sound, I programmed the granulators to play back at -1 octave, concert pitch (0 change), 
+                        +1 octave, and +2 octaves. This way, I could have better control over the harmonic material while still having ornamental and 
+                        timbral flexibility with the faders.</p><p dir="auto">For the projections, Isadora’s interface lets you create scenes, and each 
+                          scene can be a unique video-manipulation program with varying degrees of freedom. I wanted to be able to cycle through these 
+                          scenes and their individual quarks during the performance, and I wanted to use my viola to control how the scenes evolve, 
+                          and when they change. Thus, I told MaxMSP to track my loudness, and I set a loudness threshold that would trigger a brief 
+                          signal whenever that threshold is passed. Every signal would change some small aspects of an Isadora scene, and every-so-often, 
+                          the signal would trigger a scene change. This allowed me to speed up or slow down projection changes using my instrument. 
+                          If I wanted rapid change, I could play rapid loud sounds that would repeatedly cross the threshold. If I wanted visual stasis, 
+                          I’d play under the threshold.</p><p dir="auto">These 2 systems together offered me the right balance of flexibility and control. 
+                            I could reshape my live sound with a few faders, and I could control the variance of the projections using my viola.</p>
+                            <p dir="auto">That’s it for analysis of my 2022 viola-based solo set. The next entry will discuss my 2023-24 project where 
+                              I attempted solo performance art for the first time.</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="how-to-perform-solo-if-youre-shy.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">How to perform solo if you’re shy</p>
+    </a>
+    <a class="post-nav-next" href="change-is-the-only-constant.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">Change is the Only Constant</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>a little background - part 3 — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/temescal-arts-center.png" alt="a little background - part 3">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">a little background - part 3</h1>
+    <p class="article-meta">April 1, 2017</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">Until last October, I hadn’t played viola solo in public for about 8 or 10 years. I had performed with orchestras and string quartets, 
+      but never alone. I had always thought of myself as a terrible player. I did not have the patience to practice, but I still enjoyed playing, if only 
+      for myself in private.</p><p dir="auto">While I was living in Montreal, I would go to hear improvised music at Cagibi, la Plante, Sala Rosa, 
+        Wilder &amp; Davis, and other venues. These musicians almost never read music. Their eyes were either closed or fixated into the ether. There was 
+        sense of intense focus and sensitivity. Their performances were explosive, contemplative, and thrilling. The goal wasn’t playing correctly; it 
+        was making situations of provocative behavior. Literally people interacting through their instruments, creating conversations that transcended 
+        the norms of typical social behavior. They were creating something that I felt I could never write down.</p><p dir="auto"><br></p>
+        <img src="../img/lori-freedman.png"><p dir="auto">^^ Lori Freedman, one of my favorite improvisers</p><p dir="auto">I mean, I love written music. 
+          I still rock out to Shostakovich’s Cello Concerto No. 1, Romitelli’s Professor Bad Trip, Sørensen’s Angel’s Music, music that would not exist 
+          without precise systems of music notation. But I felt at that time that my notation practices were lacking.</p><p dir="auto">So I started 
+            recording my own improvisations and transcribing them on a 5-line staff. This was brutal. Most of my improvisations feature rapid changes 
+            in bow pressure, bow position, finger pressure, irregular rhythms, and things that they don’t teach you in conservatory. A 5-line staff 
+            was inadequate. I tried tablature notation. It looked something like this:</p><p dir="auto"><br></p>
+            <img src="../img/mccormack-score-screenshot.png"><p dir="auto"> Now I have mad respect for Timothy McCormack, but I didn’t want my music to 
+              look like this. I wouldn't want a performer to rehearse several hours to create something that took me a few takes to play. I didn't want 
+              to establish "one correct way" of performing something if what I'm after was created with spontaneity. &nbsp;I don’t like causing other 
+              people headaches. Granted, I'm not a seasoned performer, and there are certainly players out there who eat notation like this for breakfast. 
+              But to me, it seems masochistic. </p><p dir="auto">In addition to my phobia in creating overly complex scores, I was also fed up with 
+                the rate at which composers learn. Typically, composers may spend several months on a piece. The project might be proposed in August, 
+                you finish the piece in January, make the parts and send them off in late January, have a couple of rehearsals in April, and a concert 
+                in May. Thus, this model gives us approximately a 9-month period between a work’s impetus and the performance. In my experience, 
+                I’m not convinced a piece works until several months after the premiere when I can clear my head and listen to the recording. It 
+                might take a year to figure out if a particular musical device works or not, and in which context it functions best.&nbsp;Sure, 
+                you can imagine an orchestra’s sound to the best of your abilities, but hearing the musical flesh is a totally different experience. 
+                The point is, I wanted to learn faster.</p><p dir="auto">Young composers often sound very different from year to year, so when you 
+                  hear a premiere, chances are that the music was written about a year ago, and the composer is already working with more matured 
+                  ideas.&nbsp;Listening to my old pieces is like cringing while reading old diary entries...</p><p dir="auto">When I moved to Berkeley 
+                    in 2014 to start my PhD, I was immersed in a totally different socio-economic situation. The rent here is high, thus putting a 
+                    strain on the local artistic communities. Thus, there was, in my opinion, a huge shortage of peer ensembles playing challenging 
+                    notated music (see Tim’s score). Thus, I was drawn to the free improvisation scene and started performing at monthly sessions in 
+                    Temescal led by Jacob Felix Heule. In these events, participants wrote down their names on slips of paper that were placed in a 
+                    hat. Jacob pulled out three names. If your name was called, you went up to play with the other two folks who were called. 7 minutes 
+                    on the clock. Go.</p><p dir="auto">They played with the complexity and intensity of a Ferneyhough score without the neuroticism 
+                      involved with looking at the score during performance. The focus was still there, but it was directed towards the sound, the 
+                      instrument, and the situation, not the score. I grew comfortable performing in public, and I was hooked.</p><p dir="auto"><br></p>
+                      <img alt="13062870_10157122643855157_5649983112981637903_o.jpg" src="https://framerusercontent.com/images/5HlFnHArkidlRTR0nZGTbwivZPc.jpg">
+                      <p dir="auto">I gave up writing down my improvisations, and started I performing them. In order to mask the insecurities I had in my playing technique (but also due to inspiration from improvising saxophonist Frank Gratkowski), I thickened up my sound by strapping a motion sensor to my bow arm and hooked it up to a maxpatch similar to the one I used in <em>Naked to the Sky</em>.</p><iframe src="https://www.youtube.com/embed/yhiZmICWpeo?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe><p dir="auto">I started performing with other musicians. This clip features composer/pianist and fellow UC Berkeley colleague James Stone, also wearing a motion sensor. His motions process my sound and mine process his.</p><iframe src="https://www.youtube.com/embed/-MKd1pGMzI8?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe><p dir="auto">And I started performing with dancers. This clip features James along with Shoshana Green, a butoh dancer. Shoshana has the motion sensors and is controlling the musicians’ sound, and the entire performance is improvised.</p><iframe src="https://www.youtube.com/embed/UHd_wpA_nro?iv_load_policy=3&amp;rel=0&amp;modestbranding=1&amp;playsinline=1&amp;autoplay=0&amp;mute=1" data-thumbnail="Medium Quality" frameborder="0" allow="presentation; fullscreen; accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"></iframe><p dir="auto">There was no concrete method to how we (the musicians) interpreted Shoshana’s movements, or how she responded to ours. We just jammed, talked about what felt good or awkward, talked about what we could do better, and jammed again.</p><p dir="auto">Tangent: in 2015, I met Beat Furrer at Impuls in Graz, and I was speaking with him about his approaches to music composition through the years. He told me that he used to improvise at the piano until stopping around the age of 25. Coincidentally, I started improvising (in public) around the age of 26 -- just a strange bit of information that I just remembered.</p><p dir="auto">This brings me up to the present. In the next entry, I'll discuss my next project,&nbsp;<em>ironic erratic erotic</em>. And you'll see another video of me dancing with a tuba player. Hopefully it's not the most awkward thing you've ever seen, but to be honest, it might be.</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="a-little-background-part-2.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">a little background - part 2</p>
+    </a>
+    <a class="post-nav-next" href="music-amplifies-and-subverts-the-body.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">music amplifies and subverts the body</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

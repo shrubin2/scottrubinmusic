@@ -1,0 +1,450 @@
+/* =========================================
+   ARTIST SITE — SHARED STYLESHEET
+   Design: Refined editorial, Gill Sans
+   ========================================= */
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+:root {
+  --ink: #1a1714;
+  --paper: #f5f1eb;
+  --paper-dark: #ece7df;
+  --accent: #b8410a;
+  --accent-light: #d4622e;
+  --muted: #8a8178;
+  --rule: #d6cfc5;
+  --white: #ffffff;
+
+  --font: 'Gill Sans', 'Gill Sans MT', Calibri, sans-serif;
+
+  --max: 1100px;
+  --nav-h: 64px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+
+/* =========================================
+   NAVIGATION
+   ========================================= */
+
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: var(--nav-h);
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2.5rem;
+}
+
+nav .nav-name {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+nav .nav-name a:hover { color: var(--accent); }
+
+nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav .nav-links a {
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+nav .nav-links a:hover,
+nav .nav-links a.active {
+  color: var(--accent);
+}
+
+.nav-social {
+  font-size: 1.1rem;
+  color: var(--muted);
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.nav-social:hover { color: var(--accent); }
+
+@media (max-width: 700px) {
+  .nav-social { display: none; }
+}
+
+/* Hamburger button — hidden on desktop */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 300;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: var(--ink);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  transform-origin: center;
+}
+
+.nav-hamburger.is-open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-hamburger.is-open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.nav-hamburger.is-open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+/* Mobile overlay menu */
+.nav-overlay {
+  display: none;
+  position: fixed;
+  inset: var(--nav-h) 0 0 0;
+  z-index: 150;
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+  padding: 3rem 2.5rem;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+}
+
+.nav-overlay.is-open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.nav-overlay ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.nav-overlay ul li {
+  border-bottom: 1px solid var(--rule);
+}
+
+.nav-overlay ul a {
+  display: block;
+  padding: 1.1rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.nav-overlay ul a:hover,
+.nav-overlay ul a.active {
+  color: var(--accent);
+}
+
+body.nav-open { overflow: hidden; }
+
+.page-body {
+  padding-top: var(--nav-h);
+}
+
+/* =========================================
+   FOOTER
+   ========================================= */
+
+footer {
+  border-top: 1px solid var(--rule);
+  padding: 2.5rem 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-top: 6rem;
+}
+
+footer a:hover { color: var(--accent); }
+
+/* =========================================
+   PAGE HEADER (inner pages)
+   ========================================= */
+
+.page-header {
+  border-bottom: 2px solid var(--ink);
+  padding: 3.5rem 2.5rem 2rem;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+
+.page-header h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.page-header .subtitle {
+  margin-top: 0.6rem;
+  font-size: 14px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   SHARED UTILITIES
+   ========================================= */
+
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 2.5rem;
+}
+
+.accent { color: var(--accent); }
+
+/* =========================================
+   EVENT LOG STYLES (shared with events page)
+   ========================================= */
+
+.event-log .year-group {
+  margin-bottom: 3rem;
+}
+
+.event-log .year-label {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+  padding-left: 130px;
+}
+
+.event-log .event {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 0 1.5rem;
+  padding: 0.85rem 0;
+  border-top: 1px solid var(--rule);
+  align-items: start;
+  transition: background 0.15s;
+}
+
+.event-log .event:hover { background: rgba(184,65,10,0.04); }
+.event-log .event:last-child { border-bottom: 1px solid var(--rule); }
+
+.event-log .event-date {
+  color: var(--accent);
+  font-size: 16px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding-top: 2px;
+  white-space: nowrap;
+}
+
+.event-log .event-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.event-log .event-subtitle {
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1.1rem;
+  margin-top: 1px;
+}
+
+.event-log .event-meta {
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.event-log .event-artists {
+  font-size: 16px;
+  color: var(--ink);
+}
+
+.event-log .event-venue {
+  font-size: 16px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+/* =========================================
+   CARD GRID (projects, blog)
+   ========================================= */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2px;
+  margin-top: 2px;
+}
+
+.card {
+  background: var(--paper);
+  padding: 2rem;
+  border: 1px solid var(--rule);
+  transition: background 0.2s;
+  cursor: pointer;
+  display: block;
+}
+
+.card:hover { background: var(--paper-dark); }
+
+.card-tag {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.card-title {
+  font-size: 1.3rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.card-excerpt {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.card-meta {
+  margin-top: 1.25rem;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.card-arrow {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.card-arrow::after { content: ' →'; }
+
+/* =========================================
+   ARTICLE / POST STYLES
+   ========================================= */
+
+.article-header {
+  padding: 4rem 2.5rem 3rem;
+  max-width: 720px;
+  margin: 0 auto;
+  border-bottom: 1px solid var(--rule);
+}
+
+.article-tag {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1rem;
+}
+
+.article-title {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.article-meta {
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.article-body {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 3rem 2.5rem;
+}
+
+.article-body p { margin-bottom: 1.5rem; font-size: 16px; line-height: 1.75; }
+.article-body h2 { font-size: 1.4rem; font-weight: 600; margin: 2.5rem 0 1rem; }
+.article-body h3 { font-size: 1.1rem; font-weight: 600; margin: 2rem 0 0.75rem; }
+.article-body blockquote {
+  border-left: 3px solid var(--accent);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--muted);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 2rem 2.5rem 0;
+  max-width: 720px;
+  margin: 0 auto;
+  display: block;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--accent); }
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+
+@media (max-width: 700px) {
+  nav { padding: 0 1.25rem; }
+  nav ul { gap: 1rem; }
+  .page-header, .container { padding: 0 1.25rem; }
+  .page-header { padding: 2rem 1.25rem 1.5rem; }
+  .event-log .event { grid-template-columns: 1fr; gap: 0.2rem; }
+  .event-log .year-label { padding-left: 0; }
+  .article-header, .article-body, .back-link { padding-left: 1.25rem; padding-right: 1.25rem; }
+  footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  nav .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-overlay { display: block; }
+}

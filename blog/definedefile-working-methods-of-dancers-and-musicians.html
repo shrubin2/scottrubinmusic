@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>define//defile: working methods of dancers and musicians — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/mivospic.jpg" alt="define//defile: working methods of dancers and musicians">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">define//defile: working methods of dancers and musicians</h1>
+    <p class="article-meta">April 12, 2017</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">In this entry, I'm going to go over&nbsp;<em>DEFINE//DEFILE</em>, a&nbsp;recent project of mine that will be premiered by the <a href="http://www.mivosquartet.com/">Mivos Quartet</a> and dancer <a href="http://tdps.berkeley.edu/people/sansan-kwan/">SanSan Kwan</a> this Friday night in San Francisco.&nbsp;<a href="http://centerfornewmusic.com/calendar/mivos-quartet-works-by-uc-berkeley-composers/">Click here for details.</a>&nbsp;I'm also going to go more in depth comparing&nbsp;how artists in different disciplines work, and what these comparisons&nbsp;mean for interdisciplinary collaborations.</p><p dir="auto">For the past 2 or 3 years, I've been collaborating on&nbsp;projects that interface dancers and musicians. In the process of forging these collaborations, I've been exposed to different working/rehearsal styles native to each respective&nbsp;discipline. Typically, these differences can be traced back to performance practices, audience expectations, and the way we experience time and space (vague, I know...).</p><p dir="auto">P.S. I'd like to thank dancer and choreographer&nbsp;<a href="http://www.christinebonansea.com/">Christine Bonansea</a>&nbsp;for inviting me to observe rehearsals for her show <a href="https://www.cbcdance.com/asteria">Asteria</a>, which was presented in Berlin last summer. It was fascinating for me as a composer to learn how dancers rehearse. If you aren't familiar with her work, it's badass and you should definitely check it out.</p><p dir="auto">Anyways, let's start with the obvious differences:</p><ol dir="auto"><li data-preset-tag="p"><p>Many dancers don't read Western musical notation, and I've never seen dancers perform while referencing a visual representation of the choreography. Usually composers use paper (or electronic) documents to communicate with musicians, and the musicians&nbsp;often read the music while performing. If a piece hasn't been played&nbsp;yet by musicians, or if mockup recordings don't exist, the composer and dancer must use some other medium of communication.</p></li><li data-preset-tag="p"><p>Dancers usually rehearse for many weeks before a performance, and choreography needs to be demonstrated/shown, not read. Therefore, if many dancers are involved and the choreography is complex, this takes more time. When dancers&nbsp;perform, their shows usually run 3 or 4 iterations in the same venue. Musicians might put in 3 long rehearsals the week of the show (even if it's a world premiere!), therefore relying on each individual musician thoroughly preparing themselves prior to meeting. With written chamber music, this usually works (dependent on the effectiveness of the score). In situations involving more complex paradigms of interaction, this rehearsal structure may be less effective.</p></li><li data-preset-tag="p"><p>Musicians are more sensitive to WHEN&nbsp;something happens, and this aided through the placement&nbsp;of the notated score on the music stand. Musicians rehearsing written music will reference moments in the score, and improvising musicians will reference audible features that occurred at a given moment (i.e. "that moment after the piano arpeggios&nbsp;when the violin plays tremolo sul pont in the high register"). Dancers, on the other hand, are more likely to remember WHERE it happens. They usually refer to moments through spatially-oriented features (i.e. "that moment where our hands are above our heads and we're standing stage-left").</p></li><li data-preset-tag="p"><p>Not all musicians play all the time during a performance. Someone may sit quietly in their chair waiting for a cue to come in, yet we still acknowledge their idle presence in the performance space. This is more complicated with dancers because all on-stage/off-stage movements are choreographed, and&nbsp;dancers cannot simply idle like musicians. If they are visible&nbsp;to the audience, they attract attention, and their movements must be stylized.</p></li></ol><p dir="auto">These differences manifest themselves during the composition and rehearsal process:</p><p dir="auto">As a classically-trained composer, I learned how to create detailed scores&nbsp;to be read by musicians during a performance. When I started working with dancers, I struggled to learn how to create a graphic representations of the piece that could be easily committed to memory. I realized&nbsp;that I needed to represent the music in a way that is readable by dancers. Usually, this meant creating a highly-condensed&nbsp;graphic-score specifically for the dancer's perusal. They are able to carry the score folded up in their pocket during rehearsal, and can quickly pull it out during pauses. This graphic score needed to present approximations of the general activity of the music with a few words referencing the&nbsp;dancer's movements. Usually, the words/symbols used in this document make&nbsp;reference to the dancer's personal highly-detailed notes.</p><p dir="auto">During the rehearsal process, musicians reading music usually won't be visually sensitive to spatially-oriented events&nbsp;(unless directed otherwise), and dancers typically&nbsp;don't hear subtle audible cues the same way musicians do (there are, of course, exceptions). Thus, interfacing performers of these two disciplines in interactive/improvisatory environments is sure to involve tricky rehearsal situations...</p><p dir="auto">This past November, I wrote a piece scored for string quartet and dancer to be performed&nbsp;by the Mivos Quartet and SanSan Kwan. In the work, I wanted to engage themes of &nbsp;influence and control by&nbsp;playing with the modes of interaction between the musicians and the dancer. My compositional process was simple:</p><ol dir="auto"><li data-preset-tag="p"><p>Record myself improvise on viola while keeping in mind how I wanted the sound to relate to the movement, and vice versa. Being a violist writing for string quartet, I can easily (electronically) modify my improvisations to fit all the instruments. Though my technical prowess on the instrument isn't great, my shoddy playing served as a personal reference to what I knew a professional musician could do.</p></li><li data-preset-tag="p"><p>Edit the improvisations to my liking to create a mockup recording. This was sent to the performers.</p></li><li data-preset-tag="p"><p>Transcribe the recording to create a score.</p></li></ol><p dir="auto">As is the case with most ensembles on the university circuit, the Mivos Quartet will spend a few days in Berkeley and learn 5 new pieces, giving each piece 90 minutes of rehearsal time. My piece is scheduled to be rehearsed the day before the concert (yikes). Granted, they are professionals of the highest order, but the sheer magnitude of this labor&nbsp;scares me a bit. Due to the time constraints of this collaboration, I limited the amount of improvisation in the piece. If I wanted a moment of seemingly improvised coordination between the dancer and musicians, it'd have to be predetermined, and I'd have to specify it in the score. I submitted my finished score and sent it to them a few months ago.</p><p dir="auto">Lucky, SanSan is local. I proposed the project to her back while we were still working on the choreography for&nbsp;<em>Naked to the Sky</em>. It would have been impossible for us to create the choreography in a single 90-minute rehearsal with the musicians. She would have to have it memorized before the first (only) rehearsal. We met several times during&nbsp;the past several months to develop the choreography, and we created a graphic score for her personal use:&nbsp;</p><img alt="definedefile-dancescore.jpg" src="https://framerusercontent.com/images/juqXo1A69q9j8uWS8L0Y6pjZNcQ.jpg"><p dir="auto">This is about ten minutes of highly-notated music approximated on a single page. The large&nbsp;letters will be used to reference passages in the score during the rehearsal, and the durations are approximations of each section's length. The graphics used in this score were chosen intuitively, and they communicate the music's general character/effort, articulation, and register. They don't succeed at conveying specific pitch relationships, but I didn't believe these features were salient enough for the dancer to readily perceive.</p><p dir="auto">*breathes*</p><p dir="auto">Let's just hope it all works...</p><p dir="auto">--edit--</p><p dir="auto">It's gonna work!</p><p dir="auto"><br></p><img alt="mivospic.jpg" src="https://framerusercontent.com/images/vkaAbjJXtbgWXODgZxvIsaUWk.jpg">
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="music-amplifies-and-subverts-the-body.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">music amplifies and subverts the body</p>
+    </a>
+    <a class="post-nav-next" href="ironic-erratic-erotic-work-in-progress.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">ironic erratic erotic: work in progress</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>

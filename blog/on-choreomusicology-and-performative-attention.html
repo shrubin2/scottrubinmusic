@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>on choreomusicology and performative attention — Artist Name</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/counter-projections-2.png" alt="on choreomusicology and performative attention">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">on choreomusicology and performative attention</h1>
+    <p class="article-meta">October 30, 2017</p>
+  </header>
+
+  <div class="article-body">
+    <p dir="auto">Recently, I’ve been thinking about how musicians and dancers share performance spaces, and the environment that they create together. 
+      This obsession lead me to stumbled upon a new word during a google binge: choreomusicology. Researchers Stephanie Jordan, Inger Damsholt, 
+      and Paul Mason define choreomusicology as the study of the relationship between music and dance within any performance genre, and they 
+      offer a much-needed critical evaluation of an otherwise elusive relationship. 
+      Several papers have been published on this topic (<a href="https://choreomusicology.wordpress.com/">find them here</a>), so I’ll try to 
+      summarize their research without going too much into detail. Afterwards, I’ll present my own opinions and propose further&nbsp;directions of research.</p>
+      <p dir="auto">In Mason’s 2011 paper, “Music, dance and the total art work: choreomusicology in theory and practice”, he 
+        briefly discusses the history of choreomusicological as both a subject of research and and as a practice. Centering on mostly Euro-centric 
+        performance practices, he reviews the research of dance anthropologists, art historians, evolutionary theorists, and music and theatre critics. 
+        He also includes an overview of the <em>Gesamtkunstwerk</em> movement (starting with Kandinsky, Lopukhov, Balanchine/Stravinsky), 
+        and twentieth century performance practices (Ted Shawn, Ruth St. Denis, Martha Graham, Doris Humphrey, Louis Horst, and Henry Cowell).</p>
+        <p dir="auto">Mason summarizes twentieth century theoretical formalization in choreomusicology through the work of McCombe (1994), 
+          Smith (1981), and Hodgins (1992). Smith proposes four non-exclusive types of dance/music interactions along continuum. I’ve copied 
+          these categories below:</p>
+          <img src="../img/choreo-theory-1.png"><p dir="auto">In Hodgin’s book <em>Relationships between score and choreography in twentieth 
+            century dance</em>, he categorizes choreographic relationships into two labels: intrinsic and extrinsic. Intrinsic relationships 
+            emerge from structures and elements embedded in the music and movement (rhythm, loudness, texture, phrase, mimetic movement), 
+            while extrinsic ones arise from contextual cues and cultural associations (archetypal, emotional, narrativic).</p>
+            <img src="../img/choreo-theory-2.png"><p dir="auto">Though choreomusicological research offers numerous proposals to formalize 
+              music/dance relationships, it currently ignores the question of embodied musical performance, that is, not only questioning the relationship between the performance material, but also the psychological aspects of the performers themselves given the inherent differences in their respective art forms. When speaking about the integration of music and dance, it is necessary to address the differences of media: live music (played by musicians) occupies both sonic and visual media, whereas dance only occupies the visual medium. In other words, traditional Western classical music performance practice has not addressed an important fundamental aspect of dance: the notion of performers as physical bodies. </p><p dir="auto">Until recently, classical musician’s appearances were highly regulated in effort not to distract from the sonic medium. Put on formalwear, enter the stage, take a bow, put your music on the stand, play, finish, accept the applause, bow again, and exit the stage. Usually, this is still standard practice. In more contemporary situations, some performers have diversified their wardrobes, stylized their stage movements, and have been performing pieces requiring non-strictly-musical movement. However, by and large, the musicians are still interacting with sheet music in a non-stylized way. Therefore, their communication with the audience is always mediated through their reaction with sheet music. Even the language employed in literature supports this mediation. Hodgin titled his book <em>Relationships between score and choreography in twentieth century dance</em>, and not <em>…between sound and choreography…</em>. The word 'score' implies representation and abstraction. During performance, the audience sees a performer interact with a representation of the performance, and the score is the mediator between the performer, the material, and the audience.</p><p dir="auto">On the other hand, dancers, for the most part, do not read during a performance. They might study and memorize notated choreography or video documentation, but during the performance, there is nothing physically separating them from the audience, and the material appears to be embodied. Therefore, there is visually no mediation between the dancer, the material, and the audience. The dancer <em>becomes</em> the material.</p><p dir="auto">Originally, I was going to label this a "difference in <em>cerebral performance state</em>”. Thankfully, long-time friend/colleague suggested the term “performative attention”, which sounds infinitely less terrible. Thus, I propose that score-reading musicians display <em>mediated performative attention</em> while dancers display <em>unmediated performative attention</em>. That is, the musician’s musical focus appears to be mediated through the score, while a dancer’s focus on the choreography seems totally embodied.</p><p dir="auto">When composers and choreographers produce interdisciplinary performances that incorporate dancers and musicians, they must acknowledge that the juxtaposition of dancers and musicians makes the differences in their respective performative attention evident. Of course, one's approach to this question depends on the nature of the performance itself. If the musicians are hidden from public view (such as a pit orchestra), this is non-issue. However, if the performers share a stage, this problem becomes intertwined with the intended style of integration of the music and dance.</p><p dir="auto">For instance, if the performers share the stage and are visible to the public, a 'rest' in music is not the same as a 'pause' in dance. A rest lets the musician exit the audible medium, though they are still present in the visual medium (unless, of course, they leave the stage). Most musicians do not stylize their rests. They might exhale in relief after finishing a difficult passage, rest their arms, readjust their instrument, etc. These actions briefly break the consistency of focus in the visual medium. That is to say, it breaks the fourth wall, and the audience becomes aware of the shift of performative attention.</p><p dir="auto">On the other hand, when a dancer pauses on stage, or approaches a pose of relative relaxation, they do not exit their medium. Their bodies are still present in the performance space, and their pauses are stylized. It is virtually impossible for a dancer to exit their medium on stage without performative attention, that is, unless this shift of attention is choreographed into the piece.</p><p dir="auto">This being said, the manner of addressing performative attention changes depending on the intended relationship between the music and the dance, and how the collaborators intend to direct the focus of the performers. If the dance simply accompanies prewritten music, and the music does not address the musician’s bodies as performative entities, then I propose that no change is needed. However, if the collaborators intend to create an interactive feedback loop between the musician(s) and dancer(s) (as is desired in my own work), and a they want the performers to exist in a non-hierarchical system (one medium doesn't exist to solely serve the other, or vice versa), then the performers must have equivalent or stylized performative attention. My preference is that they share <em>unmediated performative attention</em>. Any communicative abstraction of the performance (that being the score and/or written choreography) should totally embodied/memorized, there should be no sheet music on the stage (unless used as a prop). There should be no apparent mediation between the performers and each other, nor between the performers and the audience. Thus, neither performer is allowed to escape their medium in an unstylized way. I personally believe that this creates the most cohesive and visceral performance space.</p><p dir="auto">Creating this environment poses many challenges which I have addressed in earlier entries. How does one create visual representations of dynamic interdisciplinary interactions within a complex form that can be memorized? How does this change the nature of the audible and visual material? How does this change the process of composition and rehearsal? Is this at all feasible?</p><p dir="auto">The closest I’ve come to this ideal was realizing my recent project <em>ironic erratic erotic</em>, which I’ve written about in detail <a href="https://scottrubinmusic.wordpress.com/2017/04/20/ironic-erratic-erotic-work-in-progress/">here</a>&nbsp;and&nbsp;<a href="https://scottrubinmusic.wordpress.com/2017/07/25/reflections-or-narcissistic-procrastination/">here</a>. To summarize, my goal with this project was to create an environment where the performers share unmediated performative attention within a sequence of dynamic interdisciplinary interactions. They are engaged with the other performers, and not a score.</p><p dir="auto">To be frank, I’m not sure if this ideal performance practice is possible. It requires research into new solutions in flexible music and dance notation, an intense collaborative practice, and finding a balance of material that is structured, flexible, complex, simple, and ultimately compelling.</p>
+  </div>
+
+  <div class="post-footer-nav">
+    <a class="post-nav-prev" href="reflections-or-narcissistic-procrastination.html">
+      <p class="post-nav-dir">← Previous</p>
+      <p class="post-nav-title">reflections, or, narcissistic procrastination</p>
+    </a>
+    <a class="post-nav-next" href="first-workshop-etudes-for-dancer-and-musicians-part-1.html">
+      <p class="post-nav-dir">Next →</p>
+      <p class="post-nav-title">first workshop - etudes for dancer and musicians, part 1</p>
+    </a>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>
