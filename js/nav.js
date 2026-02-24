@@ -15,7 +15,7 @@
   const links = [
     { href: root + 'index.html',          label: 'Home' },
     { href: root + 'events.html',         label: 'Events' },
-    { href: root + 'projects/index.html', label: 'Projects' },
+    { href: root + 'projects/index.html', label: 'Works' },
     { href: root + 'blog/index.html',     label: 'Writing' },
     { href: root + 'interviews.html',     label: 'Interviews' },
   ];
