@@ -630,7 +630,7 @@
 
       // ── Draw one frame ────────────────────────────────────────────
       function draw() {
-        time += 0.012;
+        time += 0.04;
         ctx.clearRect(0, 0, W, H);
         if (!edgeData || mouseX < 0) return;
 
@@ -660,10 +660,10 @@
             let e = mag[sy * iw + sx];
 
             // Noise warps the threshold — edges breathe, faster animation
-            const nx = px / W * 4 + time;
-            const ny = py / H * 4 + time * 0.8;
-            const n  = noise2(nx, ny) * 0.5 + 0.5;
-            const threshold = 0.04 + n * 0.08;   // lower = more edges visible
+            const nx = px / W * 150 + time * 2;
+            const ny = py / H * 10 + time * 0.8;
+            const n  = noise2(nx, ny) *  10 + 0.5;
+            const threshold = 0.04 + n * 0.9;   // lower = more edges visible
 
             if (e < threshold) continue;
 
