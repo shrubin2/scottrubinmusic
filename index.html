@@ -660,8 +660,8 @@
             let e = mag[sy * iw + sx];
 
             // Noise warps the threshold — edges breathe, faster animation
-            const nx = px / W * 500 + time * 30;
-            const ny = py / H * 200 + time * 1000;
+            const nx = px / W * 300 + time * 5;
+            const ny = py / H * 10 + time * 15;
             const n  = noise2(nx, ny) *  10 + 0.5;
             const threshold = 0.04 + n * 0.9;   // lower = more edges visible
 
