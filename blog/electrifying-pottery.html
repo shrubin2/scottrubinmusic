@@ -130,27 +130,27 @@
 
     <p>The first two entries about this work talked about my impulse to start the project, recruiting QuJie, and my thoughts about the types of movement that would create discourse in the performance. This entry will talk about the work from a technical point of view. The musical/theatrical points of view will come later.</p>
 
-    <p >The first sessions we had were exploratory sessions, focusing on how the pottery wheel would function as an instrument, and coding a prototype Max/Touchdesigner patch to transform data-sound sources into sound and visuals.</p>
+    <p >The first sessions we had were exploratory, focusing on how the pottery wheel would function as an instrument, and coding a prototype Max/Touchdesigner patch to transform data-sound sources into sound and visuals.</p>
 
     <p >Quite frankly, I didn't think that the acoustic sounds of wet-clay-shaping alone were intriguing enough to sustain a performance, so I wanted to use some pre-recorded samples to put some spice on it. This way, I could mix the acoustic and "canned" sounds to create dramaturgy, and QuJie can work with the clay without worrying if it'll always "sound" good.</p>
 
-    <p >I began creating an environment where I could mix different sources of sound and data. My plan was to give QuJie the ability to create sounds using the acoustic possibilities of the wheel, the pedal, the clay, and the positions of her hands.</p>
+    <p >My plan was to give QuJie the ability to create sounds using the acoustic possibilities of the wheel, the pedal, the clay, and the positions of her hands.</p>
 
     <p >Thus, I had 4 inputs:</p>
-    <ul>
+    <ol>
         <li>Acoustic sounds from a microphone</li>
         <li>Pre-recorded samples</li>
         <li>Camera placed over the wheel (hand tracking through MediaPipe)</li>
         <li>Speed of the wheel (how could I measure this and map it?)</li>
-    </ul>
+    </ol>
 
     <p >And I mapped these inputs to create 4 audio outputs:</p>
-    <ul>
+    <ol>
         <li>Acoustic sounds of the wheel</li>
         <li>Data from hand position controlling granulators and resonant filters that manipulate the live sound</li>
         <li>Data from hand position controlling granulators that manipulate pre-recorded samples</li>
         <li>Sonification of the speed of the wheel</li>
-    </ul>
+    </ol>
 
     <p >For tracking the speed of the wheel, my initial idea was to tape a sensor to the side of it, however after thinking about it for 2 seconds, I realized that the wheel will be wet. Another option would have been to put a colored marker on the wheel, and use computer-vision algorithms to track the marker and derive the speed of the wheel. Common sense eventually got a hold of me and I decided to rubber-band the sensor to the wheel's foot-pedal. Since the pedal's angle changes the speed of the wheel, you could associate the speed of the wheel to the angle of the sensor. Done.</p>
 
