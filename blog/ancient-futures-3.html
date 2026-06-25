@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EF3HCV3ML3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EF3HCV3ML3');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How does a pottery wheel sound? — Scott Rubin</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/../img/ancient-futures-ricardo-1.jpg"" alt="Electrifying pottery">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">Electrifying Pottery</h1>
+    <p class="article-meta">June 24, 2026</p>
+  </header>
+
+  <div class="article-body">
+    <p >As I write this, my pants are soaking in hot water so the wet clay can come off. We had our premiere on May 22 and a second show on June 8. The shows went well, and I was thrilled to release and share the project into the public realm in 2 venues.</p>
+    <p >Here's a few pics from the shows:</p>
+    <img src="../img/ancient-futures-ricardo-1.jpg">
+    <p >Photo credit: Ricardo Adame</p>
+    <img src="../img/ancient-futures-tim-1.jpg">
+    <p >Photo credit: Tim Schmoll</p>
+    <img src="../img/ancient-futures-theoluna.jpg">
+    <p >Photo credit: Theo Luna Baker-Stohlmann</p>
+
+    <p >The first sessions we had were exploratory sessions, focusing on how the pottery wheel would function as an instrument, and coding a prototype Max/Touchdesigner patch to transform data-sound sources into sound and visuals.</p>
+
+    <p >Quite frankly, I didn't think that the acoustic sounds of wet-clay-shaping alone were intriguing enough to sustain a performance, so I wanted to use some pre-recorded samples to put some spice on it. This way, I could mix the acoustic and "canned" sounds to create dramaturgy, and QuJie can work with the clay without worrying if it'll always "sound" good.</p>
+
+    <p >I began creating an environment where I could mix different sources of sound and data. My plan was to give QuJie the ability to create sounds using the acoustic possibilities of the wheel, the pedal, the clay, and the positions of her hands.</p>
+
+    <p >Thus, I had 4 inputs:</p>
+    <ul>
+        <li>Acoustic sounds from a microphone</li>
+        <li>Pre-recorded samples</li>
+        <li>Camera placed over the wheel (hand tracking through MediaPipe)</li>
+        <li>Speed of the wheel (how could I measure this and map it?)</li>
+    </ul>
+
+    <p >And I mapped these inputs to create 4 audio outputs:</p>
+    <ul>
+        <li>Acoustic sounds of the wheel</li>
+        <li>Data from hand position controlling granulators and resonant filters that manipulate the live sound</li>
+        <li>Data from hand position controlling granulators that manipulate pre-recorded samples</li>
+        <li>Sonification of the speed of the wheel</li>
+    </ul>
+
+    <p >For tracking the speed of the wheel, my initial idea was to tape a sensor to the side of it, however after thinking about it for 2 seconds, I realized that the wheel will be wet. Another option would have been to put a colored marker on the wheel, and use computer-vision algorithms to track the marker and derive the speed of the wheel. Common sense eventually got a hold of me and I decided to rubber-band the sensor to the wheel's foot-pedal. Since the pedal's angle changes the speed of the wheel, you could associate the speed of the wheel to the angle of the sensor. Done.</p>
+
+    <p >For manipulating the live sound and pre-recorded samples, I recycled a method that I developed for my 2024 work <i>Digital Hands</i>. Essentially, I had Touchdesigner take measurements of the hand position such as (x,y) coordinates, and the distance from the thumb to the index finger, and I map these numbers to control granulator settings (duration, trigger rate, playback rate, and gain). The result is a sound where the articulation is controlled by the movement while preserving the timbre of the sample.</p>
+
+    <p >For the projections, I created 2 visual outputs:</p>
+    <ul>
+        <li>The raw output of the camera which will be distorted by the sound created by QuJie</li>
+        <li>A virtual blob of clay that is distorted by QuJie's hand position on a black background</li>
+    </ul>
+    <img src="../img/ancient-futures-ricardo-2.jpg">
+    <p >Photo credit: Ricardo Adame</p>
+    <p >The idea to create a virtual blob of clay came later as we were experimenting with the sampled sounds. The virtual clay would appear on the projections right where the real clay would be, creating a digital-double that follows the rules of glitchy algorithms rather than the touch of human hands. The virtual clay did not move according to any laws of physics, but rather simple math using the (x,y) position of QuJie's index fingertip.</p>
+
+    <p >QuJie's hand presence within the webcam's view would trigger both the virtual clay and the sampled sounds. Thus, she could control the phrasing. If her hands were outside the webcam's range, the audience wouldn't hear or see any digital byproduct.</p>
+
+    <p >That's all for now. The next entry will discuss how the tech influences and is influenced by the discourse of the performance.</p>
+    </div>
+
+</div>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>
