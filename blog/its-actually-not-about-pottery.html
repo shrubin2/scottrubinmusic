@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EF3HCV3ML3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EF3HCV3ML3');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>It's Actually Not About Pottery — Scott Rubin</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    #progress-bar {
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      height: 2px;
+      background: var(--accent);
+      width: 0%;
+      z-index: 200;
+      transition: width 0.1s linear;
+    }
+    .post-cover {
+      height: clamp(260px, 40vw, 480px);
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+    .post-cover img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      opacity: 0.85;
+    }
+    .post-cover .photo-placeholder {
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.5rem; color: var(--rule);
+    }
+    .post-cover .ph-icon {
+      width: 56px; height: 56px;
+      border: 2px solid var(--rule); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem;
+    }
+    .article-body img {
+      width: 100%;
+      margin: 2rem 0;
+    }
+    .article-body iframe {
+      width: 100%;
+      aspect-ratio: 16/9;
+      margin: 2rem 0;
+      border: none;
+    }
+    .article-body ol, .article-body ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .article-body li {
+      margin-bottom: 0.5rem;
+      font-size: 16px;
+      line-height: 1.75;
+    }
+    .article-body a {
+      border-bottom: 1px solid var(--rule);
+      transition: border-color 0.2s;
+    }
+    .article-body a:hover { border-color: var(--accent); color: var(--accent); }
+    .post-footer-nav {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 2.5rem 2.5rem 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      border-top: 1px solid var(--rule);
+    }
+    .post-nav-prev, .post-nav-next {
+      padding: 1.5rem;
+      border: 1px solid var(--rule);
+      transition: background 0.15s;
+      display: block;
+    }
+    .post-nav-prev:hover, .post-nav-next:hover { background: var(--paper-dark); }
+    .post-nav-next { text-align: right; }
+    .post-nav-dir {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .post-nav-title { font-size: 14px; font-weight: 600; line-height: 1.3; }
+    @media (max-width: 600px) {
+      .post-footer-nav { grid-template-columns: 1fr; padding: 2rem 1.25rem 0; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <div id="progress-bar"></div>
+  <script src="../js/nav.js"></script>
+
+  <div class="post-cover">
+    <img src="../img/../img/ancient-futures-tim-2.jpg"" alt="Not about pottery">
+  </div>
+
+  <a class="back-link" href="index.html">← All Writing</a>
+
+  <header class="article-header">
+    <p class="article-tag">Writing</p>
+    <h1 class="article-title">It's Actually Not About Pottery</h1>
+    <p class="article-meta">Aug 1, 2026</p>
+  </header>
+
+  <div class="article-body">
+  <p>This is the fourth and final entry about <i>Ancient Futures</i>, and it's slightly longer. I'll discuss the dramaturgical aspects of the piece, the relationship between the technology and the form, and how we established discourse.</p>
+
+  <p>But first, the full video:</p>
+  <iframe src="https://www.youtube.com/embed/ZL7K4iR8YTg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+  <p>Many of my projects stem from curiosities about relationships between movement and sound, but this was the first project that centered movement as a visual-art-related-action - meaning that a lot of the movement originates from visual-art-making gestures, not dance traditions.</p>
+
+  <p>When an idea like this comes, my first instinct is to build a digital tool that translates the movement onto sound. I usually make a basic proof-of-concept before considering what the piece wants to do. Sure, there's a time and a place for hedonistic jamming, but I don't think this should constitute the entirety of a performance. Rather, I think a composition should create discourse that goes beyond the material - unless the material itself is discursive.</p>
+
+  <p>Once you have the prototype, how do you create a performance? Where does discourse come from? Why should the performance exist?</p>
+
+  <p>My first concern is how the prototype is framed. How do you set it up, and how does it conclude? In <i>Ancient Futures</i>, since our prototype initially derived sound from QuJie working with wet clay, we figured they would preempt it with a meditation-like movement sequence. Their movement would visualize the clay, how they will interact with it, and establish the expectation for clay-centered movement. As we workshopped this section, it developed into our virtual clay, which is described in the previous entry. The audience sees a virtual blob on the screen that is morphed by QuJie's hand positions as seen from the webcam, and the sound is created using the coordinates of their hands.</p>
+
+  <p>For the other side of the frame, after concluding with the wet clay, we knew that QuJie would get up from the wheel and move more like a dancer, perhaps putting the clay on their body as they envelop the space. We also knew that we'd use a motion sensor somewhere on their person that would generate sound, and perhaps I'd play viola during this section.</p>
+
+  <p>Which brings me to some big questions: where do I (as a person on stage) fit into all of this? I can tune the mix and ensure the computer operates properly, but do I just sit next to QuJie at my computer? Do I acknowledge my body? Do I move? I faced these questions before during my 2025 collaboration with Tuli Bera <i>Ritual is</i>, and if you know that project, you can predict what's coming next.</p>
+
+  <p>When QuJie and I discussed these questions, they said they needed to feel a physical-emotional connection with me. It wasn't enough for me to just sit behind the computer, so we began doing movement exercises together, with and without my viola.</p>
+
+  <p>This exploration led to the adaptation of the virtual clay section. Twice during this section, I would start physically mirroring them and engage in eye contact. We use this movement pattern (simultaneously leading and following movement) to create moments where QuJie's hands move beyond the view of the camera, stopping the digital sound and projections. This creates a quiet beat of non-digital human connection before returning to our pre-established "roles".</p>
+
+  <p>These two interruptions set up the discourse for the rest of the piece. Instead of the performers creating discourse by jamming with a cool audio-visual environment, they're exploring their relationships with technology and each other.</p>
+
+  <p>The next section starts as QuJie throws a block of wet clay on the wheel. The sound-world changes to the real-time processing of the live sounds, and the projections show their hands and clay in detail, with the digital sound distorting the image of their hands. We explore the real clay sounds, the water, and the unruly mess it creates. The audience sees a close up of her hands on the wheel, but the visual distortions keep the computer's presence in the foreground. Furthermore, as this section evolves, the virtual clay material starts to glitch its way into the discourse.</p>
+
+  <p>To begin the final section of the performance, QuJie puts on their hat and leaves the wheel. As they move through the space with wet clay in their hands, the motion sensor attached to the hat drives a new stream of digital sound. They dance with the clay and use their head sensor to accompany themselves.</p>
+
+  <p>Finally, I grab my viola and pluck the open strings and QuJie's movement starts to sample my live viola sounds, mixing them with the clay samples. The connection between us is revisited and drives the momentum into the ending. As the section develops, the digital clay sounds gradually disappear, followed by the electronic viola sounds. I then get up to join QuJie moving in the space. We mirror briefly before connecting back-to-back and lowering ourselves to the floor.</p>
+
+  <p>This is a special moment. Sitting back-to-back, we have our respective "alone times", but together. QuJie shapes some clay and I pluck a simple melody. I then put the viola down and ask QuJie for some clay. We take a beat, and then finally turn around to face each other and share what we made. After this conversation, the lights go to black and the performance ends.</p>
+
+  <p>Looking more broadly at the dramaturgy, the work starts by showing the potential for connection between the performers, but it's always mediated through a digital or non-digital tool: the computer, the camera, the wheel, the sensor, the viola, and the clay. Eventually, the digital tools are discarded until we are left with the viola, and lastly, just the clay and a conversation.</p>
+
+  <p>So no, the piece isn't about ceramics or pottery, or even dance. It's about the connection between two performers and how it's mediated through digital and non-digital tools. The tools change the quality of togetherness that the performers experience. The digital tools, while creating an interesting audio-visual experience, don't facilitate an interesting human-to-human relationship between. The piece uses the digital to make a statement by removing it. Composition through subtraction.</p>
+
+  <p>Well there it is. Four entries that describe our project: the impetus of the concept, the intention of the sound and movement, the tech, and the dramaturgy. I'm putting this to rest for now, and perhaps it'll evolve in the future. I appreciate all the positive feedback I've gotten about this project, and I'm excited for what comes next.</p>
+</div>
+  </div>
+
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    
+    <span><a href="shrubin2@gmail.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script>
+    const bar = document.getElementById('progress-bar');
+    window.addEventListener('scroll', () => {
+      const doc = document.documentElement;
+      const scrolled = doc.scrollTop || document.body.scrollTop;
+      const total = doc.scrollHeight - doc.clientHeight;
+      bar.style.width = (scrolled / total * 100) + '%';
+    });
+  </script>
+
+</body>
+</html>
