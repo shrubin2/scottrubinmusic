@@ -16,65 +16,20 @@
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
   <style>
-    /* HERO */
+    /* HERO — full-bleed image with text overlaid */
     .hero {
+      position: relative;
       min-height: calc(100svh - var(--nav-h));
-      display: grid;
-      grid-template-columns: 1fr 2fr;
+      display: flex;
+      align-items: flex-end;
       overflow: hidden;
+      isolation: isolate;
     }
-
-    .hero-text {
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 4rem 3rem 4rem 2.5rem;
-      border-right: 1px solid var(--rule);
-    }
-
-    .hero-eyebrow {
-      font-size: 14px;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-name {
-      font-size: clamp(3rem, 7vw, 6.5rem);
-      font-weight: 600;
-      letter-spacing: -0.03em;
-      line-height: 0.95;
-      margin-bottom: 2rem;
-    }
-
-    .hero-tagline {
-      font-size: clamp(1rem, 2vw, 1.2rem);
-      color: var(--muted);
-      line-height: 1.5;
-      max-width: 380px;
-      margin-bottom: 3rem;
-    }
-
-    .hero-links {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-
-    .hero-links a {
-      font-size: 12px;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      border-bottom: 1px solid var(--ink);
-      padding-bottom: 2px;
-      transition: color 0.2s, border-color 0.2s;
-    }
-
-    .hero-links a:hover { color: var(--accent); border-color: var(--accent); }
 
     .hero-image {
-      position: relative;
+      position: absolute;
+      inset: 0;
+      z-index: -1;
       overflow: hidden;
       background: var(--paper-dark);
     }
@@ -83,11 +38,19 @@
       width: 100%; height: 100%;
       object-fit: cover;
       object-position: center top;
-      opacity: 1;
-      transition: opacity 0.4s;
+      display: block;
     }
 
-    .hero-image:hover img { opacity: 1; }
+    /* Scrim: darkens the lower-left so the text always has contrast */
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to top, rgba(10,8,6,0.85) 0%, rgba(10,8,6,0.45) 40%, rgba(10,8,6,0) 75%),
+        linear-gradient(to right, rgba(10,8,6,0.55) 0%, rgba(10,8,6,0) 60%);
+    }
 
     /* Canvas sits over the image, pointer-events off so clicks pass through */
     .hero-image canvas {
@@ -98,9 +61,67 @@
       pointer-events: none;
       opacity: 0;
       transition: opacity 0.4s;
+      z-index: 1;
     }
 
-    .hero-image:hover canvas { opacity: 1; }
+    .hero-image:hover canvas,
+    .hero:hover .hero-image canvas { opacity: 1; }
+
+    .hero-text {
+      position: relative;
+      max-width: 720px;
+      padding: 4rem 3rem 4.5rem 2.5rem;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5), 0 2px 18px rgba(0,0,0,0.35);
+    }
+
+
+    .hero-eyebrow {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f08a52;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,0.92);
+      line-height: 1.5;
+      max-width: 460px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tagline:last-of-type { margin-bottom: 2.5rem; }
+
+    .hero-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.8);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-links a:hover { color: #f08a52; border-color: #f08a52; }
 
     /* SCROLL HINT */
     .scroll-hint {
@@ -305,9 +326,10 @@
     .teaser-link:hover { color: var(--accent); border-color: var(--accent); }
 
     @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; min-height: auto; }
-      .hero-image { height: 55vw; border-right: none; border-bottom: 1px solid var(--rule); order: -1; }
       .hero-text { padding: 2.5rem 1.25rem 3rem; }
+      .hero-image::after {
+        background: linear-gradient(to top, rgba(10,8,6,0.9) 0%, rgba(10,8,6,0.55) 45%, rgba(10,8,6,0.1) 80%);
+      }
       .bio-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.25rem; }
       .teaser-section { padding: 3rem 1.25rem; }
       .collab-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -715,14 +737,14 @@
       }
 
       // ── Cursor tracking ───────────────────────────────────────────
-      heroDiv.addEventListener('mousemove', e => {
+      (heroDiv.closest('.hero') || heroDiv).addEventListener('mousemove', e => {
         const r = heroDiv.getBoundingClientRect();
         mouseX = e.clientX - r.left;
         mouseY = e.clientY - r.top;
         startLoop();
       });
 
-      heroDiv.addEventListener('mouseleave', () => {
+      (heroDiv.closest('.hero') || heroDiv).addEventListener('mouseleave', () => {
         mouseX = -9999;
         mouseY = -9999;
         rafRunning = false;
