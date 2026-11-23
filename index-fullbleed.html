@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EF3HCV3ML3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EF3HCV3ML3');
+</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scott Rubin</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+  <style>
+    /* HERO — full-bleed image with text overlaid */
+    .hero {
+      position: relative;
+      min-height: calc(100svh - var(--nav-h));
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero-image {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      overflow: hidden;
+      background: var(--paper-dark);
+    }
+
+    .hero-image img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    /* Scrim: darkens the lower-left so the text always has contrast */
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background:
+        linear-gradient(to top, rgba(10,8,6,0.85) 0%, rgba(10,8,6,0.45) 40%, rgba(10,8,6,0) 75%),
+        linear-gradient(to right, rgba(10,8,6,0.55) 0%, rgba(10,8,6,0) 60%);
+    }
+
+    /* Canvas sits over the image, pointer-events off so clicks pass through */
+    .hero-image canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.4s;
+      z-index: 1;
+    }
+
+    .hero-image:hover canvas,
+    .hero:hover .hero-image canvas { opacity: 1; }
+
+    .hero-text {
+      position: relative;
+      max-width: 720px;
+      padding: 4rem 3rem 4.5rem 2.5rem;
+      color: #fff;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.5), 0 2px 18px rgba(0,0,0,0.35);
+    }
+
+
+    .hero-eyebrow {
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #f08a52;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-name {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      margin-bottom: 2rem;
+      color: #fff;
+    }
+
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: rgba(255,255,255,0.92);
+      line-height: 1.5;
+      max-width: 460px;
+      margin-bottom: 1rem;
+    }
+
+    .hero-tagline:last-of-type { margin-bottom: 2.5rem; }
+
+    .hero-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-links a {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      border-bottom: 1px solid rgba(255,255,255,0.8);
+      padding-bottom: 2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .hero-links a:hover { color: #f08a52; border-color: #f08a52; }
+
+    /* SCROLL HINT */
+    .scroll-hint {
+      border-top: 1px solid var(--rule);
+      padding: 1rem 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .scroll-hint span { display: inline-block; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%,100%{transform:translateY(0)} 50%{transform:translateY(4px)} }
+
+    /* PHOTO STRIP */
+    .photo-strip-section {
+      padding: 5rem 0;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .photo-strip-label {
+      padding: 0 2.5rem 1.5rem;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .photo-strip {
+      display: flex;
+      gap: 2px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding: 0 2.5rem;
+    }
+
+    .photo-strip::-webkit-scrollbar { height: 2px; }
+    .photo-strip::-webkit-scrollbar-track { background: var(--rule); }
+    .photo-strip::-webkit-scrollbar-thumb { background: var(--accent); }
+
+    .photo-strip-item {
+      flex: 0 0 auto;
+      scroll-snap-align: start;
+      background: var(--paper-dark);
+      overflow: hidden;
+    }
+
+    .photo-strip-item.tall {
+      width: 260px;
+      height: 380px;
+    }
+
+    .photo-strip-item.wide {
+      width: 420px;
+      height: 380px;
+    }
+
+    .photo-strip-item.square {
+      width: 320px;
+      height: 380px;
+    }
+
+    .photo-strip-item img {
+      width: 100%; height: 420px;
+      object-fit: cover;
+      transition: transform 0.4s ease, opacity 0.3s;
+      opacity: 0.85;
+    }
+
+    .photo-strip-item:hover img {
+      transform: scale(1.03);
+      opacity: 1;
+    }
+
+    /* Photo placeholder styling */
+    .photo-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--rule);
+    }
+
+    .photo-placeholder .ph-icon {
+      width: 48px; height: 48px;
+      border: 2px solid var(--rule);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem;
+    }
+
+    .photo-placeholder span {
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* BIO */
+    .bio-section {
+      padding: 6rem 2.5rem;
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 5rem;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .bio-sidebar {}
+
+    .bio-sidebar h2 {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2rem;
+    }
+
+    .bio-sidebar dl {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .bio-sidebar dt {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .bio-sidebar dd {
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .bio-body {}
+
+    .bio-body .bio-headline {
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-weight: 600;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+      margin-bottom: 2rem;
+    }
+
+    .bio-body p {
+      font-size: 16px;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: var(--ink);
+    }
+
+    .collab-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 2rem;
+    }
+
+    .bio-body p:last-of-type { margin-bottom: 0; }
+
+    /* SELECTED WORKS teaser */
+    .teaser-section {
+      border-top: 1px solid var(--rule);
+      padding: 4rem 2.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .teaser-section h2 {
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .teaser-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+
+    .teaser-link {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      border-bottom: 1px solid var(--rule);
+      padding-bottom: 2px;
+      transition: all 0.2s;
+    }
+
+    .teaser-link:hover { color: var(--accent); border-color: var(--accent); }
+
+    @media (max-width: 800px) {
+      .hero-text { padding: 2.5rem 1.25rem 3rem; }
+      .hero-image::after {
+        background: linear-gradient(to top, rgba(10,8,6,0.9) 0%, rgba(10,8,6,0.55) 45%, rgba(10,8,6,0.1) 80%);
+      }
+      .bio-section { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.25rem; }
+      .teaser-section { padding: 3rem 1.25rem; }
+      .collab-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+  </style>
+</head>
+<body class="page-body">
+
+  <!-- NAV -->
+  <script src="js/nav.js"></script>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Interdisciplinary Artist · Composer · Violist · Improviser</p>
+      <h1 class="hero-name">Scott Rubin</h1>
+      <p class="hero-tagline">Exploring relationships between movement and sound through analog and digital means.</p>
+      <p class="hero-tagline">Contact: shrubin2@gmail.com</p>
+
+      <div class="hero-links">
+        <a href="events.html">Events</a>
+        <a href="projects/index.html">Works</a>
+        <a href="#bio">About</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="../img/digital-hands-still.jpg" alt="Digital Hands" crossorigin="anonymous">
+      <canvas id="hero-edge-canvas" aria-hidden="true"></canvas>
+    </div>
+  </section>
+
+  <div class="scroll-hint">
+    <span>↓</span> Scroll to explore
+  </div>
+
+  <!-- PHOTO STRIP -->
+  <section class="photo-strip-section">
+    <p class="photo-strip-label">Photos: Ricardo Adame, Tim Schmoll, Jubilee Tai, and Gaudeamus Muzeikweek</p>
+    <div class="photo-strip">
+      <!-- Replace each photo-placeholder with an <img> tag -->
+      <div class="photo-strip-item tall">
+        <div class="photo-placeholder"><span><img src= "../img/ricardo-elastic-headshot.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item wide">
+        <div class="photo-placeholder"><span><img src= "../img/rin-elastic-3.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item square">
+        <div class="photo-placeholder"><span><img src= "../img/ricardo-jackson-park.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item tall">
+        <div class="photo-placeholder">><span><img src= "../img/headshot-2019.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item wide">
+        <div class="photo-placeholder"><span><img src= "../img/dads-photo.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item square">
+        <div class="photo-placeholder"><span><img src= "../img/tim-schmoll-1.jpg" alt="-"></span></div>
+      </div>
+    </div>
+     <div class="photo-strip">
+      <!-- Replace each photo-placeholder with an <img> tag -->
+      <div class="photo-strip-item wide">
+        <div class="photo-placeholder"><span><img src= "../img/wonder-turner-screenshot.png" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item square">
+        <div class="photo-placeholder"><span><img src= "../img/solo-set-1.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item tall">
+        <div class="photo-placeholder"><span><img src= "../img/rin-elastic-2.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item wide">
+        <div class="photo-placeholder">><span><img src= "../img/slap.jpg" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item square">
+        <div class="photo-placeholder"><span><img src= "../img/for-the-performers.png" alt="-"></span></div>
+      </div>
+      <div class="photo-strip-item tall">
+        <div class="photo-placeholder"><span><img src= "../img/in-tensions-0.png" alt="-"></span></div>
+      </div>
+    </div>
+    
+    
+  </section>
+  
+
+  <!-- BIO -->
+  <section class="bio-section" id="bio">
+    <div class="bio-sidebar">
+      <!--<h2>About</h2>-->
+      <!--
+      <dl>
+        <div>
+          <dt>Based in</dt>
+          <dd>Chicago, Illinois</dd>
+        </div>
+        <div>
+          <dt>Disciplines</dt>
+          <dd>Composition, Improvisation, Performance Art, Spatial Audio</dd>
+        </div>
+        <div>
+          <dt>Active since</dt>
+          <dd>2015</dd>
+        </div>
+        <div>
+          <dt>Collaborates with</dt>
+          <dd>Elastic Arts, Links Hall, Constellation, Museum of Contemporary Art Chicago</dd>
+        </div>
+        <div>
+          <dt>Contact</dt>
+          <dd><a href="mailto:hello@artistname.com" style="border-bottom:1px solid var(--rule)">hello@artistname.com</a></dd>
+        </div>
+      </dl>
+      -->
+    </div>
+
+    <div class="bio-body">
+      
+      <p class="bio-headline">Scott Rubin is a Chicago-based interdisciplinary artist, composer, violist, and improviser whose work interrogates relationships between sound and movement through analog and digital means.</p>
+      
+      <p> His recent projects have involved collaborations with musicians and dancers, often incorporating interactive acoustic/electronic improvisation, expanded performance practices, motion-sensors, and live video. In these projects, he engages themes of intimacy, control, and the sublime.</p>
+      <p>Scott earned a PhD at the University of California at Berkeley where he studied with Ken Ueno, Franck Bedrossian, Myra Melford, Edmund Campion, and Cindy Cox. He was an active researcher at the <a href="http://cnmat.berkeley.edu" target="_blank">Center for New Music and Audio Technologies</a>.</p>
+      <p>He completed his masters degree studying with Philippe Leroux at McGill University in Montréal, Canada. Previously, he earned a Bachelor of Music in music composition and a Bachelor of Science in psychology at the University of Illinois at Urbana Champaign, where his primary teachers were Reynold Tharp, Philipp Blume, and Stephen Taylor. Scott was also a student in the Experimental Music Studios, under the tutelage of Scott A. Wyatt.</p>
+      <p>At McGill, Scott worked as a composer for the Auditory Cognitive Neuroscience Lab under Robert Zatorre, where he wrote music to be used in music cognition experiments. Scott has studied music cognition with Stephen McAdams and Caroline Palmer. Previously, he studied with Mark Jude Tramo at the Institute for Music and Brain Science.</p>
+      <p>Scott was a co-founder and co-organizer for the <a href="http://www.labomontreal.com/" target="_blank">Montréal Contemporary Music Lab</a> until 2014. This is a week-long performance and composition workshop that focuses on the creation of new music through fostering collaborative relationships between performers and composers. He also performed guitar for Speakeasy Electro Swing Montreal.</p>
+      <p>His awards include the McGill University Graduate Excellence Fellowship, the Florence Gould Foundation Scholarship from the European American Musical Alliance, the Geraldine B. Cooke Scholarship from the University of Illinois, the UIUC School of Music Composition-Theory Area Achievement Award, and grants from SOCAN and the Music Graduate Students Society at McGill University. He has participated in the Modern Academy in Hong Kong, Impuls Academy in Graz, Austria, Recontres de Musique Nouvelle at the Domaine Forget Sessions in Charlevoix, Québec as well as the European American Musical Alliance Sessions in Paris, France.</p>
+    
+      <h2>Collaborators</h2><br>
+      <div class="collab-grid">
+        <div class="musicians">
+          <h3>Musicians and Ensembles</h3>
+          <ul>
+            <li><a href="https://tatemarvin.wixsite.com/marvintate/home" target="_blank">Marvin Tate</a></li>
+            <li><a href="https://www.betweenfeathers.com/" target="_blank">Between Feathers Ensemble</a></li>
+            <li><a href="http://lenem.ca/" target="_blank">Nouvel Ensemble Moderne</a></li> 
+            <li><a href="http://ensembleparamirabo.com/en/index.php" target="_blank">Ensemble Paramirabo</a></li>
+            <li><a href="https://www.mivosquartet.com/" target="_blank">Mivos Quartet</a></li>
+            <li><a href="http://www.quasar4.com/" target="_blank">Quasar Quatuor de saxophones</a></li>
+            <li><a href="http://www.tenthintervention.com/" target="_blank">Tenth Intervention</a></li> 
+            <li><a href="http://www.takensemble.com/" target="_blank">TAK Ensemble</a></li> 
+            <li><a href="https://orchestra.berkeley.edu/" target="_blank">UC Berkeley Symphony Orchestra</a></li> 
+            <li><a href="http://www.juansebastiandelgado.com/" target="_blank">Juan Sebastian Delgado</a></li> 
+            <li><a href="https://www.jackadlermckean.eu/" target="_blank">Jack Adler McKean</a></li> 
+            <li>James Stone</li>
+            <li><a href="https://sites.google.com/view/julianterrellotis/bioJulian Otis" target="_blank">Julian Otis</a></li>
+            <li><a href="https://tenmc.ca/" target="_blank">Thin Edge New Music Collective</a></li>
+            <li><a href="http://www.invertedspaceensemble.com/" target="_blank">Inverted Space Ensemble</a></li> 
+            <li><a href="http://www.ecoensemble.org/" target="_blank">Eco Ensemble</a></li> 
+            <li><a href="http://www.duodentredeux.com/" target="_blank">Duo d’Entre Deux</a></li> 
+            <li><a href="https://eventuell.ch/about/" target="_blank">Eventuell Saxophone Duo</a></li> 
+            <li>Phoenix Quartet</li> 
+            <li><a href="http://splinterreeds.com/" target="_blank">Splinter Reeds</a></li> 
+            <li><a href="http://www.estrellaconsort.com/" target="_blank">Estrella Consort</a></li> 
+            <li>Ensemble Gô</li>
+            <li>McGill University Contemporary Music Ensemble</li>
+            <li>Ensemble Arkea</li>
+            <li>University of Illinois New Music Ensemble</li></ul></p>
+        </div>
+        <div class="dancers">
+          <h3>Dancers and Choreographers</h3>
+          <ul>
+            <li><a href="https://www.chrisknowltondance.com/" target="_blank">Chris Knowlton</a></li> 
+            <li><a href="https://www.instagram.com/the___margin/" target="_blank">QuJie 曲洁</a></li> 
+            <li><a href="https://irenechsiao.wordpress.com/about/" target="_blank">Irene Hsiao</a></li> 
+            <li><a href="https://www.momentumsensorium.com/" target="_blank">Helen Lee</a></li> 
+            <li><a href="https://tuli.space/index.html" target="_blank">Tuli Bera</a></li> 
+            <li><a href="https://www.amandamaraist.com/" target="_blank">Amanda Maraist</a></li> 
+            <li><a href="https://www.chrisknowltondance.com/" target="_blank">Christopher Knowlton</a></li> 
+            <li><a href="https://www.rinpeisert.com/bio/" target="_blank">Rin Peisert</a></li> 
+            <li><a href="https://www.cbcdance.com/" target="_blank">Christine Saulut</a></li> 
+            <li><a href="https://www.instagram.com/gabygoo2/" target="_blank">Gaby Martinez</a></li>
+            <li><a href="https://www.instagram.com/cristalsabbagh/" target="_blank">Cristal Sabbagh</a></li>
+            <li><a href="https://www.saratonin.com/" target="_blank">Sharkey Zalek</a></li>
+            <li>Yuri Shimaoka</li>
+            <li><a href="https://www.opera-lyon.com/en/artists/marie-albert" target="_blank">Marie Albert</a></li> 
+            <li><a href="https://sansankwan.wixsite.com/my-site" target="_blank">San San Kwan</a></li> 
+            <li>Sarah Xiao</li>
+            <li>Manu Cyr</li>
+            <li>Louis Barbier</li>
+            <li>Shoshana Green</li>
+            <li>Tamara Chu</li>
+            <li>Diane Skerbec</li></ul></p>
+        </div>
+      </div>
+      <h3>Presenters</h3>
+        <ul>
+          <li>Instigation Festival (Chicago)</li> 
+          <li>Frequency Festival (Chicago)</li>
+          <li>Steppenwolf Theatre Chicago</li> 
+          <li>Chicago Jazz String Summit</li> 
+          <li><a href="https://www.chicagojazzstringsummit.com/" target="_blank">Chicago Jazz String Summit</a></li>
+          <li><a href="https://elasticarts.org/" target="_blank">Elastic Arts (Chicago</a></li>
+          <li><a href="https://homeroomchicago.org/" target="_blank">Homeroom Chicago</a></li>
+          <li><a href="https://cliff-chicago.org/" target="_blank">The Cliff Dwellers</a></li>
+          <li>Gnesin Contemporary Music Week (Moscow, Russia)</li>
+          <li>ManiFeste (Paris, France)</li>
+          <li>Gaudeamus Muziekweek (Utrecht, Netherlands)</li> 
+          <li><a href="http://festival.mise-en.org/submission/" target="_blank">mise-en music festival</a> (NYC)</li>
+          <li>Emergents Concert Series (Toronto, Canada)</li>
+          <li><a href="http://www.ecm.qc.ca/" target="_blank">l’Ensemble contemporain de Montréal+</a></li>
+          <li>Ottawa New Music Creators</li>
+          <li>Codes d’Accès (Montreal, Canada)</li>
+          <li>the North American Saxophone Alliance</li>
+          <li>60x60 PianoForte Chicago</li></ul></p>
+            
+      </div>
+  </section>
+
+  <!-- SECTION TEASER -->
+   <!--
+  <div class="teaser-section">
+    <h2>Explore the work</h2>
+    <div class="teaser-links">
+      <a href="events.html" class="teaser-link">Events & Performances</a>
+      <a href="projects/index.html" class="teaser-link">Projects</a>
+      <a href="blog/index.html" class="teaser-link">Writing</a>
+      <a href="interviews.html" class="teaser-link">Interviews</a>
+    </div>
+  </div>
+    -->
+
+  <!-- FOOTER -->
+  <footer>
+    <span>© 2026 Scott Rubin</span>
+    <span><a href="mailto:hello@artistname.com">shrubin2@gmail.com</a></span>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({ once: true, offset: 60 });
+
+    // ── HERO EDGE DETECTION ────────────────────────────────────────
+    // When the cursor moves over the hero image, a canvas overlay
+    // runs a Sobel edge-detection pass on the photo pixels.
+    // Edges glow in the site's accent colour, warped by a time-based
+    // Perlin-style noise field — making them breathe and drift.
+    // The effect radiates outward from the cursor in a soft vignette.
+    // Activates only once the real image has loaded.
+    (function () {
+
+      const heroDiv = document.querySelector('.hero-image');
+      const img     = heroDiv ? heroDiv.querySelector('img') : null;
+      const canvas  = document.getElementById('hero-edge-canvas');
+      if (!heroDiv || !canvas) return;
+
+      const ctx = canvas.getContext('2d', { willReadFrequently: true });
+      let edgeData   = null;   // pre-computed luminance edge map
+      let W = 0, H = 0;
+      let mouseX = -9999, mouseY = -9999;
+      let time = 0;
+
+      // ── Minimal fast-noise (value noise, 2D) ──────────────────────
+      // Used to warp the edge threshold over time so edges breathe.
+      const PERM = new Uint8Array(512);
+      (function buildPerm() {
+        const p = new Uint8Array(256);
+        for (let i = 0; i < 256; i++) p[i] = i;
+        for (let i = 255; i > 0; i--) {
+          const j = Math.random() * (i + 1) | 0;
+          [p[i], p[j]] = [p[j], p[i]];
+        }
+        for (let i = 0; i < 512; i++) PERM[i] = p[i & 255];
+      })();
+
+      function fade(t) { return t * t * t * (t * (t * 6 - 15) + 10); }
+      function lerp(a, b, t) { return a + t * (b - a); }
+      function grad(h, x, y) {
+        const v = h & 3;
+        const u = v < 2 ? x : y, w = v < 2 ? y : x;
+        return ((h & 1) ? -u : u) + ((h & 2) ? -w : w);
+      }
+      function noise2(x, y) {
+        const X = Math.floor(x) & 255, Y = Math.floor(y) & 255;
+        x -= Math.floor(x); y -= Math.floor(y);
+        const u = fade(x), v = fade(y);
+        const a = PERM[X] + Y, b = PERM[X + 1] + Y;
+        return lerp(
+          lerp(grad(PERM[a],   x,   y), grad(PERM[b],   x-1, y),   u),
+          lerp(grad(PERM[a+1], x,   y-1), grad(PERM[b+1], x-1, y-1), u),
+          v
+        );
+      }
+
+      // ── Pre-compute Sobel edge map from image pixels ──────────────
+      function buildEdgeMap(srcImg) {
+        const offscreen = document.createElement('canvas');
+        offscreen.width  = srcImg.naturalWidth  || srcImg.width;
+        offscreen.height = srcImg.naturalHeight || srcImg.height;        const oc = offscreen.getContext('2d', { willReadFrequently: true });
+        oc.drawImage(srcImg, 0, 0);
+
+        const iw = offscreen.width, ih = offscreen.height;
+        const src = oc.getImageData(0, 0, iw, ih).data;
+
+        // Luminance array
+        const lum = new Float32Array(iw * ih);
+        for (let i = 0; i < iw * ih; i++) {
+          const p = i * 4;
+          lum[i] = 0.299 * src[p] + 0.587 * src[p+1] + 0.114 * src[p+2];
+        }
+
+        // Sobel — store magnitude, normalise against actual max (not theoretical)
+        const mag = new Float32Array(iw * ih);
+        let maxMag = 0;
+        for (let y = 1; y < ih - 1; y++) {
+          for (let x = 1; x < iw - 1; x++) {
+            const tl = lum[(y-1)*iw + x-1], tm = lum[(y-1)*iw + x], tr = lum[(y-1)*iw + x+1];
+            const ml = lum[ y   *iw + x-1],                           mr = lum[ y   *iw + x+1];
+            const bl = lum[(y+1)*iw + x-1], bm = lum[(y+1)*iw + x], br = lum[(y+1)*iw + x+1];
+            const gx = -tl - 2*ml - bl + tr + 2*mr + br;
+            const gy = -tl - 2*tm - tr + bl + 2*bm + br;
+            const m = Math.sqrt(gx*gx + gy*gy);
+            mag[y * iw + x] = m;
+            if (m > maxMag) maxMag = m;
+          }
+        }
+        // Normalise to actual max so edges always span 0..1
+        if (maxMag > 0) for (let i = 0; i < mag.length; i++) mag[i] /= maxMag;
+        return { mag, iw, ih };
+      }
+
+      // ── Resize canvas to match display size ───────────────────────
+      function resize() {
+        const r = heroDiv.getBoundingClientRect();
+        W = canvas.width  = Math.round(r.width);
+        H = canvas.height = Math.round(r.height);
+      }
+
+      // ── Draw one frame ────────────────────────────────────────────
+      function draw() {
+        time += 0.04;
+        ctx.clearRect(0, 0, W, H);
+        if (!edgeData || mouseX < 0) return;
+
+        const { mag, iw, ih } = edgeData;
+        const RADIUS  = Math.min(W, H) * 0.55;   // wider spotlight
+        const RADIUS2 = RADIUS * RADIUS;
+
+        // Accent colour (b8410a) + a brighter highlight pass
+        const R = 184, G = 65, B = 10;
+        const RH = 255, GH = 140, BH = 60;   // hot centre glow
+
+        const imageData = ctx.createImageData(W, H);
+        const out = imageData.data;
+
+        for (let py = 0; py < H; py++) {
+          for (let px = 0; px < W; px++) {
+
+            const dx = px - mouseX, dy = py - mouseY;
+            const dist2 = dx*dx + dy*dy;
+            if (dist2 > RADIUS2) continue;
+
+            const falloff = 1 - dist2 / RADIUS2;
+            const soft = falloff * falloff * falloff;  // cubic — sharper core
+
+            const sx = Math.min(Math.round((px / W) * iw), iw-1);
+            const sy = Math.min(Math.round((py / H) * ih), ih-1);
+            let e = mag[sy * iw + sx];
+
+            // Noise warps the threshold — edges breathe, faster animation
+            const nx = px / W * 300 + time * 5;
+            const ny = py / H * 10 + time * 15;
+            const n  = noise2(nx, ny) *  10 + 0.5;
+            const threshold = 0.04 + n * 0.9;   // lower = more edges visible
+
+            if (e < threshold) continue;
+
+            // Boost edge value with a power curve — weak edges disappear,
+            // strong edges get dramatically brighter
+            const boosted = Math.pow(e, 0.5);
+
+            const i4 = (py * W + px) * 4;
+
+            // Strong edges get the hot highlight colour, others get accent
+            const t = Math.min((boosted - 0.3) / 0.4, 1);   // 0..1 blend to hot
+            const cr = R + (RH - R) * Math.max(t, 0);
+            const cg = G + (GH - G) * Math.max(t, 0);
+            const cb = B + (BH - B) * Math.max(t, 0);
+
+            const alpha = Math.min(boosted * soft * 255 * 3.5, 255) | 0;
+            out[i4    ] = cr | 0;
+            out[i4 + 1] = cg | 0;
+            out[i4 + 2] = cb | 0;
+            out[i4 + 3] = alpha;
+          }
+        }
+
+        ctx.putImageData(imageData, 0, 0);
+
+        // Bloom pass — draw the canvas back onto itself with blur + screen blend
+        // This makes bright edges bleed outward with a glow
+        ctx.save();
+        ctx.globalCompositeOperation = 'screen';
+        ctx.filter = 'blur(6px)';
+        ctx.globalAlpha = 0.55;
+        ctx.drawImage(canvas, 0, 0);
+        ctx.restore();
+
+        requestAnimationFrame(draw);
+      }
+
+      let rafRunning = false;
+
+      function startLoop() {
+        if (rafRunning) return;
+        rafRunning = true;
+        draw();
+      }
+
+      // ── Cursor tracking ───────────────────────────────────────────
+      (heroDiv.closest('.hero') || heroDiv).addEventListener('mousemove', e => {
+        const r = heroDiv.getBoundingClientRect();
+        mouseX = e.clientX - r.left;
+        mouseY = e.clientY - r.top;
+        startLoop();
+      });
+
+      (heroDiv.closest('.hero') || heroDiv).addEventListener('mouseleave', () => {
+        mouseX = -9999;
+        mouseY = -9999;
+        rafRunning = false;
+      });
+
+      // ── Boot when image is ready ──────────────────────────────────
+      function init(srcImg) {
+        resize();
+        new ResizeObserver(resize).observe(heroDiv);
+
+        // crossOrigin must already be on the img tag in HTML — setting it
+        // here after load has started is too late and will be ignored.
+        // We use createImageBitmap to ensure the image is fully decoded
+        // before we try to read pixels from it.
+        function buildWhenReady() {
+          createImageBitmap(srcImg).then(bitmap => {
+            edgeData = buildEdgeMap(bitmap);
+            bitmap.close();
+          }).catch(() => {
+            // Fallback for browsers without createImageBitmap
+            edgeData = buildEdgeMap(srcImg);
+          });
+        }
+
+        if (srcImg.complete && srcImg.naturalWidth) {
+          buildWhenReady();
+        } else {
+          srcImg.addEventListener('load', buildWhenReady);
+        }
+      }
+
+      // img is already in the DOM (no longer a placeholder)
+      if (img) {
+        init(img);
+      } else {
+        const mo = new MutationObserver(() => {
+          const newImg = heroDiv.querySelector('img');
+          if (newImg) { mo.disconnect(); init(newImg); }
+        });
+        mo.observe(heroDiv, { childList: true, subtree: true });
+      }
+
+      // Disable on touch — no cursor
+      if (window.matchMedia('(hover: none)').matches) return;
+
+    })();
+  </script>
+
+</body>
+</html>
